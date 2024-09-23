@@ -51,15 +51,15 @@ $routes->put("questionnaire-documents/(:segment)", "QuestionnaireDocumentsContro
 $routes->delete("questionnaire-documents/(:segment)", "QuestionnaireDocumentsController::delete/$1", ['filter' => 'jwt']);
 
 // Get Prequalification Stages
-$routes->get("prequalification-stage", "PrequalificationStagesController::index", ['filter' => 'jwt']);
+$routes->get("prequalification-stages", "PrequalificationStagesController::index", ['filter' => 'jwt']);
 // Post Prequalification Stage
-$routes->post("prequalification-stage", "PrequalificationStagesController::create", ['filter' => 'jwt']);
+$routes->post("prequalification-stages", "PrequalificationStagesController::create", ['filter' => 'jwt']);
 // Get Single Prequalification Stage
-$routes->get("prequalification-stage/(:segment)", "PrequalificationStagesController::show/$1", ['filter' => 'jwt']);
+$routes->get("prequalification-stages/(:segment)", "PrequalificationStagesController::show/$1", ['filter' => 'jwt']);
 // Put Prequalification Stage
-$routes->put("prequalification-stage/(:segment)", "PrequalificationStagesController::update/$1", ['filter' => 'jwt']);
+$routes->put("prequalification-stages/(:segment)", "PrequalificationStagesController::update/$1", ['filter' => 'jwt']);
 // Delete Prequalification Stage
-$routes->delete("prequalification-stage/(:segment)", "PrequalificationStagesController::delete/$1", ['filter' => 'jwt']);
+$routes->delete("prequalification-stages/(:segment)", "PrequalificationStagesController::delete/$1", ['filter' => 'jwt']);
 
 
     // Get Users

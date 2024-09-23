@@ -35,7 +35,7 @@ class PrequalificationStagesController extends ResourceController
         $data = [
             'status' => true,
             'data' => [
-                'prequalificationStages' => $prequalificationStages,
+                'prequalification_stages' => $prequalificationStages,
                 'total' => $totalPrequalificationStages,
             ],
         ];

@@ -105,7 +105,7 @@ class QuestionnairesController extends ResourceController
         } else {
             return $this->failNotFound('Questionnaire not found');
         }
-        return $this->failServerError('Failed to update document.');
+        return $this->failServerError('Failed to update questionnaire.');
     }
 
     /**
