@@ -62,16 +62,23 @@ $routes->put("prequalification-stages/(:segment)", "PrequalificationStagesContro
 $routes->delete("prequalification-stages/(:segment)", "PrequalificationStagesController::delete/$1", ['filter' => 'jwt']);
 
 
-    // Get Users
-    $routes->get("users", "UsersController::index", ['filter' => 'jwt']);
-    // Ban User
-    $routes->post("users/ban/(:segment)", "UsersController::ban/$1", ['filter' => 'jwt']);
-    // unBan User
-    $routes->post("users/unban/(:segment)", "UsersController::unban/$1", ['filter' => 'jwt']);
-    // Add Role
-    $routes->post("users/addrole/(:segment)", "UsersController::addRole/$1", ['filter' => 'jwt']);
-    // Remove Role
-    $routes->post("users/removerole/(:segment)", "UsersController::removeRole/$1", ['filter' => 'jwt']);
+// Get Users
+$routes->get("users", "UsersController::index", ['filter' => 'jwt']);
+// Ban User
+$routes->post("users/ban/(:segment)", "UsersController::ban/$1", ['filter' => 'jwt']);
+// unBan User
+$routes->post("users/unban/(:segment)", "UsersController::unban/$1", ['filter' => 'jwt']);
+// Add Role
+$routes->post("users/addrole/(:segment)", "UsersController::addRole/$1", ['filter' => 'jwt']);
+// Remove Role
+$routes->post("users/removerole/(:segment)", "UsersController::removeRole/$1", ['filter' => 'jwt']);
+// Change Password
+$routes->post("users/change-password/(:segment)", "UsersController::changePassword/$1", ['filter' => 'jwt']);
+// Get Users Count
+$routes->get("users/count", "UsersController::get_users_count", ['filter' => 'jwt']);
+// Put User
+$routes->put("users/(:segment)", "UsersController::update/$1", ['filter' => 'jwt']);
+
 
 
 });
