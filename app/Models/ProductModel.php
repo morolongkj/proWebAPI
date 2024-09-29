@@ -23,7 +23,7 @@ class ProductModel extends Model
         'code' => 'required|min_length[2]|max_length[100]|is_unique[products.code]',
         'title' => 'required|min_length[3]|max_length[255]',
         'description' => 'permit_empty|string',
-        'category_id' => 'permit_empty|alpha_numeric|max_length[255]|is_not_unique[categories.id]',
+        'category_id' => 'permit_empty|max_length[255]|is_not_unique[categories.id]',
     ];
 
     protected $validationMessages = [

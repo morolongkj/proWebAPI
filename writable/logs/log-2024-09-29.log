@@ -1,0 +1,87 @@
+CRITICAL - 2024-09-29 05:45:42 --> ErrorException: Undefined variable $description
+[Method: GET, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 26.
+ 1 APPPATH/Controllers/CompaniesController.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $description', '/Users/morolongkj/Sites/proWebAPI/app/Controllers/CompaniesController.php', 26)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-29 05:47:29 --> CodeIgniter\Database\Exceptions\DataException: There is no data to insert.
+[Method: POST, Route: api/companies]
+in SYSTEMPATH/BaseModel.php on line 1833.
+ 1 SYSTEMPATH/BaseModel.php(1833): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+ 2 SYSTEMPATH/BaseModel.php(806): CodeIgniter\BaseModel->transformDataToArray([], 'insert')
+ 3 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([], true)
+ 4 APPPATH/Controllers/CompaniesController.php(64): CodeIgniter\Model->insert([])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-29 06:01:53 --> ErrorException: Undefined array key "user_id"
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 84.
+ 1 APPPATH/Controllers/CompaniesController.php(84): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_id"', '/Users/morolongkj/Sites/proWebAPI/app/Controllers/CompaniesController.php', 84)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-29 06:02:18 --> ErrorException: Undefined array key "user_id"
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 84.
+ 1 APPPATH/Controllers/CompaniesController.php(84): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_id"', '/Users/morolongkj/Sites/proWebAPI/app/Controllers/CompaniesController.php', 84)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-29 06:02:43 --> Error: Class "App\Controllers\CompanyUserModel" not found
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 92.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-29 06:03:19 --> Error: Class "App\Controllers\App\Model\CompanyUserModel" not found
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 92.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-29 06:03:46 --> Error: Class "App\Controllers\App\Model\CompanyUserModel" not found
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 93.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-29 06:04:07 --> Error: Class "App\Model\CompanyUserModel" not found
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 93.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')

@@ -58,4 +58,15 @@ class CategoryModel extends Model
         }
         return $data;
     }
+
+       /**
+     * Get a category by its title.
+     *
+     * @param string $title
+     * @return array|null
+     */
+    public function getCategoryByTitle(string $title)
+    {
+        return $this->where('title', $title)->first();
+    }
 }

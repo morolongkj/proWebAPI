@@ -7,14 +7,41 @@ use CodeIgniter\RESTful\ResourceController;
 
 class DocumentsController extends ResourceController
 {
+    // Load the model
+    protected $modelName = 'App\Models\DocumentModel';
+    protected $format = 'json';
+
     /**
-     * Return an array of resource objects, themselves in array format.
-     *
-     * @return ResponseInterface
+     * Get a list of all documents (index)
+     * @return JSON
      */
     public function index()
     {
-        //
+        $page = $this->request->getVar('page') ?? 1;
+        $perPage = $this->request->getVar('perPage');
+        if (!$perPage) {
+            $perPage = null;
+        }
+        $title = $this->request->getVar('title');
+        $description = $this->request->getVar('description');
+        $where = [];
+        if ($title) {
+            $where['title like'] = '%' . $title . '%';
+        }
+        if ($description) {
+            $where['description like'] = '%' . $description . '%';
+        }
+        $totalDocuments = $this->model->selectCount('id')->where($where)->get()->getRowArray()['id'];
+        $documents = $this->model->where($where)->orderBy('created_at', 'DESC')->paginate($perPage, 'documents', $page);
+        $data = [
+            'status' => true,
+            'data' => [
+                'documents' => $documents,
+                'total' => $totalDocuments,
+            ],
+        ];
+
+        return $this->respond($data);
     }
 
     /**
@@ -24,9 +51,15 @@ class DocumentsController extends ResourceController
      *
      * @return ResponseInterface
      */
-    public function show($id = null)
+     public function show($id = null)
     {
-        //
+        $document = $this->model->find($id);
+
+        if (!$document) {
+            return $this->failNotFound("Document not found with ID: $id");
+        }
+
+        return $this->respond($document);
     }
 
         /**

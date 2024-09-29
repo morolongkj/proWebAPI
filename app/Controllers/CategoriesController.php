@@ -7,14 +7,41 @@ use CodeIgniter\RESTful\ResourceController;
 
 class CategoriesController extends ResourceController
 {
+       // Load the model
+    protected $modelName = 'App\Models\CategoryModel';
+    protected $format = 'json';
+
     /**
-     * Return an array of resource objects, themselves in array format.
-     *
-     * @return ResponseInterface
+     * Get a list of all categories (index)
+     * @return JSON
      */
     public function index()
     {
-        //
+        $page = $this->request->getVar('page') ?? 1;
+        $perPage = $this->request->getVar('perPage');
+        if (!$perPage) {
+            $perPage = null;
+        }
+        $title = $this->request->getVar('title');
+        $description = $this->request->getVar('description');
+        $where = [];
+        if ($title) {
+            $where['title like'] = '%' . $title . '%';
+        }
+        if ($description) {
+            $where['description like'] = '%' . $description . '%';
+        }
+        $totalCategories = $this->model->selectCount('id')->where($where)->get()->getRowArray()['id'];
+        $categories = $this->model->where($where)->orderBy('created_at', 'DESC')->paginate($perPage, 'categories', $page);
+        $data = [
+            'status' => true,
+            'data' => [
+                'categories' => $categories,
+                'total' => $totalCategories,
+            ],
+        ];
+
+        return $this->respond($data);
     }
 
     /**
@@ -26,17 +53,22 @@ class CategoriesController extends ResourceController
      */
     public function show($id = null)
     {
-        //
+        $category = $this->model->find($id);
+
+        if (!$category) {
+            return $this->failNotFound("Category not found with ID: $id");
+        }
+
+        return $this->respond($category);
     }
 
-       /**
+    /**
      * Create a new category (create)
      * @return JSON
      */
     public function create()
     {
         $data = $this->request->getJSON(true);
-
         // Validate data before inserting
         if (!$this->validate($this->model->validationRules)) {
             return $this->failValidationErrors($this->validator->getErrors());
@@ -57,7 +89,7 @@ class CategoriesController extends ResourceController
         return $this->failServerError('Failed to create category.');
     }
 
-      /**
+    /**
      * Update a specific category (update)
      * @param string $id
      * @return JSON

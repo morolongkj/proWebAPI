@@ -7,14 +7,45 @@ use CodeIgniter\RESTful\ResourceController;
 
 class ProductsController extends ResourceController
 {
+    // Load the model
+    protected $modelName = 'App\Models\ProductModel';
+    protected $format = 'json';
+
     /**
-     * Return an array of resource objects, themselves in array format.
-     *
-     * @return ResponseInterface
+     * Get a list of all products (index)
+     * @return JSON
      */
     public function index()
     {
-        //
+        $page = $this->request->getVar('page') ?? 1;
+        $perPage = $this->request->getVar('perPage');
+        if (!$perPage) {
+            $perPage = null;
+        }
+        $code = $this->request->getVar('code');
+        $title = $this->request->getVar('title');
+        $description = $this->request->getVar('description');
+        $where = [];
+        if ($code) {
+            $where['code like'] = '%' . $code . '%';
+        }
+        if ($title) {
+            $where['title like'] = '%' . $title . '%';
+        }
+        if ($description) {
+            $where['description like'] = '%' . $description . '%';
+        }
+        $totalProducts = $this->model->selectCount('id')->where($where)->get()->getRowArray()['id'];
+        $products = $this->model->where($where)->orderBy('created_at', 'DESC')->paginate($perPage, 'products', $page);
+        $data = [
+            'status' => true,
+            'data' => [
+                'products' => $products,
+                'total' => $totalProducts,
+            ],
+        ];
+
+        return $this->respond($data);
     }
 
     /**
@@ -26,10 +57,16 @@ class ProductsController extends ResourceController
      */
     public function show($id = null)
     {
-        //
+        $product = $this->model->find($id);
+
+        if (!$product) {
+            return $this->failNotFound("Product not found with ID: $id");
+        }
+
+        return $this->respond($product);
     }
 
-         /**
+    /**
      * Create a new product (create)
      * @return JSON
      */
@@ -77,7 +114,7 @@ class ProductsController extends ResourceController
         return $this->failServerError('Failed to update product.');
     }
 
-      /**
+    /**
      * Delete a specific product (delete)
      * @param string $id
      * @return JSON

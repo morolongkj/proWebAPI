@@ -1,0 +1,457 @@
+INFO - 2024-09-28 09:29:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-09-28 09:29:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-28 09:34:26 --> CodeIgniter\Validation\Exceptions\ValidationException: "" is not a valid rule.
+[Method: POST, Route: api/tenders]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('closing_date', 'closing_date', '2024-11-10', [...], [...], 'closing_date')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TendersController.php(92): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 09:35:17 --> CodeIgniter\Validation\Exceptions\ValidationException: "" is not a valid rule.
+[Method: POST, Route: api/tenders]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('closing_date', 'closing_date', '2025-11-10', [...], [...], 'closing_date')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TendersController.php(92): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 09:35:22 --> CodeIgniter\Validation\Exceptions\ValidationException: "" is not a valid rule.
+[Method: POST, Route: api/tenders]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('closing_date', 'closing_date', '2023-11-10', [...], [...], 'closing_date')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TendersController.php(92): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 09:35:27 --> CodeIgniter\Validation\Exceptions\ValidationException: "" is not a valid rule.
+[Method: POST, Route: api/tenders]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('closing_date', 'closing_date', '2024-11-10', [...], [...], 'closing_date')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TendersController.php(92): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 09:36:07 --> CodeIgniter\Validation\Exceptions\ValidationException: "check_open_period" is not a valid rule.
+[Method: POST, Route: api/tenders]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('check_open_period')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('closing_date', 'closing_date', '2024-11-10', [...], [...], 'closing_date')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TendersController.php(92): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 09:36:08 --> CodeIgniter\Validation\Exceptions\ValidationException: "check_open_period" is not a valid rule.
+[Method: POST, Route: api/tenders]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('check_open_period')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('closing_date', 'closing_date', '2024-11-10', [...], [...], 'closing_date')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TendersController.php(92): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 09:39:49 --> CodeIgniter\Validation\Exceptions\ValidationException: "callback_check_open_period" is not a valid rule.
+[Method: POST, Route: api/tenders]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('callback_check_open_period')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('closing_date', 'closing_date', '2024-11-10', [...], [...], 'closing_date')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TendersController.php(92): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 09:45:44 --> CodeIgniter\Validation\Exceptions\ValidationException: "valid_time" is not a valid rule.
+[Method: POST, Route: api/tenders]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('valid_time')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('opening_time', 'opening_time', '19:00', [...], [...], 'opening_time')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TendersController.php(92): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 09:45:58 --> CodeIgniter\Validation\Exceptions\ValidationException: "valid_time" is not a valid rule.
+[Method: POST, Route: api/tenders]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('valid_time')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('opening_time', 'opening_time', '07:00', [...], [...], 'opening_time')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TendersController.php(92): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 09:47:42 --> TypeError: App\Validation\CustomRules::valid_time(): Argument #2 ($params) must be of type string, null given, called in /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/Validation/Validation.php on line 338
+[Method: POST, Route: api/tenders]
+in APPPATH/Validation/CustomRules.php on line 14.
+ 1 SYSTEMPATH/Validation/Validation.php(338): App\Validation\CustomRules->valid_time('07:00', null)
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('opening_time', 'opening_time', '07:00', [...], [...], 'opening_time')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TendersController.php(92): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 09:47:48 --> TypeError: App\Validation\CustomRules::valid_time(): Argument #2 ($params) must be of type string, null given, called in /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/Validation/Validation.php on line 338
+[Method: POST, Route: api/tenders]
+in APPPATH/Validation/CustomRules.php on line 14.
+ 1 SYSTEMPATH/Validation/Validation.php(338): App\Validation\CustomRules->valid_time('07:00', null)
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('opening_time', 'opening_time', '07:00', [...], [...], 'opening_time')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TendersController.php(92): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 10:23:34 --> ErrorException: Undefined array key "current_status_id"
+[Method: POST, Route: api/tenders]
+in APPPATH/Models/TenderModel.php on line 147.
+ 1 APPPATH/Models/TenderModel.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "current_status_id"', '/Users/morolongkj/Sites/proWebAPI/app/Models/TenderModel.php', 147)
+ 2 APPPATH/Controllers/TendersController.php(94): App\Models\TenderModel->saveTender([...])
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 10:24:45 --> CodeIgniter\Validation\Exceptions\ValidationException: "valid_string" is not a valid rule.
+[Method: POST, Route: api/tenders]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('valid_string')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('tender_id', 'tender_id', '12e4583d-f534-4b45-88ec-4f2573f05d53', [...], [...], 'tender_id')
+ 3 SYSTEMPATH/BaseModel.php(1577): CodeIgniter\Validation\Validation->run([...], null, null)
+ 4 SYSTEMPATH/BaseModel.php(809): CodeIgniter\BaseModel->validate([...])
+ 5 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 6 APPPATH/Models/TenderModel.php(154): CodeIgniter\Model->insert([...])
+ 7 APPPATH/Controllers/TendersController.php(94): App\Models\TenderModel->saveTender([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 10:38:14 --> Error: Class "App\Models\TenderProductsModel" not found
+[Method: GET, Route: api/tenders/df02af58-2787-4b84-ae8b-c4a0b9f8320f]
+in APPPATH/Models/TenderModel.php on line 190.
+ 1 APPPATH/Controllers/TendersController.php(73): App\Models\TenderModel->getTenderWithDetails('df02af58-2787-4b84-ae8b-c4a0b9f8320f')
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->show('df02af58-2787-4b84-ae8b-c4a0b9f8320f')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 10:50:22 --> TypeError: App\Models\TenderModel::getTendersWithDetails(): Argument #2 ($perPage) must be of type int, null given, called in /Users/morolongkj/Sites/proWebAPI/app/Controllers/TendersController.php on line 36
+[Method: GET, Route: api/tenders]
+in APPPATH/Models/TenderModel.php on line 218.
+ 1 APPPATH/Controllers/TendersController.php(36): App\Models\TenderModel->getTendersWithDetails([...], null, 1)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+ERROR - 2024-09-28 10:51:56 --> mysqli_sql_exception: Unknown column 'tender_status.name' in 'field list' in /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `tenders...', 0)
+#1 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tenders...')
+#2 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tenders...')
+#3 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tenders...', Array, false)
+#4 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(20, 0)
+#6 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(20, 0)
+#7 /Users/morolongkj/Sites/proWebAPI/app/Models/TenderModel.php(245): CodeIgniter\BaseModel->paginate(20, 'tenders', 1)
+#8 /Users/morolongkj/Sites/proWebAPI/app/Controllers/TendersController.php(36): App\Models\TenderModel->getTendersWithDetails(Array, NULL, 1)
+#9 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TendersController->index()
+#10 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+#11 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /Users/morolongkj/Sites/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /Users/morolongkj/Sites/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/Users/morolong...')
+#16 {main}
+CRITICAL - 2024-09-28 10:51:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tender_status.name' in 'field list'
+[Method: GET, Route: api/tenders]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tenders`.*, `tender_status`.`name` as `status_name`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+ORDER BY `tenders`.`created_at` DESC
+ LIMIT 20', [], false)
+ 2 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(20, 0)
+ 4 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(20, 0)
+ 5 APPPATH/Models/TenderModel.php(245): CodeIgniter\BaseModel->paginate(20, 'tenders', 1)
+ 6 APPPATH/Controllers/TendersController.php(36): App\Models\TenderModel->getTendersWithDetails([...], null, 1)
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 10:51:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tender_status.name' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tenders`.*, `tender_status`.`name` as `status_name`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+ORDER BY `tenders`.`created_at` DESC
+ LIMIT 20')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tenders`.*, `tender_status`.`name` as `status_name`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+ORDER BY `tenders`.`created_at` DESC
+ LIMIT 20')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tenders`.*, `tender_status`.`name` as `status_name`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+ORDER BY `tenders`.`created_at` DESC
+ LIMIT 20', [], false)
+ 4 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(20, 0)
+ 6 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(20, 0)
+ 7 APPPATH/Models/TenderModel.php(245): CodeIgniter\BaseModel->paginate(20, 'tenders', 1)
+ 8 APPPATH/Controllers/TendersController.php(36): App\Models\TenderModel->getTendersWithDetails([...], null, 1)
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 10:51:56 --> [Caused by] mysqli_sql_exception: Unknown column 'tender_status.name' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `tenders`.*, `tender_status`.`name` as `status_name`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+ORDER BY `tenders`.`created_at` DESC
+ LIMIT 20', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tenders`.*, `tender_status`.`name` as `status_name`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+ORDER BY `tenders`.`created_at` DESC
+ LIMIT 20')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tenders`.*, `tender_status`.`name` as `status_name`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+ORDER BY `tenders`.`created_at` DESC
+ LIMIT 20')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `tenders`.*, `tender_status`.`name` as `status_name`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+ORDER BY `tenders`.`created_at` DESC
+ LIMIT 20', [], false)
+ 5 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(20, 0)
+ 7 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(20, 0)
+ 8 APPPATH/Models/TenderModel.php(245): CodeIgniter\BaseModel->paginate(20, 'tenders', 1)
+ 9 APPPATH/Controllers/TendersController.php(36): App\Models\TenderModel->getTendersWithDetails([...], null, 1)
+10 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+11 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+12 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 10:52:36 --> Error: Class "App\Models\TenderProductsModel" not found
+[Method: GET, Route: api/tenders]
+in APPPATH/Models/TenderModel.php on line 249.
+ 1 APPPATH/Controllers/TendersController.php(36): App\Models\TenderModel->getTendersWithDetails([...], null, 1)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 10:52:46 --> DivisionByZeroError: Division by zero
+[Method: GET, Route: api/tenders]
+in APPPATH/Models/TenderModel.php on line 275.
+ 1 APPPATH/Controllers/TendersController.php(36): App\Models\TenderModel->getTendersWithDetails([...], null, 1)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 17:01:10 --> CodeIgniter\HTTP\Exceptions\HTTPException: Failed to parse JSON string. Error: Syntax error
+[Method: POST, Route: api/tenders]
+in SYSTEMPATH/HTTP/IncomingRequest.php on line 537.
+ 1 SYSTEMPATH/HTTP/IncomingRequest.php(537): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidJSON('Syntax error')
+ 2 APPPATH/Controllers/TendersController.php(72): CodeIgniter\HTTP\IncomingRequest->getJSON(true)
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 17:50:08 --> Error: Class "App\Controllers\TenderStatusModel" not found
+[Method: POST, Route: api/tenders/approve/123]
+in APPPATH/Controllers/TendersController.php on line 143.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->approve('123')
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+INFO - 2024-09-28 17:52:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-28 17:53:23 --> Error: Call to undefined function App\Models\user()
+[Method: POST, Route: api/tenders/approve/33670625-6c2d-4591-86a6-273938cadbd5]
+in APPPATH/Models/TenderModel.php on line 317.
+ 1 APPPATH/Controllers/TendersController.php(165): App\Models\TenderModel->updateStatus('33670625-6c2d-4591-86a6-273938cadbd5', 'Approved')
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->approve('33670625-6c2d-4591-86a6-273938cadbd5')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 17:56:40 --> Error: Call to undefined function App\Models\user()
+[Method: POST, Route: api/tenders/approve/33670625-6c2d-4591-86a6-273938cadbd5]
+in APPPATH/Models/TenderModel.php on line 317.
+ 1 APPPATH/Controllers/TendersController.php(165): App\Models\TenderModel->updateStatus('33670625-6c2d-4591-86a6-273938cadbd5', 'Approved')
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->approve('33670625-6c2d-4591-86a6-273938cadbd5')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 18:18:26 --> ErrorException: Undefined array key "remarks"
+[Method: PUT, Route: api/tenders/df02af58-2787-4b84-ae8b-c4a0b9f8320f]
+in APPPATH/Controllers/TendersController.php on line 116.
+ 1 APPPATH/Controllers/TendersController.php(116): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "remarks"', '/Users/morolongkj/Sites/proWebAPI/app/Controllers/TendersController.php', 116)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('df02af58-2787-4b84-ae8b-c4a0b9f8320f')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 18:19:04 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: PUT, Route: api/tenders/df02af58-2787-4b84-ae8b-c4a0b9f8320f]
+in SYSTEMPATH/BaseModel.php on line 1011.
+ 1 SYSTEMPATH/BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH/Models/TenderStatusHistoryModel.php(81): CodeIgniter\Model->update('df02af58-2787-4b84-ae8b-c4a0b9f8320f', [...])
+ 4 APPPATH/Controllers/TendersController.php(116): App\Models\TenderStatusHistoryModel->addHistory('df02af58-2787-4b84-ae8b-c4a0b9f8320f', '8679c263-a2f3-4a35-a732-32499a932e09', 1)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('df02af58-2787-4b84-ae8b-c4a0b9f8320f')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 18:19:31 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: PUT, Route: api/tenders/df02af58-2787-4b84-ae8b-c4a0b9f8320f]
+in SYSTEMPATH/BaseModel.php on line 1011.
+ 1 SYSTEMPATH/BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH/Models/TenderStatusHistoryModel.php(81): CodeIgniter\Model->update('df02af58-2787-4b84-ae8b-c4a0b9f8320f', [...])
+ 4 APPPATH/Controllers/TendersController.php(116): App\Models\TenderStatusHistoryModel->addHistory('df02af58-2787-4b84-ae8b-c4a0b9f8320f', '40ff580a-75a5-4081-b256-c96e7cda71c5', 1)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('df02af58-2787-4b84-ae8b-c4a0b9f8320f')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 18:20:53 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: PUT, Route: api/tenders/df02af58-2787-4b84-ae8b-c4a0b9f8320f]
+in SYSTEMPATH/BaseModel.php on line 1011.
+ 1 SYSTEMPATH/BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH/Models/TenderStatusHistoryModel.php(81): CodeIgniter\Model->update('df02af58-2787-4b84-ae8b-c4a0b9f8320f', [...])
+ 4 APPPATH/Controllers/TendersController.php(116): App\Models\TenderStatusHistoryModel->addHistory('df02af58-2787-4b84-ae8b-c4a0b9f8320f', '40ff580a-75a5-4081-b256-c96e7cda71c5', 1)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('df02af58-2787-4b84-ae8b-c4a0b9f8320f')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 18:23:21 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: PUT, Route: api/tenders/df02af58-2787-4b84-ae8b-c4a0b9f8320f]
+in SYSTEMPATH/BaseModel.php on line 1011.
+ 1 SYSTEMPATH/BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH/Models/TenderStatusHistoryModel.php(81): CodeIgniter\Model->update('df02af58-2787-4b84-ae8b-c4a0b9f8320f', [...])
+ 4 APPPATH/Controllers/TendersController.php(116): App\Models\TenderStatusHistoryModel->addHistory('df02af58-2787-4b84-ae8b-c4a0b9f8320f', '40ff580a-75a5-4081-b256-c96e7cda71c5', 1)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('df02af58-2787-4b84-ae8b-c4a0b9f8320f')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-28 18:23:23 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: PUT, Route: api/tenders/df02af58-2787-4b84-ae8b-c4a0b9f8320f]
+in SYSTEMPATH/BaseModel.php on line 1011.
+ 1 SYSTEMPATH/BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH/Models/TenderStatusHistoryModel.php(81): CodeIgniter\Model->update('df02af58-2787-4b84-ae8b-c4a0b9f8320f', [...])
+ 4 APPPATH/Controllers/TendersController.php(116): App\Models\TenderStatusHistoryModel->addHistory('df02af58-2787-4b84-ae8b-c4a0b9f8320f', '40ff580a-75a5-4081-b256-c96e7cda71c5', 1)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('df02af58-2787-4b84-ae8b-c4a0b9f8320f')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/morolongkj/Sites/proWebAPI/public/index.php')
