@@ -22,6 +22,11 @@ class TenderStatusSeeder extends Seeder
             ],
             [
                 'id' => uuid_v4(),
+                'status' => 'Submitted',
+                'description' => 'Tender has been submitted and sent for verification.',
+            ],
+            [
+                'id' => uuid_v4(),
                 'status' => 'Verified',
                 'description' => 'Tender has been verified and sent for approvals.',
             ],

@@ -30,6 +30,7 @@ class TendersController extends ResourceController
             'opening_date' => $this->request->getVar('opening_date'),
             'closing_date' => $this->request->getVar('closing_date'),
             'current_status_id' => $this->request->getVar('current_status_id'),
+            'status' => $this->request->getVar('status'),
         ];
 
         // Call the model method to get the tenders with their details
@@ -112,8 +113,8 @@ class TendersController extends ResourceController
             if (isset($data['current_status_id']) && $existingTender['current_status_id'] !== $data['current_status_id']) {
                 // Update the status history
                 $tenderStatusHistoryModel = new \App\Models\TenderStatusHistoryModel();
-
-                if (!$tenderStatusHistoryModel->addHistory($id, $data['current_status_id'], $user_id)) {
+                $remarks = isset($data['remarks']) ? $data['remarks'] : '';
+                if (!$tenderStatusHistoryModel->addHistory($id, $data['current_status_id'], $user_id, $remarks)) {
                     return $this->failServerError('Failed to update status history.');
                 }
             }

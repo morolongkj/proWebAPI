@@ -1,0 +1,466 @@
+INFO - 2024-09-30 10:00:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-09-30 10:12:05 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: PUT, Route: api/tenders/4ce43f3f-8626-4b65-8ab1-390c8855dd4c]
+in SYSTEMPATH/BaseModel.php on line 1011.
+ 1 SYSTEMPATH/BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH/Models/TenderStatusHistoryModel.php(81): CodeIgniter\Model->update('4ce43f3f-8626-4b65-8ab1-390c8855dd4c', [...])
+ 4 APPPATH/Controllers/TendersController.php(116): App\Models\TenderStatusHistoryModel->addHistory('4ce43f3f-8626-4b65-8ab1-390c8855dd4c', '5b38ae51-37ff-41c1-9a9e-b73e118ad72e', 1)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('4ce43f3f-8626-4b65-8ab1-390c8855dd4c')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 10:15:59 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: PUT, Route: api/tenders/4ce43f3f-8626-4b65-8ab1-390c8855dd4c]
+in SYSTEMPATH/BaseModel.php on line 1011.
+ 1 SYSTEMPATH/BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH/Models/TenderStatusHistoryModel.php(81): CodeIgniter\Model->update('4ce43f3f-8626-4b65-8ab1-390c8855dd4c', [...])
+ 4 APPPATH/Controllers/TendersController.php(116): App\Models\TenderStatusHistoryModel->addHistory('4ce43f3f-8626-4b65-8ab1-390c8855dd4c', '5b38ae51-37ff-41c1-9a9e-b73e118ad72e', 1)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('4ce43f3f-8626-4b65-8ab1-390c8855dd4c')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 10:17:03 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: PUT, Route: api/tenders/4ce43f3f-8626-4b65-8ab1-390c8855dd4c]
+in SYSTEMPATH/BaseModel.php on line 1011.
+ 1 SYSTEMPATH/BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH/Models/TenderStatusHistoryModel.php(81): CodeIgniter\Model->update('4ce43f3f-8626-4b65-8ab1-390c8855dd4c', [...])
+ 4 APPPATH/Controllers/TendersController.php(116): App\Models\TenderStatusHistoryModel->addHistory('4ce43f3f-8626-4b65-8ab1-390c8855dd4c', '5b38ae51-37ff-41c1-9a9e-b73e118ad72e', 1)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('4ce43f3f-8626-4b65-8ab1-390c8855dd4c')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 10:17:55 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: PUT, Route: api/tenders/4ce43f3f-8626-4b65-8ab1-390c8855dd4c]
+in SYSTEMPATH/BaseModel.php on line 1011.
+ 1 SYSTEMPATH/BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH/Models/TenderStatusHistoryModel.php(81): CodeIgniter\Model->update('4ce43f3f-8626-4b65-8ab1-390c8855dd4c', [...])
+ 4 APPPATH/Controllers/TendersController.php(116): App\Models\TenderStatusHistoryModel->addHistory('4ce43f3f-8626-4b65-8ab1-390c8855dd4c', '5b38ae51-37ff-41c1-9a9e-b73e118ad72e', 1)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('4ce43f3f-8626-4b65-8ab1-390c8855dd4c')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 10:18:20 --> CodeIgniter\Database\Exceptions\DataException: There is no data to update.
+[Method: PUT, Route: api/tenders/4ce43f3f-8626-4b65-8ab1-390c8855dd4c]
+in SYSTEMPATH/BaseModel.php on line 1011.
+ 1 SYSTEMPATH/BaseModel.php(1011): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('update')
+ 2 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], [])
+ 3 APPPATH/Models/TenderStatusHistoryModel.php(81): CodeIgniter\Model->update('4ce43f3f-8626-4b65-8ab1-390c8855dd4c', [...])
+ 4 APPPATH/Controllers/TendersController.php(116): App\Models\TenderStatusHistoryModel->addHistory('4ce43f3f-8626-4b65-8ab1-390c8855dd4c', '5b38ae51-37ff-41c1-9a9e-b73e118ad72e', 1)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('4ce43f3f-8626-4b65-8ab1-390c8855dd4c')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+ERROR - 2024-09-30 10:39:00 --> mysqli_sql_exception: Duplicate entry 'Test§' for key 'tenders.reference_number' in /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `te...', 0)
+#1 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `te...')
+#2 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `te...')
+#3 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `te...', Array, false)
+#4 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php(147): CodeIgniter\BaseModel->save(Array)
+#9 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Controllers/TendersController.php(76): App\Models\TenderModel->saveTender(Array)
+#10 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TendersController->create()
+#11 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+#12 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#14 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 /Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/Users/manzehle...')
+#17 {main}
+CRITICAL - 2024-09-30 10:52:29 --> CodeIgniter\Validation\Exceptions\ValidationException: "exists:tenders,id" is not a valid rule.
+[Method: POST, Route: api/tender-approvals]
+in SYSTEMPATH/Validation/Validation.php on line 348.
+ 1 SYSTEMPATH/Validation/Validation.php(348): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('exists:tenders,id')
+ 2 SYSTEMPATH/Validation/Validation.php(204): CodeIgniter\Validation\Validation->processRules('tender_id', 'tender_id', '22cf451d-e7fd-438a-a14d-9dceb7ef8181', [...], [...], 'tender_id')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/TenderApprovalsController.php(62): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderApprovalsController->create()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderApprovalsController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+ERROR - 2024-09-30 10:53:51 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`tender_approvals`, CONSTRAINT `tender_approvals_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)) in /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `te...', 0)
+#1 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `te...')
+#2 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `te...')
+#3 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `te...', Array, false)
+#4 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Controllers/TenderApprovalsController.php(66): CodeIgniter\BaseModel->save(Array)
+#9 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TenderApprovalsController->create()
+#10 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderApprovalsController))
+#11 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/Users/manzehle...')
+#16 {main}
+CRITICAL - 2024-09-30 10:53:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`tender_approvals`, CONSTRAINT `tender_approvals_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+[Method: POST, Route: api/tender-approvals]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tender_approvals` (`tender_id`, `approval_type`, `created_at`, `updated_at`, `id`) VALUES (:tender_id:, :approval_type:, :created_at:, :updated_at:, :id:)', [...], false)
+ 2 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH/Controllers/TenderApprovalsController.php(66): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderApprovalsController->create()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderApprovalsController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 10:53:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`tender_approvals`, CONSTRAINT `tender_approvals_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tender_approvals` (`tender_id`, `approval_type`, `created_at`, `updated_at`, `id`) VALUES (\'22cf451d-e7fd-438a-a14d-9dceb7ef8181\', \'rejected\', \'2024-09-30 10:53:51\', \'2024-09-30 10:53:51\', \'06791740-9dd4-4ce2-ab9f-17e61df99277\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tender_approvals` (`tender_id`, `approval_type`, `created_at`, `updated_at`, `id`) VALUES (\'22cf451d-e7fd-438a-a14d-9dceb7ef8181\', \'rejected\', \'2024-09-30 10:53:51\', \'2024-09-30 10:53:51\', \'06791740-9dd4-4ce2-ab9f-17e61df99277\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tender_approvals` (`tender_id`, `approval_type`, `created_at`, `updated_at`, `id`) VALUES (:tender_id:, :approval_type:, :created_at:, :updated_at:, :id:)', [...], false)
+ 4 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH/Controllers/TenderApprovalsController.php(66): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderApprovalsController->create()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderApprovalsController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 10:53:51 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`tender_approvals`, CONSTRAINT `tender_approvals_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `tender_approvals` (`tender_id`, `approval_type`, `created_at`, `updated_at`, `id`) VALUES (\'22cf451d-e7fd-438a-a14d-9dceb7ef8181\', \'rejected\', \'2024-09-30 10:53:51\', \'2024-09-30 10:53:51\', \'06791740-9dd4-4ce2-ab9f-17e61df99277\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tender_approvals` (`tender_id`, `approval_type`, `created_at`, `updated_at`, `id`) VALUES (\'22cf451d-e7fd-438a-a14d-9dceb7ef8181\', \'rejected\', \'2024-09-30 10:53:51\', \'2024-09-30 10:53:51\', \'06791740-9dd4-4ce2-ab9f-17e61df99277\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tender_approvals` (`tender_id`, `approval_type`, `created_at`, `updated_at`, `id`) VALUES (\'22cf451d-e7fd-438a-a14d-9dceb7ef8181\', \'rejected\', \'2024-09-30 10:53:51\', \'2024-09-30 10:53:51\', \'06791740-9dd4-4ce2-ab9f-17e61df99277\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tender_approvals` (`tender_id`, `approval_type`, `created_at`, `updated_at`, `id`) VALUES (:tender_id:, :approval_type:, :created_at:, :updated_at:, :id:)', [...], false)
+ 5 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH/Controllers/TenderApprovalsController.php(66): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderApprovalsController->create()
+11 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderApprovalsController))
+12 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 10:55:30 --> ErrorException: Undefined array key "remarks"
+[Method: POST, Route: api/tender-approvals]
+in APPPATH/Controllers/TenderApprovalsController.php on line 82.
+ 1 APPPATH/Controllers/TenderApprovalsController.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "remarks"', '/Users/manzehlengoanemorolong/Sites/proWebAPI/app/Controllers/TenderApprovalsController.php', 82)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderApprovalsController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderApprovalsController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 10:59:59 --> ErrorException: Undefined array key "remarks"
+[Method: PUT, Route: api/tenders/4ce43f3f-8626-4b65-8ab1-390c8855dd4c]
+in APPPATH/Controllers/TendersController.php on line 116.
+ 1 APPPATH/Controllers/TendersController.php(116): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "remarks"', '/Users/manzehlengoanemorolong/Sites/proWebAPI/app/Controllers/TendersController.php', 116)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->update('4ce43f3f-8626-4b65-8ab1-390c8855dd4c')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+ERROR - 2024-09-30 11:31:36 --> mysqli_sql_exception: Unknown column 'tdenr_id' in 'where clause' in /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*)...', 0)
+#1 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php(309): CodeIgniter\Model->countAllResults()
+#6 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Controllers/TendersController.php(36): App\Models\TenderModel->getTendersWithDetails(Array, 1, 2)
+#7 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TendersController->index()
+#8 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+#9 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/Users/manzehle...')
+#14 {main}
+CRITICAL - 2024-09-30 11:31:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tdenr_id' in 'where clause'
+[Method: GET, Route: api/tenders]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tender_approvals`
+WHERE `approval_type` = :approval_type.1:
+AND `tdenr_id` = :tdenr_id:', [...], false)
+ 2 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 3 APPPATH/Models/TenderModel.php(309): CodeIgniter\Model->countAllResults()
+ 4 APPPATH/Controllers/TendersController.php(36): App\Models\TenderModel->getTendersWithDetails([...], 1, 2)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 11:31:36 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tdenr_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tender_approvals`
+WHERE `approval_type` = \'rejected\'
+AND `tdenr_id` = \'4ce43f3f-8626-4b65-8ab1-390c8855dd4c\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tender_approvals`
+WHERE `approval_type` = \'rejected\'
+AND `tdenr_id` = \'4ce43f3f-8626-4b65-8ab1-390c8855dd4c\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tender_approvals`
+WHERE `approval_type` = :approval_type.1:
+AND `tdenr_id` = :tdenr_id:', [...], false)
+ 4 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 5 APPPATH/Models/TenderModel.php(309): CodeIgniter\Model->countAllResults()
+ 6 APPPATH/Controllers/TendersController.php(36): App\Models\TenderModel->getTendersWithDetails([...], 1, 2)
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 11:31:36 --> [Caused by] mysqli_sql_exception: Unknown column 'tdenr_id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `tender_approvals`
+WHERE `approval_type` = \'rejected\'
+AND `tdenr_id` = \'4ce43f3f-8626-4b65-8ab1-390c8855dd4c\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tender_approvals`
+WHERE `approval_type` = \'rejected\'
+AND `tdenr_id` = \'4ce43f3f-8626-4b65-8ab1-390c8855dd4c\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tender_approvals`
+WHERE `approval_type` = \'rejected\'
+AND `tdenr_id` = \'4ce43f3f-8626-4b65-8ab1-390c8855dd4c\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tender_approvals`
+WHERE `approval_type` = :approval_type.1:
+AND `tdenr_id` = :tdenr_id:', [...], false)
+ 5 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 6 APPPATH/Models/TenderModel.php(309): CodeIgniter\Model->countAllResults()
+ 7 APPPATH/Controllers/TendersController.php(36): App\Models\TenderModel->getTendersWithDetails([...], 1, 2)
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+ERROR - 2024-09-30 14:02:42 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`tender_status_history`, CONSTRAINT `tender_status_history_tender_id_foreign` FOREIGN KEY (`tender_id`) REFERENCES `tenders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `te...', 0)
+#1 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `te...')
+#2 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `te...')
+#3 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `te...', Array, false)
+#4 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php(165): CodeIgniter\Model->insert(Array)
+#8 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Controllers/TendersController.php(76): App\Models\TenderModel->saveTender(Array)
+#9 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TendersController->create()
+#10 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+#11 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/Users/manzehle...')
+#16 {main}
+ERROR - 2024-09-30 14:03:34 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`tender_products`, CONSTRAINT `tender_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `te...', 0)
+#1 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `te...')
+#2 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `te...')
+#3 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `te...', Array, false)
+#4 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php(183): CodeIgniter\BaseModel->save(Array)
+#9 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Controllers/TendersController.php(76): App\Models\TenderModel->saveTender(Array)
+#10 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TendersController->create()
+#11 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+#12 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#14 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 /Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/Users/manzehle...')
+#17 {main}
+INFO - 2024-09-30 14:04:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-09-30 14:04:22 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`tender_products`, CONSTRAINT `tender_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `te...', 0)
+#1 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `te...')
+#2 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `te...')
+#3 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `te...', Array, false)
+#4 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php(183): CodeIgniter\BaseModel->save(Array)
+#9 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Controllers/TendersController.php(76): App\Models\TenderModel->saveTender(Array)
+#10 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TendersController->create()
+#11 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+#12 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#14 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 /Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/Users/manzehle...')
+#17 {main}
+ERROR - 2024-09-30 14:04:30 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`tender_products`, CONSTRAINT `tender_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `te...', 0)
+#1 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `te...')
+#2 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `te...')
+#3 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `te...', Array, false)
+#4 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php(183): CodeIgniter\BaseModel->save(Array)
+#9 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Controllers/TendersController.php(76): App\Models\TenderModel->saveTender(Array)
+#10 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TendersController->create()
+#11 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+#12 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#14 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 /Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/Users/manzehle...')
+#17 {main}
+ERROR - 2024-09-30 14:04:40 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`tender_products`, CONSTRAINT `tender_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `te...', 0)
+#1 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `te...')
+#2 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `te...')
+#3 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `te...', Array, false)
+#4 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php(183): CodeIgniter\BaseModel->save(Array)
+#9 /Users/manzehlengoanemorolong/Sites/proWebAPI/app/Controllers/TendersController.php(76): App\Models\TenderModel->saveTender(Array)
+#10 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TendersController->create()
+#11 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+#12 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#14 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 /Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 /Users/manzehlengoanemorolong/Sites/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/Users/manzehle...')
+#17 {main}
+CRITICAL - 2024-09-30 14:04:57 --> ErrorException: Undefined array key "id"
+[Method: POST, Route: api/tenders]
+in APPPATH/Models/TenderModel.php on line 178.
+ 1 APPPATH/Models/TenderModel.php(178): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', '/Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php', 178)
+ 2 APPPATH/Controllers/TendersController.php(76): App\Models\TenderModel->saveTender([...])
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 14:05:13 --> ErrorException: Undefined array key "id"
+[Method: POST, Route: api/tenders]
+in APPPATH/Models/TenderModel.php on line 178.
+ 1 APPPATH/Models/TenderModel.php(178): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', '/Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php', 178)
+ 2 APPPATH/Controllers/TendersController.php(76): App\Models\TenderModel->saveTender([...])
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->create()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 15:31:57 --> ErrorException: Undefined variable $where
+[Method: GET, Route: api/tenders]
+in APPPATH/Models/TenderModel.php on line 299.
+ 1 APPPATH/Models/TenderModel.php(299): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $where', '/Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php', 299)
+ 2 APPPATH/Controllers/TendersController.php(37): App\Models\TenderModel->getTendersWithDetails([...], null, 1)
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 15:33:44 --> ErrorException: Trying to access array offset on null
+[Method: GET, Route: api/tenders]
+in APPPATH/Models/TenderModel.php on line 299.
+ 1 APPPATH/Models/TenderModel.php(299): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on null', '/Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php', 299)
+ 2 APPPATH/Controllers/TendersController.php(37): App\Models\TenderModel->getTendersWithDetails([...], null, 1)
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 15:35:22 --> ErrorException: Trying to access array offset on null
+[Method: GET, Route: api/tenders]
+in APPPATH/Models/TenderModel.php on line 299.
+ 1 APPPATH/Models/TenderModel.php(299): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on null', '/Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php', 299)
+ 2 APPPATH/Controllers/TendersController.php(37): App\Models\TenderModel->getTendersWithDetails([...], null, 1)
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 15:36:13 --> ErrorException: Undefined property: CodeIgniter\Database\MySQLi\Result::$id
+[Method: GET, Route: api/tenders]
+in APPPATH/Models/TenderModel.php on line 301.
+ 1 APPPATH/Models/TenderModel.php(301): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\Database\\MySQLi\\Result::$id', '/Users/manzehlengoanemorolong/Sites/proWebAPI/app/Models/TenderModel.php', 301)
+ 2 APPPATH/Controllers/TendersController.php(37): App\Models\TenderModel->getTendersWithDetails([...], null, 1)
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')
+CRITICAL - 2024-09-30 15:36:34 --> Error: Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+[Method: GET, Route: api/tenders]
+in APPPATH/Models/TenderModel.php on line 301.
+ 1 APPPATH/Controllers/TendersController.php(37): App\Models\TenderModel->getTendersWithDetails([...], null, 1)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/Users/manzehlengoanemorolong/Sites/proWebAPI/public/index.php')

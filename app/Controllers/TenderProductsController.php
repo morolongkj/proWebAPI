@@ -78,7 +78,7 @@ class TenderProductsController extends ResourceController
         if ($this->model->save($data)) {
             $newId = $this->model->getInsertID();
             // Fetch the newly created tenderProduct for the response
-            $newTenderProduct = $this->model->find($newId);
+            $newTenderProduct = $this->model->findWithDetails($newId);
             $response = [
                 "status" => true,
                 "message" => "Tender Product created successfully",

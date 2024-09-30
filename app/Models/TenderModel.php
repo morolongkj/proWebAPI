@@ -36,7 +36,7 @@ class TenderModel extends Model
 
     // Set validation rules
     protected $validationRules = [
-        'reference_number' => 'required|max_length[100]|is_unique[tenders.reference_number]',
+        'reference_number' => 'required|max_length[100]',
         'title' => 'required|max_length[255]',
         'current_status_id' => 'permit_empty|max_length[255]',
         'opening_date' => 'required|valid_date',
@@ -132,6 +132,16 @@ class TenderModel extends Model
         if (!$this->validate($data)) {
             return $this->errors();
         }
+// Retrieve the current_status_id from the tender_status table where status is 'Initiated'
+        $tenderStatusModel = new \App\Models\TenderStatusModel();
+        $initiatedStatus = $tenderStatusModel->where('status', 'Draft')->first();
+
+        if (!$initiatedStatus) {
+            $db->transRollback(); // Rollback transaction if status is not found
+            return false;
+        }
+
+        $data['current_status_id'] = $initiatedStatus['id']; // Assuming the column name for the ID is 'id'
 
         // Save the tender data
         if (!$this->save($data)) {
@@ -165,12 +175,33 @@ class TenderModel extends Model
                 // Prepare the product data
                 $productData = [
                     'tender_id' => $newTenderId,
-                    'product_id' => $product['id'], // Assuming product data has an 'id'
+                    'product_id' => $product['product_id'], // Assuming product data has an 'id'
                     'quantity' => $product['quantity'], // Assuming quantity is provided
                 ];
 
                 // Insert the product record
                 if (!$tenderProductModel->save($productData)) {
+                    $db->transRollback(); // Rollback transaction on failure
+                    return false;
+                }
+            }
+        }
+
+        // Check if the attachments array is present in the payload
+        if (isset($data['attachments']) && is_array($data['attachments'])) {
+            $tenderAttachmentModel = new \App\Models\TenderAttachmentModel();
+
+            foreach ($data['attachments'] as $attachment) {
+                // Prepare the attachment data
+                $attachmentData = [
+                    'tender_id' => $newTenderId,
+                    'file_name' => $attachment['file_name'], // Assuming attachment data has an 'id'
+                    'file_path' => $attachment['file_path'],
+                    'file_type' => $attachment['file_type'],
+                ];
+
+                // Insert the attachment record
+                if (!$tenderAttachmentModel->save($attachmentData)) {
                     $db->transRollback(); // Rollback transaction on failure
                     return false;
                 }
@@ -244,6 +275,8 @@ class TenderModel extends Model
             ->join('users', 'users.id = tenders.created_by', 'left')
             ->orderBy('tenders.created_at', 'DESC');
 
+        $tenderStatusModel = new \App\Models\TenderStatusModel();
+
         if (!empty($filters['reference_number'])) {
             $query->like('tenders.reference_number', $filters['reference_number']);
         }
@@ -262,19 +295,32 @@ class TenderModel extends Model
         if (!empty($filters['current_status_id'])) {
             $query->like('tenders.current_status_id', $filters['current_status_id']);
         }
+        if (!empty($filters['status'])) {
+            $status = $tenderStatusModel->where('status', $filters['status'])->first();
+            if ($status) {
+                $query->like('tenders.current_status_id', $status['id']);
+            }
+        }
 
         // Fetch paginated results
+        $totalTenders = $query->countAllResults(false);
         $tenders = $query->paginate($perPage, 'tenders', $page);
-        $totalTenders = $query->countAllResults(false); // Count all results without resetting query
+        // $totalTenders = $query->countAllResults(false); // Count all results without resetting query
 
         // Load related entities for each tender
         $tenderProductModel = new \App\Models\TenderProductModel();
         $tenderAttachmentModel = new \App\Models\TenderAttachmentModel();
         $tenderStatusHistoryModel = new \App\Models\TenderStatusHistoryModel();
+        $tenderApprovalModel = new \App\Models\TenderApprovalModel();
 
         foreach ($tenders as &$tender) {
             // Load related tender products
-            $tender['products'] = $tenderProductModel->where('tender_id', $tender['id'])->findAll();
+            // $tender['products'] = $tenderProductModel->where('tender_id', $tender['id'])->findAll();
+            $tender['products'] = $tenderProductModel
+                ->select('tender_products.*, products.title, products.code, products.description') // Select columns you need
+                ->join('products', 'products.id = tender_products.product_id')
+                ->where('tender_products.tender_id', $tender['id'])
+                ->findAll();
 
             // Load related tender attachments
             $tender['attachments'] = $tenderAttachmentModel->where('tender_id', $tender['id'])->findAll();
@@ -286,6 +332,12 @@ class TenderModel extends Model
                 ->join('users', 'users.id = tender_status_history.changed_by', 'left')
                 ->where('tender_status_history.tender_id', $tender['id'])
                 ->findAll();
+
+            // Count the number of approved approvals
+            $tender['total_approvals'] = $tenderApprovalModel->where(['approval_type' => 'approved', 'tender_id' => $tender['id']])->countAllResults();
+// Count the number of rejected approvals
+            $tender['total_rejections'] = $tenderApprovalModel->where(['approval_type' => 'rejected', 'tender_id' => $tender['id']])->countAllResults();
+
         }
 
         // Return the result with pagination data

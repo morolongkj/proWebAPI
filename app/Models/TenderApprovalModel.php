@@ -25,8 +25,7 @@ class TenderApprovalModel extends Model
     // Optional: Define validation rules
     protected $validationRules = [
         'approval_type' => 'required|in_list[approved,rejected]',
-        'tender_id' => 'required|exists:tenders,id',
-        'user_id' => 'required|exists:users,id',
+        'tender_id' => 'required',
         'comment' => 'permit_empty|string',
     ];
 

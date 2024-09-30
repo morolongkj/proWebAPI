@@ -78,7 +78,7 @@ class TenderStatusHistoryModel extends Model
 
             // Update the current status of the tender in the tenders table
             $tenderModel = new TenderModel(); // Make sure you have a TenderModel
-            $tenderModel->update($tenderId, ['current_status' => $statusId]);
+            $tenderModel->update($tenderId, ['current_status_id' => $statusId]);
 
             return true; // Indicate success
         // }

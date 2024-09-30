@@ -19,7 +19,6 @@ class CreateTendersTable extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '100',
                 'null' => false,
-                'unique' => true,
             ],
             'title' => [
                 'type' => 'VARCHAR',

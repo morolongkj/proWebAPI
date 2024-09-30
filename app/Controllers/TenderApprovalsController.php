@@ -57,6 +57,7 @@ class TenderApprovalsController extends ResourceController
         $tenderStatusModel = new TenderStatusModel();
         $tenderStatusHistoryModel = new TenderStatusHistoryModel();
         $data = $this->request->getJSON(true);
+        $data['user_id'] = $user_id;
 
 // Validate data before inserting
         if (!$this->validate($this->model->validationRules)) {
@@ -69,20 +70,22 @@ class TenderApprovalsController extends ResourceController
             if ($newId) {
                 // retrieve approvals and rejections by tender
                 // Count the number of approved approvals
-                $countApproved = $this->model->where('approval_type', 'approved')->countAllResults();
+                $countApproved = $this->model->where(['approval_type' => 'approved', 'tender_id' => $data['tender_id']])->countAllResults();
                 // Count the number of rejected approvals
-                $countRejected = $this->model->where('approval_type', 'rejected')->countAllResults();
+                $countRejected = $this->model->where(['approval_type' => 'rejected', 'tender_id' => $data['tender_id']])->countAllResults();
                 if ($countApproved >= 3) {
                     // update status to approved
                     $tenderStatus = $tenderStatusModel->where('status', 'Approved')->first();
                     if ($tenderStatus) {
                         $tenderStatusId = $tenderStatus['id'];
                         // update status
-                        if ($tenderStatusHistoryModel->addHistory($data['tender_id'], $tenderStatusId, $user_id, $data['remarks'])) {
+                        if ($tenderStatusHistoryModel->addHistory($data['tender_id'], $tenderStatusId, $user_id)) {
 // send notification
                             $response = [
                                 "status" => true,
                                 "message" => "Tender is approved",
+                                "total_rejections" => $countRejected,
+                                "total_approvals" => $countApproved,
                             ];
                             return $this->respondCreated($response);
                         } else {
@@ -98,11 +101,13 @@ class TenderApprovalsController extends ResourceController
                     if ($tenderStatus) {
                         $tenderStatusId = $tenderStatus['id'];
                         // update status
-                        if ($tenderStatusHistoryModel->addHistory($data['tender_id'], $tenderStatusId, $user_id, $data['remarks'])) {
+                        if ($tenderStatusHistoryModel->addHistory($data['tender_id'], $tenderStatusId, $user_id)) {
 // send notification
                             $response = [
                                 "status" => true,
                                 "message" => "Tender is rejected",
+                                "total_rejections" => $countRejected,
+                                "total_approvals" => $countApproved,
                             ];
 
                             return $this->respondCreated($response);
@@ -116,6 +121,8 @@ class TenderApprovalsController extends ResourceController
                 $response = [
                     "status" => true,
                     "message" => "Your vote is casted",
+                    "total_rejections" => $countRejected,
+                    "total_approvals" => $countApproved,
                 ];
                 return $this->respondCreated($response);
             }

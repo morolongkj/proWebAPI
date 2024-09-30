@@ -30,10 +30,10 @@ class QuestionnaireModel extends Model
 
     // Validation rules
     protected $validationRules = [
-        'title' => 'required|min_length[3]|max_length[255]|is_unique[questionnaires.title]',
+        'title' => 'required|min_length[3]|max_length[255]',
         'description' => 'permit_empty|string',
-        'open_from' => 'permit_empty|valid_date[Y-m-d]',
-        'open_until' => 'permit_empty|valid_date[Y-m-d]|check_open_period[open_from,open_until]',
+        'open_from' => 'permit_empty',
+        'open_until' => 'permit_empty|check_open_period[open_from,open_until]',
     ];
 
     // Custom error messages

@@ -20,7 +20,7 @@ class ProductModel extends Model
 
     // Validation rules
     protected $validationRules = [
-        'code' => 'required|min_length[2]|max_length[100]|is_unique[products.code]',
+        'code' => 'required|min_length[2]|max_length[100]',
         'title' => 'required|min_length[3]|max_length[255]',
         'description' => 'permit_empty|string',
         'category_id' => 'permit_empty|max_length[255]|is_not_unique[categories.id]',

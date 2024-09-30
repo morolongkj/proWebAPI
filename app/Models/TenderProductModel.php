@@ -86,4 +86,13 @@ class TenderProductModel extends Model
     }
 
     protected $beforeInsert = ['generateUuid'];
+
+    public function findWithDetails(string $id)
+    {
+        return $this
+            ->select('tender_products.*, products.title, products.code, products.description') // Select columns you need
+            ->join('products', 'products.id = tender_products.product_id')
+            ->where('tender_products.id', $id)
+            ->first();
+    }
 }

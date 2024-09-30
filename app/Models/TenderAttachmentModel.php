@@ -31,7 +31,7 @@ class TenderAttachmentModel extends Model
 
     // Set validation rules
     protected $validationRules = [
-        'tender_id' => 'permit_empty|alpha_numeric|max_length[255]',
+        'tender_id' => 'permit_empty|max_length[255]',
         'file_name' => 'required|max_length[255]',
         'file_path' => 'required|max_length[255]',
         'file_type' => 'required|max_length[50]',
