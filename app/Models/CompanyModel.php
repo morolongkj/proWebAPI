@@ -31,6 +31,7 @@ class CompanyModel extends Model
         'website',
         'telefax',
         'telex',
+        'extra_data',
         'created_at',
         'updated_at',
     ];
@@ -104,12 +105,11 @@ class CompanyModel extends Model
 // Prepare the user data
         $userData = [
             'company_id' => $newCompanyId,
-            'user_id' => $data['user_id'],
         ];
 
 // Insert the status history record
-        $companyUserModel = new \App\Models\CompanyUserModel();
-        if (!$companyUserModel->insert($userData)) {
+        $userModel = new \App\Models\UserModel();
+        if (!$userModel->update($data['user_id'], $userData)) {
             $db->transRollback(); // Rollback transaction on failure
             return false;
         }

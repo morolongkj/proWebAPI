@@ -14,7 +14,7 @@ class CategoryModel extends Model
     protected $returnType = 'array'; // Return results as array
     protected $useSoftDeletes = false; // If you want to use soft deletes, set this to true
 
-    protected $allowedFields = ['id', 'title', 'description', 'created_at', 'updated_at'];
+    protected $allowedFields = ['id', 'title', 'description', 'extra_data', 'created_at', 'updated_at'];
 
     // Validation rules
     protected $validationRules = [

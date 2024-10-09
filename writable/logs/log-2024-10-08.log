@@ -1,0 +1,920 @@
+INFO - 2024-10-08 09:40:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-08 09:40:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-08 09:40:15 --> mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`i...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`i...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`i...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`i...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2024-10-08 09:40:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+[Method: GET, Route: api/tender-status]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:40:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:40:15 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-10-08 09:40:20 --> mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`i...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`i...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`i...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`i...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2024-10-08 09:40:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+[Method: GET, Route: api/tender-status]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:40:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:40:20 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-10-08 09:40:42 --> mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`i...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`i...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`i...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`i...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2024-10-08 09:40:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+[Method: GET, Route: api/tender-status]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:40:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:40:42 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-10-08 09:41:14 --> mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`i...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`i...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`i...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`i...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2024-10-08 09:41:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+[Method: GET, Route: api/tender-status]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:41:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:41:14 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-10-08 09:41:27 --> mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`i...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`i...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`i...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`i...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2024-10-08 09:41:27 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+[Method: GET, Route: api/tender-status]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:41:27 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:41:27 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-10-08 09:41:40 --> mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`i...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`i...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`i...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`i...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2024-10-08 09:41:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+[Method: GET, Route: api/tender-status]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:41:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:41:40 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-10-08 09:41:40 --> mysqli_sql_exception: Table 'eprocurement_db.tenders' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*)...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 /opt/lampp/htdocs/proWebAPI/app/Models/TenderModel.php(306): CodeIgniter\Model->countAllResults(false)
+#6 /opt/lampp/htdocs/proWebAPI/app/Controllers/TendersController.php(37): App\Models\TenderModel->getTendersWithDetails(Array, 1, 1)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TendersController->index()
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#14 {main}
+CRITICAL - 2024-10-08 09:41:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tenders' doesn't exist
+[Method: GET, Route: api/tenders]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+LEFT JOIN `users` ON `users`.`id` = `tenders`.`created_by`', [], false)
+ 2 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 APPPATH/Models/TenderModel.php(306): CodeIgniter\Model->countAllResults(false)
+ 4 APPPATH/Controllers/TendersController.php(37): App\Models\TenderModel->getTendersWithDetails([...], 1, 1)
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:41:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tenders' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+LEFT JOIN `users` ON `users`.`id` = `tenders`.`created_by`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+LEFT JOIN `users` ON `users`.`id` = `tenders`.`created_by`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+LEFT JOIN `users` ON `users`.`id` = `tenders`.`created_by`', [], false)
+ 4 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 5 APPPATH/Models/TenderModel.php(306): CodeIgniter\Model->countAllResults(false)
+ 6 APPPATH/Controllers/TendersController.php(37): App\Models\TenderModel->getTendersWithDetails([...], 1, 1)
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:41:40 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.tenders' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+LEFT JOIN `users` ON `users`.`id` = `tenders`.`created_by`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+LEFT JOIN `users` ON `users`.`id` = `tenders`.`created_by`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+LEFT JOIN `users` ON `users`.`id` = `tenders`.`created_by`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `tenders`
+LEFT JOIN `tender_status` ON `tender_status`.`id` = `tenders`.`current_status_id`
+LEFT JOIN `users` ON `users`.`id` = `tenders`.`created_by`', [], false)
+ 5 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 6 APPPATH/Models/TenderModel.php(306): CodeIgniter\Model->countAllResults(false)
+ 7 APPPATH/Controllers/TendersController.php(37): App\Models\TenderModel->getTendersWithDetails([...], 1, 1)
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TendersController->index()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TendersController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-10-08 09:41:43 --> mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`i...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`i...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`i...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`i...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2024-10-08 09:41:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+[Method: GET, Route: api/tender-status]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:41:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 09:41:43 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-10-08 10:12:44 --> mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`i...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`i...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`i...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`i...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2024-10-08 10:12:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+[Method: GET, Route: api/tender-status]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 10:12:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 10:12:44 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-10-08 10:17:09 --> mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`i...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`i...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`i...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`i...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2024-10-08 10:17:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+[Method: GET, Route: api/tender-status]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 2 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 10:17:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 4 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 10:17:09 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.tender_status' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(`id`) AS `id`
+FROM `tender_status`', [], false)
+ 5 SYSTEMPATH/Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/TenderStatusController.php(34): CodeIgniter\Model->__call('get', [])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TenderStatusController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TenderStatusController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+INFO - 2024-10-08 10:22:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-08 10:22:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-08 10:23:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-08 10:23:24 --> mysqli_sql_exception: Table 'eprocurement_db.companies' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*)...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(38): CodeIgniter\Model->countAllResults(false)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2024-10-08 10:23:24 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.companies' doesn't exist
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+LEFT JOIN `users` ON `users`.`company_id` = `companies`.`id`', [], false)
+ 2 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 APPPATH/Controllers/CompaniesController.php(38): CodeIgniter\Model->countAllResults(false)
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 10:23:24 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.companies' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+LEFT JOIN `users` ON `users`.`company_id` = `companies`.`id`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+LEFT JOIN `users` ON `users`.`company_id` = `companies`.`id`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+LEFT JOIN `users` ON `users`.`company_id` = `companies`.`id`', [], false)
+ 4 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 5 APPPATH/Controllers/CompaniesController.php(38): CodeIgniter\Model->countAllResults(false)
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 10:23:24 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.companies' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+LEFT JOIN `users` ON `users`.`company_id` = `companies`.`id`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+LEFT JOIN `users` ON `users`.`company_id` = `companies`.`id`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+LEFT JOIN `users` ON `users`.`company_id` = `companies`.`id`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+LEFT JOIN `users` ON `users`.`company_id` = `companies`.`id`', [], false)
+ 5 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 6 APPPATH/Controllers/CompaniesController.php(38): CodeIgniter\Model->countAllResults(false)
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+WARNING - 2024-10-08 10:24:05 --> [DEPRECATED] Creation of dynamic property App\Database\Migrations\AddMoreAttributesToUsers::$attributes is deprecated in APPPATH/Database/Migrations/2024-09-20-105456_AddMoreAttributesToUsers.php on line 22.
+ 1 SYSTEMPATH/Database/MigrationRunner.php(838): App\Database\Migrations\AddMoreAttributesToUsers->__construct(Object(CodeIgniter\Database\MySQLi\Forge))
+ 2 SYSTEMPATH/Database/MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+ 3 SYSTEMPATH/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(null)
+ 4 SYSTEMPATH/CLI/Commands.php(70): CodeIgniter\Commands\Database\Migrate->run([...])
+ 5 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('migrate', [...])
+ 6 SYSTEMPATH/Boot.php(351): CodeIgniter\CLI\Console->run()
+ 7 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+ 8 ROOTPATH/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+INFO - 2024-10-08 10:24:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-08 10:24:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-08 10:25:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-08 10:25:05 --> CodeIgniter\Shield\Exceptions\LogicException: The user has User Info in Session, so already logged in or in pending login state. If a logged in user logs in again with other account, the session data of the previous user will be used as the new user. Fix your code to prevent users from logging in without logging out or delete the session data. user_id: 2
+[Method: POST, Route: api/signin]
+in VENDORPATH/codeigniter4/shield/src/Authentication/Authenticators/Session.php on line 651.
+ 1 VENDORPATH/codeigniter4/shield/src/Authentication/Authenticators/Session.php(177): CodeIgniter\Shield\Authentication\Authenticators\Session->startLogin(Object(CodeIgniter\Shield\Entities\User))
+ 2 APPPATH/Controllers/AuthController.php(203): CodeIgniter\Shield\Authentication\Authenticators\Session->attempt([...])
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\AuthController->jwtLogin()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 10:25:36 --> ErrorException: Undefined variable $companies
+[Method: GET, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 44.
+ 1 APPPATH/Controllers/CompaniesController.php(44): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $companies', '/opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php', 44)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 10:26:18 --> ErrorException: Undefined array key "extra_data"
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 70.
+ 1 APPPATH/Controllers/CompaniesController.php(70): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "extra_data"', '/opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php', 70)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 10:27:49 --> Error: Class "App\Controllers\App\Models\UserModel" not found
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 88.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 10:28:41 --> ErrorException: Attempt to read property "id" on array
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 90.
+ 1 APPPATH/Controllers/CompaniesController.php(90): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on array', '/opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php', 90)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 10:29:00 --> TypeError: CodeIgniter\BaseModel::timeToString(): Argument #1 ($properties) must be of type array, string given, called in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php on line 1875
+[Method: POST, Route: api/companies]
+in SYSTEMPATH/BaseModel.php on line 1762.
+ 1 SYSTEMPATH/BaseModel.php(1875): CodeIgniter\BaseModel->timeToString('b5a3dd99-30f2-4842-bb4b-462d321467e0')
+ 2 SYSTEMPATH/BaseModel.php(997): CodeIgniter\BaseModel->transformDataToArray('b5a3dd99-30f2-4842-bb4b-462d321467e0', 'update')
+ 3 SYSTEMPATH/Model.php(865): CodeIgniter\BaseModel->update([...], 'b5a3dd99-30f2-4842-bb4b-462d321467e0')
+ 4 VENDORPATH/codeigniter4/shield/src/Models/UserModel.php(295): CodeIgniter\Model->update(1, 'b5a3dd99-30f2-4842-bb4b-462d321467e0')
+ 5 APPPATH/Controllers/CompaniesController.php(90): CodeIgniter\Shield\Models\UserModel->update(1, 'b5a3dd99-30f2-4842-bb4b-462d321467e0')
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+INFO - 2024-10-08 10:38:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-08 13:14:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-08 15:24:33 --> ErrorException: Undefined array key "extra_data"
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 72.
+ 1 APPPATH/Controllers/CompaniesController.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "extra_data"', '/opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php', 72)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 15:25:01 --> ErrorException: Undefined variable $newCompany
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 79.
+ 1 APPPATH/Controllers/CompaniesController.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $newCompany', '/opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php', 79)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 15:25:43 --> ErrorException: Undefined variable $newCompany
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 79.
+ 1 APPPATH/Controllers/CompaniesController.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $newCompany', '/opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php', 79)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 15:26:20 --> ErrorException: Undefined variable $newCompany
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 79.
+ 1 APPPATH/Controllers/CompaniesController.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $newCompany', '/opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php', 79)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 15:31:06 --> ErrorException: Undefined variable $newCompany
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 79.
+ 1 APPPATH/Controllers/CompaniesController.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $newCompany', '/opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php', 79)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 15:31:25 --> ErrorException: Undefined array key "extra_data"
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 72.
+ 1 APPPATH/Controllers/CompaniesController.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "extra_data"', '/opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php', 72)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-08 15:33:58 --> ErrorException: Undefined array key "extra_data"
+[Method: POST, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 72.
+ 1 APPPATH/Controllers/CompaniesController.php(72): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "extra_data"', '/opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php', 72)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')

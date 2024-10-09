@@ -10,7 +10,7 @@ class CreateTendersTable extends Migration
     {
         $this->forge->addField([
             'id' => [
-                 'type' => 'VARCHAR',
+                'type' => 'VARCHAR',
                 'constraint' => '255',
                 'null' => false,
                 'unique' => true,
@@ -54,13 +54,16 @@ class CreateTendersTable extends Migration
                 'type' => 'TIME',
                 'null' => false,
             ],
+            'extra_data' => [
+                'type' => 'JSON',
+                'null' => true,
+            ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp',
         ]);
 
         // Adding primary key
         $this->forge->addPrimaryKey('id');
-
 
         // Adding foreign keys
         $this->forge->addForeignKey('created_by', 'users', 'id', 'RESTRICT', 'RESTRICT');

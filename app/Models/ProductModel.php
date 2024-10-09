@@ -15,7 +15,7 @@ class ProductModel extends Model
     protected $useSoftDeletes = false; // If you want to use soft deletes, set this to true
 
     protected $allowedFields = [
-        'id', 'code', 'title', 'description', 'category_id', 'created_at', 'updated_at',
+        'id', 'code', 'title', 'description', 'category_id', 'extra_data', 'created_at', 'updated_at',
     ];
 
     // Validation rules

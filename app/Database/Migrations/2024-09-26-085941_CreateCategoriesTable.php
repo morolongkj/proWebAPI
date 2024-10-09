@@ -25,6 +25,10 @@ class CreateCategoriesTable extends Migration
                 'type' => 'TEXT',
                 'null' => true,
             ],
+            'extra_data' => [
+                'type' => 'JSON',
+                'null' => true,
+            ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp',
         ]);

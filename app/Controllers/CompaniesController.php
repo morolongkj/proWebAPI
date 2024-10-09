@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
 use CodeIgniter\RESTful\ResourceController;
 
 class CompaniesController extends ResourceController
@@ -19,15 +20,25 @@ class CompaniesController extends ResourceController
         }
         $company_name = $this->request->getVar('company_name');
         $year_established = $this->request->getVar('year_established');
+        $user_id = $this->request->getVar('user_id');
+
         $where = [];
         if ($company_name) {
-            $where['company_name like'] = '%' . $company_name . '%';
+            $where['companies.company_name like'] = '%' . $company_name . '%';
         }
         if ($year_established) {
-            $where['year_established like'] = '%' . $year_established . '%';
+            $where['companies.year_established like'] = '%' . $year_established . '%';
         }
-        $totalCompanies = $this->model->selectCount('id')->where($where)->get()->getRowArray()['id'];
-        $companies = $this->model->where($where)->orderBy('created_at', 'DESC')->paginate($perPage, 'companies ', $page);
+        if ($user_id) {
+            $where['users.user_id like'] = '%' . $user_id . '%';
+        }
+
+        $this->model->select('companies.*, users.id, CONCAT(users.first_name,"",users.last_name) as contact_person')
+            ->join('users', 'users.company_id = companies.id', 'left')
+            ->where($where);
+        $totalCompanies = $this->model->countAllResults(false); // false to avoid resetting query
+        $companies = $this->model->paginate($perPage, 'companies', $page);
+
         $data = [
             'status' => true,
             'data' => [
@@ -58,10 +69,12 @@ class CompaniesController extends ResourceController
         $user_id = auth()->id();
         $data = $this->request->getJSON(true);
         $data['user_id'] = $user_id;
+        if (isset($data['extra_data']) && $data['extra_data']) {
+            $data['extra_data'] = json_encode($data['extra_data']);
+        }
 
 // Save the company and status history
         $newCompany = $this->model->saveCompany($data);
-
 // Check if the company was saved successfully
         if ($newCompany === false) {
             // Respond with validation errors or a general error message
@@ -72,6 +85,10 @@ class CompaniesController extends ResourceController
 
             return $this->failServerError('Failed to create company.');
         }
+
+        // update users
+        // $userModel = new UserModel();
+        // $userModel->update($user_id, ["company_id" => $newCompany['id']]);
 
 // Respond with the newly created company data
         $response = [

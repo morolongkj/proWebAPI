@@ -59,6 +59,15 @@ class AddMoreAttributesToUsers extends Migration
                 'constraint' => '20',
                 'null' => true,
             ],
+            'extra_data' => [
+                'type' => 'JSON',
+                'null' => true,
+            ],
+            'company_id' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
             'reset_token' => [
                 'type' => 'TEXT',
                 'null' => true,
@@ -66,6 +75,7 @@ class AddMoreAttributesToUsers extends Migration
             'reset_token_expires_at datetime default current_timestamp',
         ];
         $this->forge->addColumn($this->tables['users'], $fields);
+        $this->forge->addForeignKey('company_id', 'companies', 'id', 'CASCADE', 'SET NULL');
     }
 
     public function down()
@@ -78,6 +88,8 @@ class AddMoreAttributesToUsers extends Migration
             'date_of_birth',
             'phone_number',
             'gender',
+            'extra_data',
+            'company_id',
             'reset_token',
             'reset_token_expires_at',
         ];

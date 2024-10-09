@@ -21,6 +21,7 @@ class TenderModel extends Model
         'opening_time',
         'closing_date',
         'closing_time',
+        'extra_data',
         'created_at',
         'updated_at',
     ]; // List of fields that can be inserted or updated
