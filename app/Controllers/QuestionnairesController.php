@@ -14,34 +14,68 @@ class QuestionnairesController extends ResourceController
      * Get a list of all questionnaires (index)
      * @return JSON
      */
+    // public function index()
+    // {
+    //     $page = $this->request->getVar('page') ?? 1;
+    //     $perPage = $this->request->getVar('perPage');
+    //     if (!$perPage) {
+    //         $perPage = null;
+    //     }
+    //     $title = $this->request->getVar('title');
+    //     $description = $this->request->getVar('description');
+    //     $status = $this->request->getVar('status');
+
+    //     $where = [];
+    //     if ($title) {
+    //         $where['title like'] = '%' . $title . '%';
+    //     }
+    //     if ($description) {
+    //         $where['description like'] = '%' . $description . '%';
+    //     }
+
+    //     if ($status) {
+    //         if ($status == 'open') {
+    //             // Apply additional conditions for "open" status
+    //             $where['status'] = 'open';
+    //             // $this->model->groupStart() // Start a group for OR conditions
+    //             //     ->where('open_until >=', date('Y-m-d'))
+    //             //     ->orWhere('is_open_forever', 1)
+    //             //     ->groupEnd(); // End group
+    //         } else {
+    //             $where['status like'] = '%' . $status . '%';
+    //         }
+    //     }
+
+    //     $totalQuestionnaires = $this->model->selectCount('id')->where($where)->get()->getRowArray()['id'];
+    //     $questionnaires = $this->model->where($where)->orderBy('created_at', 'DESC')->paginate($perPage, 'questionnaires', $page);
+    //     $data = [
+    //         'status' => true,
+    //         'data' => [
+    //             'questionnaires' => $questionnaires,
+    //             'total' => $totalQuestionnaires,
+    //         ],
+    //     ];
+
+    //     return $this->respond($data);
+
+    // }
+
     public function index()
     {
         $page = $this->request->getVar('page') ?? 1;
-        $perPage = $this->request->getVar('perPage');
-        if (!$perPage) {
-            $perPage = null;
-        }
-        $title = $this->request->getVar('title');
-        $description = $this->request->getVar('description');
-        $where = [];
-        if ($title) {
-            $where['title like'] = '%' . $title . '%';
-        }
-        if ($description) {
-            $where['description like'] = '%' . $description . '%';
-        }
-        $totalQuestionnaires = $this->model->selectCount('id')->where($where)->get()->getRowArray()['id'];
-        $questionnaires = $this->model->where($where)->orderBy('created_at', 'DESC')->paginate($perPage, 'questionnaires', $page);
-        $data = [
-            'status' => true,
-            'data' => [
-                'questionnaires' => $questionnaires,
-                'total' => $totalQuestionnaires,
-            ],
+        $perPage = $this->request->getVar('perPage') ?? null;
+
+        // Get the filters from the request and pass them as an array/object
+        $filters = [
+            'title' => $this->request->getVar('title'),
+            'description' => $this->request->getVar('description'),
+            'status' => $this->request->getVar('status'),
         ];
 
-        return $this->respond($data);
+        // Fetch the questionnaires and documents using the model, passing the filters
+        $data = $this->model->getQuestionnairesWithDocuments($page, $perPage, $filters);
 
+        return $this->respond($data);
     }
 
     /**

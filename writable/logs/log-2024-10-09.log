@@ -1,0 +1,222 @@
+INFO - 2024-10-09 19:18:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 19:18:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 19:18:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-09 19:35:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-09 19:37:31 --> mysqli_sql_exception: Duplicate entry 'Test1' for key 'title' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `qu...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `qu...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `qu...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `qu...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/QuestionnairesController.php(76): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\QuestionnairesController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+CRITICAL - 2024-10-09 19:37:31 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Test1' for key 'title'
+[Method: POST, Route: api/questionnaires]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (:title:, :status:, :created_at:, :updated_at:, :id:)', [...], false)
+ 2 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH/Controllers/QuestionnairesController.php(76): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->create()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-09 19:37:31 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Test1' for key 'title'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (\'Test1\', \'open\', \'2024-10-09 19:37:31\', \'2024-10-09 19:37:31\', \'9ff9a030-f703-4908-96cd-5527367e5910\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (\'Test1\', \'open\', \'2024-10-09 19:37:31\', \'2024-10-09 19:37:31\', \'9ff9a030-f703-4908-96cd-5527367e5910\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (:title:, :status:, :created_at:, :updated_at:, :id:)', [...], false)
+ 4 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH/Controllers/QuestionnairesController.php(76): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->create()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-09 19:37:31 --> [Caused by] mysqli_sql_exception: Duplicate entry 'Test1' for key 'title'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (\'Test1\', \'open\', \'2024-10-09 19:37:31\', \'2024-10-09 19:37:31\', \'9ff9a030-f703-4908-96cd-5527367e5910\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (\'Test1\', \'open\', \'2024-10-09 19:37:31\', \'2024-10-09 19:37:31\', \'9ff9a030-f703-4908-96cd-5527367e5910\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (\'Test1\', \'open\', \'2024-10-09 19:37:31\', \'2024-10-09 19:37:31\', \'9ff9a030-f703-4908-96cd-5527367e5910\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (:title:, :status:, :created_at:, :updated_at:, :id:)', [...], false)
+ 5 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH/Controllers/QuestionnairesController.php(76): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->create()
+11 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+12 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-10-09 19:38:00 --> mysqli_sql_exception: Duplicate entry 'Test 3' for key 'title' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `qu...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `qu...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `qu...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `qu...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/QuestionnairesController.php(76): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\QuestionnairesController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+CRITICAL - 2024-10-09 19:38:00 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Test 3' for key 'title'
+[Method: POST, Route: api/questionnaires]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (:title:, :status:, :created_at:, :updated_at:, :id:)', [...], false)
+ 2 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH/Controllers/QuestionnairesController.php(76): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->create()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-09 19:38:00 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'Test 3' for key 'title'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (\'Test 3\', \'open\', \'2024-10-09 19:38:00\', \'2024-10-09 19:38:00\', \'82304dab-7c88-47cf-aef6-577e38e1560e\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (\'Test 3\', \'open\', \'2024-10-09 19:38:00\', \'2024-10-09 19:38:00\', \'82304dab-7c88-47cf-aef6-577e38e1560e\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (:title:, :status:, :created_at:, :updated_at:, :id:)', [...], false)
+ 4 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH/Controllers/QuestionnairesController.php(76): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->create()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-09 19:38:00 --> [Caused by] mysqli_sql_exception: Duplicate entry 'Test 3' for key 'title'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (\'Test 3\', \'open\', \'2024-10-09 19:38:00\', \'2024-10-09 19:38:00\', \'82304dab-7c88-47cf-aef6-577e38e1560e\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (\'Test 3\', \'open\', \'2024-10-09 19:38:00\', \'2024-10-09 19:38:00\', \'82304dab-7c88-47cf-aef6-577e38e1560e\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (\'Test 3\', \'open\', \'2024-10-09 19:38:00\', \'2024-10-09 19:38:00\', \'82304dab-7c88-47cf-aef6-577e38e1560e\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `questionnaires` (`title`, `status`, `created_at`, `updated_at`, `id`) VALUES (:title:, :status:, :created_at:, :updated_at:, :id:)', [...], false)
+ 5 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH/Controllers/QuestionnairesController.php(76): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->create()
+11 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+12 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-10-09 20:20:27 --> mysqli_sql_exception: Table 'eprocurement_db.tender_documents' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/app/Models/QuestionnaireModel.php(153): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/app/Models/QuestionnaireModel.php(132): App\Models\QuestionnaireModel->getDocumentsByQuestionnaireId('11fa0e4a-b656-4...')
+#6 /opt/lampp/htdocs/proWebAPI/app/Controllers/QuestionnairesController.php(76): App\Models\QuestionnaireModel->getQuestionnairesWithDocuments(1, NULL, Array)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\QuestionnairesController->index()
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#14 {main}
+CRITICAL - 2024-10-09 20:20:27 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_documents' doesn't exist
+[Method: GET, Route: api/questionnaires]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tender_documents`
+WHERE `questionnaire_id` = :questionnaire_id:', [...], false)
+ 2 APPPATH/Models/QuestionnaireModel.php(153): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Models/QuestionnaireModel.php(132): App\Models\QuestionnaireModel->getDocumentsByQuestionnaireId('11fa0e4a-b656-47f4-a11b-c266a07221a5')
+ 4 APPPATH/Controllers/QuestionnairesController.php(76): App\Models\QuestionnaireModel->getQuestionnairesWithDocuments(1, null, [...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-09 20:20:27 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'eprocurement_db.tender_documents' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tender_documents`
+WHERE `questionnaire_id` = \'11fa0e4a-b656-47f4-a11b-c266a07221a5\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tender_documents`
+WHERE `questionnaire_id` = \'11fa0e4a-b656-47f4-a11b-c266a07221a5\'')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tender_documents`
+WHERE `questionnaire_id` = :questionnaire_id:', [...], false)
+ 4 APPPATH/Models/QuestionnaireModel.php(153): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Models/QuestionnaireModel.php(132): App\Models\QuestionnaireModel->getDocumentsByQuestionnaireId('11fa0e4a-b656-47f4-a11b-c266a07221a5')
+ 6 APPPATH/Controllers/QuestionnairesController.php(76): App\Models\QuestionnaireModel->getQuestionnairesWithDocuments(1, null, [...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-10-09 20:20:27 --> [Caused by] mysqli_sql_exception: Table 'eprocurement_db.tender_documents' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT *
+FROM `tender_documents`
+WHERE `questionnaire_id` = \'11fa0e4a-b656-47f4-a11b-c266a07221a5\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tender_documents`
+WHERE `questionnaire_id` = \'11fa0e4a-b656-47f4-a11b-c266a07221a5\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tender_documents`
+WHERE `questionnaire_id` = \'11fa0e4a-b656-47f4-a11b-c266a07221a5\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tender_documents`
+WHERE `questionnaire_id` = :questionnaire_id:', [...], false)
+ 5 APPPATH/Models/QuestionnaireModel.php(153): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Models/QuestionnaireModel.php(132): App\Models\QuestionnaireModel->getDocumentsByQuestionnaireId('11fa0e4a-b656-47f4-a11b-c266a07221a5')
+ 7 APPPATH/Controllers/QuestionnairesController.php(76): App\Models\QuestionnaireModel->getQuestionnairesWithDocuments(1, null, [...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->index()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')

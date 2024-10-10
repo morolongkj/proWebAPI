@@ -86,4 +86,71 @@ class QuestionnaireModel extends Model
         }
         return $data;
     }
+
+    /**
+     * Fetches questionnaires along with their associated documents, with filters passed as an object/array.
+     */
+    public function getQuestionnairesWithDocuments($page, $perPage, $filters = [])
+    {
+        $where = [];
+
+        // Apply filters
+        if (!empty($filters['title'])) {
+            $where['title like'] = '%' . $filters['title'] . '%';
+        }
+        if (!empty($filters['description'])) {
+            $where['description like'] = '%' . $filters['description'] . '%';
+        }
+
+        // Apply status condition
+        if (!empty($filters['status'])) {
+            if ($filters['status'] == 'open') {
+                // Apply additional conditions for "open" status
+                $where['status'] = 'open';
+                // $this->groupStart()
+                //     ->where('open_until >=', date('Y-m-d'))
+                //     ->orWhere('is_open_forever', 1)
+                //     ->groupEnd();
+            } else {
+                $where['status like'] = '%' . $filters['status'] . '%';
+            }
+        }
+
+        // Get total count of questionnaires
+        $totalQuestionnaires = $this->selectCount('id')
+            ->where($where)
+            ->get()
+            ->getRowArray()['id'];
+
+        // Get paginated questionnaires
+        $questionnaires = $this->where($where)
+            ->orderBy('created_at', 'DESC')
+            ->paginate($perPage, 'questionnaires', $page);
+
+        // Fetch documents for each questionnaire and append
+        foreach ($questionnaires as &$questionnaire) {
+            $questionnaire['documents'] = $this->getDocumentsByQuestionnaireId($questionnaire['id']);
+        }
+
+        // Return the data in an expected structure
+        return [
+            'status' => true,
+            'data' => [
+                'questionnaires' => $questionnaires,
+                'total' => $totalQuestionnaires,
+            ],
+        ];
+    }
+
+    /**
+     * Helper function to get documents by questionnaire ID.
+     */
+    private function getDocumentsByQuestionnaireId($questionnaireId)
+    {
+        return $this->db->table('questionnaire_documents')
+            ->select('*')
+            ->where('questionnaire_id', $questionnaireId)
+            ->get()
+            ->getResultArray();
+    }
 }
