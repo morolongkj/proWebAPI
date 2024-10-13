@@ -90,7 +90,7 @@ class QuestionnaireModel extends Model
     /**
      * Fetches questionnaires along with their associated documents, with filters passed as an object/array.
      */
-    public function getQuestionnairesWithDocuments($page, $perPage, $filters = [])
+    public function getQuestionnairesWithDetails($page, $perPage, $filters = [])
     {
         $where = [];
 
@@ -130,6 +130,7 @@ class QuestionnaireModel extends Model
         // Fetch documents for each questionnaire and append
         foreach ($questionnaires as &$questionnaire) {
             $questionnaire['documents'] = $this->getDocumentsByQuestionnaireId($questionnaire['id']);
+            $questionnaire['products'] = $this->getProductsByQuestionnaireId($questionnaire['id']);
         }
 
         // Return the data in an expected structure
@@ -150,6 +151,19 @@ class QuestionnaireModel extends Model
         return $this->db->table('questionnaire_documents')
             ->select('*')
             ->where('questionnaire_id', $questionnaireId)
+            ->get()
+            ->getResultArray();
+    }
+
+    /**
+     * Helper function to get documents by questionnaire ID.
+     */
+    private function getProductsByQuestionnaireId($questionnaireId)
+    {
+        return $this->db->table('questionnaire_products')
+            ->select('questionnaire_products.*, products.code as code, products.title as title')
+            ->join('products', 'products.id = questionnaire_products.product_id')
+            ->where('questionnaire_products.questionnaire_id', $questionnaireId)
             ->get()
             ->getResultArray();
     }

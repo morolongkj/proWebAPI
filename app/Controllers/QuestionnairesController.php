@@ -73,7 +73,7 @@ class QuestionnairesController extends ResourceController
         ];
 
         // Fetch the questionnaires and documents using the model, passing the filters
-        $data = $this->model->getQuestionnairesWithDocuments($page, $perPage, $filters);
+        $data = $this->model->getQuestionnairesWithDetails($page, $perPage, $filters);
 
         return $this->respond($data);
     }

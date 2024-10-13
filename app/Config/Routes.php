@@ -133,6 +133,30 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
         'filter' => 'jwt',
     ]);
 
+    $routes->resource('questionnaire-products', [
+        'controller' => 'QuestionnaireProductsController',
+        'filter' => 'jwt',
+    ]);
+
+    $routes->resource('prequalifications', [
+        'controller' => 'PrequalificationsController',
+        'filter' => 'jwt',
+    ]);
+
+    $routes->resource('prequalification-attachments', [
+        'controller' => 'PrequalificationAttachmentsController',
+        'filter' => 'jwt',
+    ]);
+
+    $routes->resource('prequalification-status', [
+        'controller' => 'PrequalificationStatusController',
+        'filter' => 'jwt',
+    ]);
+    $routes->resource('prequalification-status-history', [
+        'controller' => 'PrequalificationStatusHistoryController',
+        'filter' => 'jwt',
+    ]);
+
     // Custom routes for custom methods
     $routes->get('prequalified-companies/product/(:segment)', 'PrequalifiedCompaniesController::companiesByProduct/$1'); // GET /prequalified-companies/product/{productId}
     $routes->get('prequalified-companies/company/(:segment)', 'PrequalifiedCompaniesController::productsByCompany/$1'); // GET /prequalified-companies/company/{companyId}
