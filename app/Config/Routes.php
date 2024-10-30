@@ -165,3 +165,4 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
 });
 
 $routes->get('uploads/(:any)', 'ImageController::serveImage/$1');
+$routes->get('migrate', 'MigrateController::migrate');
