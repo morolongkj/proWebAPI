@@ -33,7 +33,7 @@ class CompaniesController extends ResourceController
             $where['users.user_id like'] = '%' . $user_id . '%';
         }
 
-        $this->model->select('companies.*, users.id, CONCAT(users.first_name,"",users.last_name) as contact_person')
+        $this->model->select('companies.*, users.id as user_id, CONCAT(users.first_name,"",users.last_name) as contact_person')
             ->join('users', 'users.company_id = companies.id', 'left')
             ->where($where);
         $totalCompanies = $this->model->countAllResults(false); // false to avoid resetting query
@@ -64,42 +64,71 @@ class CompaniesController extends ResourceController
     }
 
     // Method to create a new company
-    public function create()
-    {
-        $user_id = auth()->id();
-        $data = $this->request->getJSON(true);
-        $data['user_id'] = $user_id;
-        if (isset($data['extra_data']) && $data['extra_data']) {
-            $data['extra_data'] = json_encode($data['extra_data']);
-        }
+    // Method to create a new company
+public function create()
+{
+    $user_id = auth()->id(); // Get the authenticated user's ID
+    $data = $this->request->getJSON(true); // Parse JSON request data
+    $data['user_id'] = $user_id; // Add user ID to the data array
 
-// Save the company and status history
-        $newCompany = $this->model->saveCompany($data);
-// Check if the company was saved successfully
-        if ($newCompany === false) {
-            // Respond with validation errors or a general error message
-            $errors = $this->model->errors();
-            if (!empty($errors)) {
-                return $this->failValidationErrors($errors);
-            }
-
-            return $this->failServerError('Failed to create company.');
-        }
-
-        // update users
-        // $userModel = new UserModel();
-        // $userModel->update($user_id, ["company_id" => $newCompany['id']]);
-
-// Respond with the newly created company data
-        $response = [
-            "status" => true,
-            "message" => "Company created successfully",
-            "company" => $newCompany,
-        ];
-
-        return $this->respondCreated($response);
-
+    // Encode extra_data if it exists and is not empty
+    if (!empty($data['extra_data'])) {
+        $data['extra_data'] = json_encode($data['extra_data']);
     }
+
+    // Call the saveCompany method to handle company creation
+    $result = $this->model->saveCompany($data);
+
+    if (!$result['status']) {
+        // Handle errors
+        if (isset($result['errors'])) {
+            // Return validation errors if present
+            return $this->failValidationErrors($result['errors']);
+        }
+
+        // Return general failure response with the error message
+        return $this->fail($result['message']);
+    }
+
+    // Success response with company data
+    return $this->respondCreated([
+        'status' => true,
+        'message' => 'Company created successfully.',
+        'company' => $result['company'],
+    ]);
+}
+
+//     public function create()
+//     {
+//         $user_id = auth()->id();
+//         $data = $this->request->getJSON(true);
+//         $data['user_id'] = $user_id;
+//         if (isset($data['extra_data']) && $data['extra_data']) {
+//             $data['extra_data'] = json_encode($data['extra_data']);
+//         }
+
+
+//         $newCompany = $this->model->saveCompany($data);
+// // Check if the company was saved successfully
+//         if ($newCompany == false) {
+//             // Respond with validation errors or a general error message
+//             $errors = $this->model->errors();
+//             if (!empty($errors)) {
+//                 return $this->failValidationErrors($errors);
+//             }
+
+//             return $this->failServerError('Failed to create company.');
+//         }
+
+//         $response = [
+//             "status" => true,
+//             "message" => "Company created successfully",
+//             "company" => $newCompany,
+//         ];
+
+//         return $this->respondCreated($response);
+
+//     }
 
     /**
      * Update a specific company  (update)

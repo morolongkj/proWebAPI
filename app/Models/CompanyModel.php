@@ -84,46 +84,109 @@ class CompanyModel extends Model
 
     // Method to create a company along with a user within a transaction
     public function saveCompany(array $data)
-    {
-        $db = \Config\Database::connect();
-        $db->transStart(); // Start the transaction
+{
+    $db = \Config\Database::connect();
+    $db->transStart(); // Start the transaction
 
-// Validate data before saving
-        if (!$this->validate($data)) {
-            return $this->errors();
-        }
-
-// Save the tender data
-        if (!$this->save($data)) {
-            $db->transRollback(); // Rollback transaction on failure
-            return false;
-        }
-
-// Get the ID of the newly created tender
-        $newCompanyId = $this->getInsertID();
-
-// Prepare the user data
-        $userData = [
-            'company_id' => $newCompanyId,
+    // Validate data before saving
+    if (!$this->validate($data)) {
+        // Return validation errors as a structured response
+        return [
+            'status' => false,
+            'errors' => $this->errors(),
         ];
-
-// Insert the status history record
-        $userModel = new \App\Models\UserModel();
-        if (!$userModel->update($data['user_id'], $userData)) {
-            $db->transRollback(); // Rollback transaction on failure
-            return false;
-        }
-
-// Commit the transaction if everything is successful
-        $db->transComplete();
-
-// Check if the transaction was successful
-        if ($db->transStatus() === false) {
-            return false;
-        }
-
-// Return the newly created tender data
-        return $this->find($newCompanyId);
-
     }
+
+    // Attempt to save company data
+    if (!$this->save($data)) {
+        $db->transRollback(); // Rollback transaction on failure
+        return [
+            'status' => false,
+            'message' => 'Failed to save company data.',
+        ];
+    }
+
+    $newCompanyId = $this->getInsertID();
+
+    // Prepare the user data for the related user update
+    $userData = [
+        'company_id' => $newCompanyId,
+    ];
+
+    $userModel = new \App\Models\UserModel();
+    if (!$userModel->update($data['user_id'], $userData)) {
+        $db->transRollback(); // Rollback transaction on failure
+        return [
+            'status' => false,
+            'message' => 'Failed to update user with company ID.',
+        ];
+    }
+
+    // Commit the transaction if everything is successful
+    $db->transComplete();
+
+    // Check if the transaction was successful
+    if ($db->transStatus() === false) {
+        return [
+            'status' => false,
+            'message' => 'Transaction failed. Company creation was rolled back.',
+        ];
+    }
+
+    // Fetch and return the newly created company data
+    $newCompany = $this->find($newCompanyId);
+    if (!$newCompany) {
+        return [
+            'status' => false,
+            'message' => 'Failed to fetch newly created company.',
+        ];
+    }
+
+    return [
+        'status' => true,
+        'message' => 'Company created successfully.',
+        'company' => $newCompany,
+    ];
+}
+
+//     public function saveCompany(array $data)
+//     {
+//         $db = \Config\Database::connect();
+//         $db->transStart(); // Start the transaction
+
+// // Validate data before saving
+//         if (!$this->validate($data)) {
+//             return $this->errors();
+//         }
+
+//         if (!$this->save($data)) {
+//             $db->transRollback(); // Rollback transaction on failure
+//             return false;
+//         }
+
+//         $newCompanyId = $this->getInsertID();
+
+// // Prepare the user data
+//         $userData = [
+//             'company_id' => $newCompanyId,
+//         ];
+
+//         $userModel = new \App\Models\UserModel();
+//         if (!$userModel->update($data['user_id'], $userData)) {
+//             $db->transRollback(); // Rollback transaction on failure
+//             return false;
+//         }
+
+// // Commit the transaction if everything is successful
+//         $db->transComplete();
+
+// // Check if the transaction was successful
+//         if ($db->transStatus() === false) {
+//             return [];
+//         }
+
+// // Return the newly created tender data
+//         return $this->find($newCompanyId);
+
+//     }
 }

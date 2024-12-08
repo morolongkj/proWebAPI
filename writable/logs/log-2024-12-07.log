@@ -1,0 +1,159 @@
+INFO - 2024-12-07 07:04:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-07 07:05:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-07 07:27:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-07 09:02:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-07 09:02:56 --> CodeIgniter\Shield\Exceptions\LogicException: The user has User Info in Session, so already logged in or in pending login state. If a logged in user logs in again with other account, the session data of the previous user will be used as the new user. Fix your code to prevent users from logging in without logging out or delete the session data. user_id: 2
+[Method: POST, Route: api/signin]
+in VENDORPATH/codeigniter4/shield/src/Authentication/Authenticators/Session.php on line 651.
+ 1 VENDORPATH/codeigniter4/shield/src/Authentication/Authenticators/Session.php(177): CodeIgniter\Shield\Authentication\Authenticators\Session->startLogin(Object(CodeIgniter\Shield\Entities\User))
+ 2 APPPATH/Controllers/AuthController.php(203): CodeIgniter\Shield\Authentication\Authenticators\Session->attempt([...])
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\AuthController->jwtLogin()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-12-07 09:03:30 --> mysqli_sql_exception: Unknown column 'created_by' in 'field list' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `pr...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Models/PrequalificationModel.php(93): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/app/Controllers/PrequalificationsController.php(74): App\Models\PrequalificationModel->savePrequalification(Array)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\PrequalificationsController->create()
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PrequalificationsController))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#17 {main}
+ERROR - 2024-12-07 09:04:37 --> mysqli_sql_exception: Unknown column 'created_by' in 'field list' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `pr...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Models/PrequalificationModel.php(93): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/app/Controllers/PrequalificationsController.php(74): App\Models\PrequalificationModel->savePrequalification(Array)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\PrequalificationsController->create()
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PrequalificationsController))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#17 {main}
+ERROR - 2024-12-07 09:05:06 --> mysqli_sql_exception: Unknown column 'created_by' in 'field list' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `pr...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Models/PrequalificationModel.php(93): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/app/Controllers/PrequalificationsController.php(74): App\Models\PrequalificationModel->savePrequalification(Array)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\PrequalificationsController->create()
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PrequalificationsController))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#17 {main}
+ERROR - 2024-12-07 09:07:40 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`prequalifications`, CONSTRAINT `prequalifications_current_status_id_foreign` FOREIGN KEY (`current_status_id`) REFERENCES `tender_status` (`id`)) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `pr...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Models/PrequalificationModel.php(92): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/app/Controllers/PrequalificationsController.php(74): App\Models\PrequalificationModel->savePrequalification(Array)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\PrequalificationsController->create()
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PrequalificationsController))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#15 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#16 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#17 {main}
+ERROR - 2024-12-07 13:08:01 --> mysqli_sql_exception: Table 'users' already exists in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('CREATE TABLE `u...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `u...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `u...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `u...')
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Database/Migrations/2020-12-28-223112_create_auth_tables.php(187): CodeIgniter\Database\Forge->createTable('users', false, Array)
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Database/Migrations/2020-12-28-223112_create_auth_tables.php(60): CodeIgniter\Shield\Database\Migrations\CreateAuthTables->createTable('users')
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(867): CodeIgniter\Shield\Database\Migrations\CreateAuthTables->up()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Commands.php(70): CodeIgniter\Commands\Database\Migrate->run(Array)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('migrate', Array)
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(351): CodeIgniter\CLI\Console->run()
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#13 /opt/lampp/htdocs/proWebAPI/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#14 {main}
+WARNING - 2024-12-07 13:08:43 --> [DEPRECATED] Creation of dynamic property App\Database\Migrations\AddMoreAttributesToUsers::$attributes is deprecated in APPPATH/Database/Migrations/2024-09-20-105456_AddMoreAttributesToUsers.php on line 22.
+ 1 SYSTEMPATH/Database/MigrationRunner.php(838): App\Database\Migrations\AddMoreAttributesToUsers->__construct(Object(CodeIgniter\Database\MySQLi\Forge))
+ 2 SYSTEMPATH/Database/MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+ 3 SYSTEMPATH/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(null)
+ 4 SYSTEMPATH/CLI/Commands.php(70): CodeIgniter\Commands\Database\Migrate->run([...])
+ 5 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('migrate', [...])
+ 6 SYSTEMPATH/Boot.php(351): CodeIgniter\CLI\Console->run()
+ 7 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+ 8 ROOTPATH/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+INFO - 2024-12-07 13:09:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-07 13:09:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-07 13:10:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-07 13:21:07 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "[object Promise]"
+[Method: GET, Route: api/companies/%5Bobject%20Promise%5D]
+in SYSTEMPATH/Router/Router.php on line 737.
+ 1 SYSTEMPATH/Router/Router.php(204): CodeIgniter\Router\Router->checkDisallowedChars('api/companies/[object Promise]')
+ 2 SYSTEMPATH/CodeIgniter.php(834): CodeIgniter\Router\Router->handle('api/companies/[object Promise]')
+ 3 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-07 13:21:18 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "[object Promise]"
+[Method: GET, Route: api/companies/%5Bobject%20Promise%5D]
+in SYSTEMPATH/Router/Router.php on line 737.
+ 1 SYSTEMPATH/Router/Router.php(204): CodeIgniter\Router\Router->checkDisallowedChars('api/companies/[object Promise]')
+ 2 SYSTEMPATH/CodeIgniter.php(834): CodeIgniter\Router\Router->handle('api/companies/[object Promise]')
+ 3 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-07 13:23:27 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "[object Promise]"
+[Method: GET, Route: api/companies/%5Bobject%20Promise%5D]
+in SYSTEMPATH/Router/Router.php on line 737.
+ 1 SYSTEMPATH/Router/Router.php(204): CodeIgniter\Router\Router->checkDisallowedChars('api/companies/[object Promise]')
+ 2 SYSTEMPATH/CodeIgniter.php(834): CodeIgniter\Router\Router->handle('api/companies/[object Promise]')
+ 3 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+INFO - 2024-12-07 13:31:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

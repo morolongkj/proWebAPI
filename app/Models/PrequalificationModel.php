@@ -14,7 +14,6 @@ class PrequalificationModel extends Model
         'id',
         'questionnaire_id',
         'company_id',
-        'created_by',
         'current_status_id',
         'extra_data',
         'created_at',

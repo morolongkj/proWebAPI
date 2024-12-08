@@ -1,0 +1,294 @@
+ERROR - 2024-12-02 18:37:09 --> mysqli_sql_exception: No database selected in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `au...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `au...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `au...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `au...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Models/LoginModel.php(77): CodeIgniter\Model->insert(Array)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Authentication/Authenticators/JWT.php(88): CodeIgniter\Shield\Models\LoginModel->recordLoginAttempt('jwt', '', false, '127.0.0.1', 'Mozilla/5.0 (X1...')
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Filters/JWTAuth.php(48): CodeIgniter\Shield\Authentication\Authenticators\JWT->attempt(Array)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Filters/Filters.php(203): CodeIgniter\Shield\Filters\JWTAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore(Array)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/tender-stat...', 'before')
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#16 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#17 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#18 {main}
+CRITICAL - 2024-12-02 18:37:09 --> CodeIgniter\Shield\Models\DatabaseException: Query error: 1046, No database selected, query: INSERT INTO `auth_token_logins` (`ip_address`, `user_agent`, `id_type`, `identifier`, `user_id`, `date`, `success`) VALUES ('127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'jwt', '', NULL, '2024-12-02 18:37:09', 0)
+[Method: GET, Route: api/tender-status]
+in VENDORPATH/codeigniter4/shield/src/Models/CheckQueryReturnTrait.php on line 38.
+ 1 VENDORPATH/codeigniter4/shield/src/Models/LoginModel.php(87): CodeIgniter\Shield\Models\BaseModel->checkQueryReturn(false)
+ 2 VENDORPATH/codeigniter4/shield/src/Authentication/Authenticators/JWT.php(88): CodeIgniter\Shield\Models\LoginModel->recordLoginAttempt('jwt', '', false, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36')
+ 3 VENDORPATH/codeigniter4/shield/src/Filters/JWTAuth.php(48): CodeIgniter\Shield\Authentication\Authenticators\JWT->attempt([...])
+ 4 SYSTEMPATH/Filters/Filters.php(203): CodeIgniter\Shield\Filters\JWTAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 5 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 6 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/tender-status', 'before')
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-12-02 18:38:38 --> mysqli_sql_exception: No database selected in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `au...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `au...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `au...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `au...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Models/LoginModel.php(77): CodeIgniter\Model->insert(Array)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Authentication/Authenticators/JWT.php(88): CodeIgniter\Shield\Models\LoginModel->recordLoginAttempt('jwt', '', false, '127.0.0.1', 'Mozilla/5.0 (X1...')
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Filters/JWTAuth.php(48): CodeIgniter\Shield\Authentication\Authenticators\JWT->attempt(Array)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Filters/Filters.php(203): CodeIgniter\Shield\Filters\JWTAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore(Array)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/tender-stat...', 'before')
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#16 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#17 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#18 {main}
+CRITICAL - 2024-12-02 18:38:38 --> CodeIgniter\Shield\Models\DatabaseException: Query error: 1046, No database selected, query: INSERT INTO `auth_token_logins` (`ip_address`, `user_agent`, `id_type`, `identifier`, `user_id`, `date`, `success`) VALUES ('127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'jwt', '', NULL, '2024-12-02 18:38:38', 0)
+[Method: GET, Route: api/tender-status]
+in VENDORPATH/codeigniter4/shield/src/Models/CheckQueryReturnTrait.php on line 38.
+ 1 VENDORPATH/codeigniter4/shield/src/Models/LoginModel.php(87): CodeIgniter\Shield\Models\BaseModel->checkQueryReturn(false)
+ 2 VENDORPATH/codeigniter4/shield/src/Authentication/Authenticators/JWT.php(88): CodeIgniter\Shield\Models\LoginModel->recordLoginAttempt('jwt', '', false, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36')
+ 3 VENDORPATH/codeigniter4/shield/src/Filters/JWTAuth.php(48): CodeIgniter\Shield\Authentication\Authenticators\JWT->attempt([...])
+ 4 SYSTEMPATH/Filters/Filters.php(203): CodeIgniter\Shield\Filters\JWTAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 5 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 6 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/tender-status', 'before')
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-12-02 18:38:45 --> mysqli_sql_exception: No database selected in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `au...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `au...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `au...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `au...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Models/LoginModel.php(77): CodeIgniter\Model->insert(Array)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Authentication/Authenticators/JWT.php(88): CodeIgniter\Shield\Models\LoginModel->recordLoginAttempt('jwt', '', false, '127.0.0.1', 'Mozilla/5.0 (X1...')
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Filters/JWTAuth.php(48): CodeIgniter\Shield\Authentication\Authenticators\JWT->attempt(Array)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Filters/Filters.php(203): CodeIgniter\Shield\Filters\JWTAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore(Array)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/tender-stat...', 'before')
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#16 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#17 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#18 {main}
+CRITICAL - 2024-12-02 18:38:45 --> CodeIgniter\Shield\Models\DatabaseException: Query error: 1046, No database selected, query: INSERT INTO `auth_token_logins` (`ip_address`, `user_agent`, `id_type`, `identifier`, `user_id`, `date`, `success`) VALUES ('127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36', 'jwt', '', NULL, '2024-12-02 18:38:45', 0)
+[Method: GET, Route: api/tender-status]
+in VENDORPATH/codeigniter4/shield/src/Models/CheckQueryReturnTrait.php on line 38.
+ 1 VENDORPATH/codeigniter4/shield/src/Models/LoginModel.php(87): CodeIgniter\Shield\Models\BaseModel->checkQueryReturn(false)
+ 2 VENDORPATH/codeigniter4/shield/src/Authentication/Authenticators/JWT.php(88): CodeIgniter\Shield\Models\LoginModel->recordLoginAttempt('jwt', '', false, '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36')
+ 3 VENDORPATH/codeigniter4/shield/src/Filters/JWTAuth.php(48): CodeIgniter\Shield\Authentication\Authenticators\JWT->attempt([...])
+ 4 SYSTEMPATH/Filters/Filters.php(203): CodeIgniter\Shield\Filters\JWTAuth->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 5 SYSTEMPATH/Filters/Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+ 6 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('api/tender-status', 'before')
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-12-02 18:39:08 --> mysqli_sql_exception: No database selected in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/settings/src/Handlers/DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/settings/src/Handlers/DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(NULL)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/settings/src/Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Validati...', 'login', NULL)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/settings/src/Helpers/setting_helper.php(25): CodeIgniter\Settings\Settings->get('Validation.logi...')
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Validation/ValidationRules.php(69): setting('Validation.logi...')
+#9 /opt/lampp/htdocs/proWebAPI/app/Controllers/AuthController.php(252): CodeIgniter\Shield\Validation\ValidationRules->getLoginRules()
+#10 /opt/lampp/htdocs/proWebAPI/app/Controllers/AuthController.php(184): App\Controllers\AuthController->getValidationRules()
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\AuthController->jwtLogin()
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#16 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#17 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#18 {main}
+CRITICAL - 2024-12-02 18:39:08 --> CodeIgniter\Database\Exceptions\DatabaseException: No database selected
+[Method: POST, Route: api/signin]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', [], false)
+ 2 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+ 3 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(null)
+ 4 VENDORPATH/codeigniter4/settings/src/Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Validation', 'login', null)
+ 5 VENDORPATH/codeigniter4/settings/src/Helpers/setting_helper.php(25): CodeIgniter\Settings\Settings->get('Validation.login')
+ 6 VENDORPATH/codeigniter4/shield/src/Validation/ValidationRules.php(69): setting('Validation.login')
+ 7 APPPATH/Controllers/AuthController.php(252): CodeIgniter\Shield\Validation\ValidationRules->getLoginRules()
+ 8 APPPATH/Controllers/AuthController.php(184): App\Controllers\AuthController->getValidationRules()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\AuthController->jwtLogin()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-02 18:39:08 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: No database selected
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', [], false)
+ 4 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+ 5 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(null)
+ 6 VENDORPATH/codeigniter4/settings/src/Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Validation', 'login', null)
+ 7 VENDORPATH/codeigniter4/settings/src/Helpers/setting_helper.php(25): CodeIgniter\Settings\Settings->get('Validation.login')
+ 8 VENDORPATH/codeigniter4/shield/src/Validation/ValidationRules.php(69): setting('Validation.login')
+ 9 APPPATH/Controllers/AuthController.php(252): CodeIgniter\Shield\Validation\ValidationRules->getLoginRules()
+10 APPPATH/Controllers/AuthController.php(184): App\Controllers\AuthController->getValidationRules()
+11 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\AuthController->jwtLogin()
+12 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+13 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-02 18:39:08 --> [Caused by] mysqli_sql_exception: No database selected
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', [], false)
+ 5 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+ 6 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(null)
+ 7 VENDORPATH/codeigniter4/settings/src/Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Validation', 'login', null)
+ 8 VENDORPATH/codeigniter4/settings/src/Helpers/setting_helper.php(25): CodeIgniter\Settings\Settings->get('Validation.login')
+ 9 VENDORPATH/codeigniter4/shield/src/Validation/ValidationRules.php(69): setting('Validation.login')
+10 APPPATH/Controllers/AuthController.php(252): CodeIgniter\Shield\Validation\ValidationRules->getLoginRules()
+11 APPPATH/Controllers/AuthController.php(184): App\Controllers\AuthController->getValidationRules()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\AuthController->jwtLogin()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-12-02 18:39:18 --> mysqli_sql_exception: No database selected in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/settings/src/Handlers/DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/settings/src/Handlers/DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(NULL)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/settings/src/Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Validati...', 'login', NULL)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/settings/src/Helpers/setting_helper.php(25): CodeIgniter\Settings\Settings->get('Validation.logi...')
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Validation/ValidationRules.php(69): setting('Validation.logi...')
+#9 /opt/lampp/htdocs/proWebAPI/app/Controllers/AuthController.php(252): CodeIgniter\Shield\Validation\ValidationRules->getLoginRules()
+#10 /opt/lampp/htdocs/proWebAPI/app/Controllers/AuthController.php(184): App\Controllers\AuthController->getValidationRules()
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\AuthController->jwtLogin()
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#16 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#17 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#18 {main}
+CRITICAL - 2024-12-02 18:39:18 --> CodeIgniter\Database\Exceptions\DatabaseException: No database selected
+[Method: POST, Route: api/signin]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', [], false)
+ 2 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+ 3 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(null)
+ 4 VENDORPATH/codeigniter4/settings/src/Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Validation', 'login', null)
+ 5 VENDORPATH/codeigniter4/settings/src/Helpers/setting_helper.php(25): CodeIgniter\Settings\Settings->get('Validation.login')
+ 6 VENDORPATH/codeigniter4/shield/src/Validation/ValidationRules.php(69): setting('Validation.login')
+ 7 APPPATH/Controllers/AuthController.php(252): CodeIgniter\Shield\Validation\ValidationRules->getLoginRules()
+ 8 APPPATH/Controllers/AuthController.php(184): App\Controllers\AuthController->getValidationRules()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\AuthController->jwtLogin()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-02 18:39:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: No database selected
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', [], false)
+ 4 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+ 5 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(null)
+ 6 VENDORPATH/codeigniter4/settings/src/Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Validation', 'login', null)
+ 7 VENDORPATH/codeigniter4/settings/src/Helpers/setting_helper.php(25): CodeIgniter\Settings\Settings->get('Validation.login')
+ 8 VENDORPATH/codeigniter4/shield/src/Validation/ValidationRules.php(69): setting('Validation.login')
+ 9 APPPATH/Controllers/AuthController.php(252): CodeIgniter\Shield\Validation\ValidationRules->getLoginRules()
+10 APPPATH/Controllers/AuthController.php(184): App\Controllers\AuthController->getValidationRules()
+11 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\AuthController->jwtLogin()
+12 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+13 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-02 18:39:18 --> [Caused by] mysqli_sql_exception: No database selected
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', [], false)
+ 5 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+ 6 VENDORPATH/codeigniter4/settings/src/Handlers/DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(null)
+ 7 VENDORPATH/codeigniter4/settings/src/Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Validation', 'login', null)
+ 8 VENDORPATH/codeigniter4/settings/src/Helpers/setting_helper.php(25): CodeIgniter\Settings\Settings->get('Validation.login')
+ 9 VENDORPATH/codeigniter4/shield/src/Validation/ValidationRules.php(69): setting('Validation.login')
+10 APPPATH/Controllers/AuthController.php(252): CodeIgniter\Shield\Validation\ValidationRules->getLoginRules()
+11 APPPATH/Controllers/AuthController.php(184): App\Controllers\AuthController->getValidationRules()
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\AuthController->jwtLogin()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+INFO - 2024-12-02 18:39:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

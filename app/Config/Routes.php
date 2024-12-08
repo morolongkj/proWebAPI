@@ -120,6 +120,11 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
         'filter' => 'jwt',
     ]);
 
+    $routes->resource('documents', [
+        'controller' => 'DocumentsController',
+        'filter' => 'jwt',
+    ]);
+
     $routes->resource('company-users', [
         'controller' => 'CompanyUsersController',
         'filter' => 'jwt',
@@ -137,6 +142,8 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
         'controller' => 'QuestionnaireProductsController',
         'filter' => 'jwt',
     ]);
+
+    $routes->post('questionnaires/submit', 'QuestionnairesController::submit');
 
     $routes->resource('prequalifications', [
         'controller' => 'PrequalificationsController',
@@ -164,5 +171,5 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
 
 });
 
-$routes->get('uploads/(:any)', 'ImageController::serveImage/$1');
+// $routes->get('uploads/(:any)', 'ImageController::serveImage/$1');
 $routes->get('migrate', 'MigrateController::migrate');
