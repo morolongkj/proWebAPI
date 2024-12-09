@@ -143,7 +143,8 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
         'filter' => 'jwt',
     ]);
 
-    $routes->post('questionnaires/submit', 'QuestionnairesController::submit');
+    $routes->get('questionnaire-submissions', 'QuestionnairesController::listSubmissions', ['filter' => 'jwt']);
+    $routes->post('questionnaires/submit', 'QuestionnairesController::submit', ['filter' => 'jwt']);
 
     $routes->resource('prequalifications', [
         'controller' => 'PrequalificationsController',

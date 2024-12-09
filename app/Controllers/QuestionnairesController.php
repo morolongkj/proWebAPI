@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\QuestionnaireSubmissionAttachmentModel;
 use App\Models\QuestionnaireSubmissionModel;
+use App\Models\QuestionnaireSubmissionStatusHistoryModel;
+use App\Models\StatusModel;
 use CodeIgniter\RESTful\ResourceController;
 
 class QuestionnairesController extends ResourceController
@@ -13,11 +15,16 @@ class QuestionnairesController extends ResourceController
     protected $format = 'json';
     protected $questionnaireSubmissionModel;
     protected $questionnaireSubmissionAttachmentModel;
+    protected $statusModel;
+    protected $questionnaireSubmissionStatusHistoryModel;
 
     public function __construct()
     {
         $this->questionnaireSubmissionModel = new QuestionnaireSubmissionModel();
         $this->questionnaireSubmissionAttachmentModel = new QuestionnaireSubmissionAttachmentModel();
+        $this->statusModel = new StatusModel();
+        $this->questionnaireSubmissionStatusHistoryModel = new QuestionnaireSubmissionStatusHistoryModel();
+
         helper(['form', 'filesystem']);
     }
 
@@ -173,42 +180,127 @@ class QuestionnairesController extends ResourceController
         return $this->failServerError('Failed to delete questionnaire.');
     }
 
-    /**
-     * Submit a questionnaire with optional attachments.
-     */
+//     /**
+//      * Submit a questionnaire with optional attachments.
+//      */
+//     public function submit()
+//     {
+//         $user_id = auth()->id();
+//         // $data = $this->request->getJSON(true);
+//         $data = $this->request->getPost();
+//         $data['current_status_id'] = $this->statusModel->getStatusIdByTitle('Submitted');
+
+// // Validate data before inserting
+//         if (!$this->validate($this->questionnaireSubmissionModel->validationRules)) {
+//             return $this->failValidationErrors($this->validator->getErrors());
+//         }
+
+//         if ($this->questionnaireSubmissionModel->save($data)) {
+//             $newId = $this->questionnaireSubmissionModel->getInsertID();
+//             // Fetch the newly created document for the response
+//             $newSubmission = $this->questionnaireSubmissionModel->find($newId);
+
+//             if ($this->request->getFiles() && !empty($newSubmission)) {
+//                 $uploadStatus = $this->addAttachments($newId);
+//                 // return $this->respond($uploadStatus);
+//                 if (!$uploadStatus['success']) {
+//                     return $this->failServerError($uploadStatus['message']);
+//                 }
+//             }
+
+//             // update status history
+//             $status_history = array(
+//                 'submission_id' => $newId,
+//                 'status_id' => $data['current_status_id'],
+//                 'changed_by' => $user_id
+//             );
+
+//             $this->questionnaireSubmissionStatusHistoryModel->save($status_history);
+
+//             $response = [
+//                 "status" => true,
+//                 "message" => "Submitted successfully",
+//                 "submission" => $newSubmission,
+//             ];
+//             return $this->respondCreated($response);
+//         }
+
+//         return $this->failServerError('Failed to submit a questionnaire.');
+
+//     }
+
+/**
+ * Submit a questionnaire with optional attachments.
+ */
     public function submit()
     {
-        // $data = $this->request->getJSON(true);
-        $data = $this->request->getPost();
+        // Retrieve the current user's ID
+        $userId = auth()->id();
 
-// Validate data before inserting
+        if (!$userId) {
+            return $this->failUnauthorized('User is not authenticated.');
+        }
+
+        $data = $this->request->getPost();
+        $data['current_status_id'] = $this->statusModel->getStatusIdByTitle('Submitted');
+
+        // Validate data before inserting
         if (!$this->validate($this->questionnaireSubmissionModel->validationRules)) {
             return $this->failValidationErrors($this->validator->getErrors());
         }
 
-        if ($this->questionnaireSubmissionModel->save($data)) {
+        // Start transaction
+        $db = \Config\Database::connect();
+        $db->transBegin();
+
+        try {
+            if (!$this->questionnaireSubmissionModel->save($data)) {
+                throw new \Exception('Failed to save questionnaire submission.');
+            }
+
             $newId = $this->questionnaireSubmissionModel->getInsertID();
-            // Fetch the newly created document for the response
             $newSubmission = $this->questionnaireSubmissionModel->find($newId);
 
+            // Handle attachments if provided
             if ($this->request->getFiles() && !empty($newSubmission)) {
                 $uploadStatus = $this->addAttachments($newId);
-                // return $this->respond($uploadStatus);
                 if (!$uploadStatus['success']) {
-                    return $this->failServerError($uploadStatus['message']);
+                    throw new \Exception($uploadStatus['message']);
                 }
             }
 
+            // Update status history
+            $status_history = [
+                'submission_id' => $newId,
+                'status_id' => $data['current_status_id'],
+                'changed_by' => $userId,
+            ];
+
+            // Add this before save to check the data being passed
+            if (!$this->questionnaireSubmissionStatusHistoryModel->validate($status_history)) {
+                return $this->failValidationErrors($this->questionnaireSubmissionStatusHistoryModel->errors());
+            }
+
+            if (!$this->questionnaireSubmissionStatusHistoryModel->save($status_history)) {
+                throw new \Exception('Failed to save status history.');
+            }
+
+            // Commit the transaction if all operations are successful
+            $db->transCommit();
+
+            // Prepare and return success response
             $response = [
                 "status" => true,
                 "message" => "Submitted successfully",
-                "document" => $newSubmission,
+                "submission" => $newSubmission,
             ];
             return $this->respondCreated($response);
+
+        } catch (\Exception $e) {
+            // Rollback transaction if any operation fails
+            $db->transRollback();
+            return $this->failServerError($e->getMessage());
         }
-
-        return $this->failServerError('Failed to submit a questionnaire.');
-
     }
 
 /**
@@ -303,13 +395,14 @@ class QuestionnairesController extends ResourceController
             $attachments = is_array($attachments) ? $attachments : [$attachments];
             $attachmentNames = is_array($attachmentNames) ? $attachmentNames : [$attachmentNames];
 
-            foreach ($attachments  as $index => $file) {
+            foreach ($attachments as $index => $file) {
                 if ($file->isValid() && !$file->hasMoved()) {
                     try {
                         // Fetch file details before moving
                         $mimeType = $file->getClientMimeType();
                         $originalName = $file->getClientName();
                         $fileExtension = $file->getExtension();
+                        $fileSize = $file->getSize();
 
                         // Generate a new random name and move the file
                         $newName = $file->getRandomName();
@@ -325,6 +418,7 @@ class QuestionnairesController extends ResourceController
                             'file_name' => $originalName,
                             'file_path' => $filePath,
                             'file_type' => $mimeType,
+                            'file_size' => $fileSize,
                             'attachment_name' => $attachmentName,
                         ];
 
@@ -349,6 +443,82 @@ class QuestionnairesController extends ResourceController
         }
 
         return ['success' => false, 'message' => 'No attachments found in the request.'];
+    }
+
+    public function listSubmissions()
+    {
+        // Get pagination parameters from the query string
+        $page = $this->request->getVar('page') ?? 1;
+        $perPage = $this->request->getVar('perPage');
+        if (!$perPage) {
+            $perPage = null; // Use default perPage if not provided
+        }
+
+        // Get filter parameters from the query string
+        $companyId = $this->request->getVar('company_id');
+        $questionnaireId = $this->request->getVar('questionnaire_id');
+
+        $searchTerm = $this->request->getVar('searchTerm');
+
+        // Start building the query
+        $query = $this->questionnaireSubmissionModel;
+
+        // Join the users table to include user information
+        $query = $query->select('questionnaire_submissions.*, questionnaires.title AS questionnaire_title')
+            ->join('questionnaires', 'questionnaire_submissions.questionnaire_id = questionnaires.id');
+
+// Apply filters if values are provided
+        if ($companyId) {
+            $query = $query->where('company_id', $companyId);
+        }
+
+        if ($questionnaireId) {
+            $query = $query->where('questionnaire_id', $questionnaireId);
+        }
+
+        // Apply searchTerm filter
+        // if ($searchTerm) {
+        //     $query = $query->groupStart()
+        //         ->like('orders.id', $searchTerm)
+        //         ->orLike('orders.order_number', $searchTerm)
+        //         ->orLike('orders.order_date', $searchTerm)
+        //         ->orLike('orders.order_status', $searchTerm)
+        //         ->orLike('users.username', $searchTerm)
+        //         ->orWhereIn('orders.id', function ($subQuery) use ($searchTerm) {
+        //             $subQuery->select('order_id')
+        //                 ->from('order_items')
+        //                 ->join('stock', 'order_items.stock_id = stock.id')
+        //                 ->join('products', 'stock.product_id = products.id')
+        //                 ->like('products.title', $searchTerm);
+        //         })
+        //         ->groupEnd();
+        // }
+
+        // Sort by created_at in descending order
+        $query = $query->orderBy('created_at', 'DESC');
+
+// Get the total count for pagination metadata
+        $totalSubmissions = $query->countAllResults(false);
+
+// Fetch paginated orders
+        $submissions = $query->paginate($perPage, 'questionnaire_submissions', $page);
+
+        // Append order items to each order
+        foreach ($submissions as &$submission) {
+            // Get order items and join with stock and products table
+            $submission['attachments'] = $this->questionnaireSubmissionAttachmentModel->getRecordsBySubmissionId($submission['id']);
+            $submission['status_history'] = $this->questionnaireSubmissionStatusHistoryModel->getRecordsBySubmissionId($submission['id']);
+        }
+
+        // Prepare response with pagination metadata
+        $response = [
+            'data' => [
+                'submissions' => $submissions,
+                'total' => $totalSubmissions,
+            ],
+        ];
+
+        return $this->respond($response);
     }
 
 }

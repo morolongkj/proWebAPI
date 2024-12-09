@@ -48,6 +48,7 @@ class CreateQuestionnaireSubmissionsTable extends Migration
         // Adding foreign keys
         $this->forge->addForeignKey('questionnaire_id', 'questionnaires', 'id', 'RESTRICT', 'RESTRICT');
         $this->forge->addForeignKey('company_id', 'companies', 'id', 'RESTRICT', 'RESTRICT');
+        $this->forge->addForeignKey('current_status_id', 'status', 'id', 'SET NULL', 'CASCADE');
 
         // Creating the table
         $this->forge->createTable('questionnaire_submissions');

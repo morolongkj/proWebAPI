@@ -70,4 +70,28 @@ class QuestionnaireSubmissionAttachmentModel extends Model
         }
         return $data;
     }
+
+    /**
+     * Retrieve a single attachment record by its ID.
+     *
+     * @param string $id
+     * @return array|null
+     */
+    public function getRecordById(string $id): ?array
+    {
+        return $this->where('id', $id)->first();
+    }
+
+    /**
+     * Retrieve a list of attachments for a specific submission ID.
+     *
+     * @param string $submissionId
+     * @return array
+     */
+    public function getRecordsBySubmissionId(string $submissionId): array
+    {
+        return $this->where('submission_id', $submissionId)
+            ->orderBy('created_at', 'ASC') // Optional: order by creation time
+            ->findAll();
+    }
 }
