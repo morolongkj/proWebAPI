@@ -6,6 +6,7 @@ use App\Models\QuestionnaireSubmissionAttachmentModel;
 use App\Models\QuestionnaireSubmissionModel;
 use App\Models\QuestionnaireSubmissionStatusHistoryModel;
 use App\Models\StatusModel;
+use App\Models\CompanyModel;
 use CodeIgniter\RESTful\ResourceController;
 
 class QuestionnairesController extends ResourceController
@@ -17,12 +18,14 @@ class QuestionnairesController extends ResourceController
     protected $questionnaireSubmissionAttachmentModel;
     protected $statusModel;
     protected $questionnaireSubmissionStatusHistoryModel;
+    protected $companyModel;
 
     public function __construct()
     {
         $this->questionnaireSubmissionModel = new QuestionnaireSubmissionModel();
         $this->questionnaireSubmissionAttachmentModel = new QuestionnaireSubmissionAttachmentModel();
         $this->statusModel = new StatusModel();
+        $this->companyModel = new CompanyModel();
         $this->questionnaireSubmissionStatusHistoryModel = new QuestionnaireSubmissionStatusHistoryModel();
 
         helper(['form', 'filesystem']);
@@ -463,11 +466,7 @@ class QuestionnairesController extends ResourceController
         // Start building the query
         $query = $this->questionnaireSubmissionModel;
 
-        // Join the users table to include user information
-        $query = $query->select('questionnaire_submissions.*, questionnaires.title AS questionnaire_title')
-            ->join('questionnaires', 'questionnaire_submissions.questionnaire_id = questionnaires.id');
-
-// Apply filters if values are provided
+        $query = $query->select('questionnaire_submissions.*');
         if ($companyId) {
             $query = $query->where('company_id', $companyId);
         }
@@ -476,41 +475,18 @@ class QuestionnairesController extends ResourceController
             $query = $query->where('questionnaire_id', $questionnaireId);
         }
 
-        // Apply searchTerm filter
-        // if ($searchTerm) {
-        //     $query = $query->groupStart()
-        //         ->like('orders.id', $searchTerm)
-        //         ->orLike('orders.order_number', $searchTerm)
-        //         ->orLike('orders.order_date', $searchTerm)
-        //         ->orLike('orders.order_status', $searchTerm)
-        //         ->orLike('users.username', $searchTerm)
-        //         ->orWhereIn('orders.id', function ($subQuery) use ($searchTerm) {
-        //             $subQuery->select('order_id')
-        //                 ->from('order_items')
-        //                 ->join('stock', 'order_items.stock_id = stock.id')
-        //                 ->join('products', 'stock.product_id = products.id')
-        //                 ->like('products.title', $searchTerm);
-        //         })
-        //         ->groupEnd();
-        // }
-
-        // Sort by created_at in descending order
         $query = $query->orderBy('created_at', 'DESC');
 
-// Get the total count for pagination metadata
         $totalSubmissions = $query->countAllResults(false);
-
-// Fetch paginated orders
         $submissions = $query->paginate($perPage, 'questionnaire_submissions', $page);
-
-        // Append order items to each order
         foreach ($submissions as &$submission) {
-            // Get order items and join with stock and products table
+            $submission['questionnaire'] = $this->model->getQuestionnaireWithDetailsById($submission['questionnaire_id']);
             $submission['attachments'] = $this->questionnaireSubmissionAttachmentModel->getRecordsBySubmissionId($submission['id']);
             $submission['status_history'] = $this->questionnaireSubmissionStatusHistoryModel->getRecordsBySubmissionId($submission['id']);
+            $submission['status'] = $this->statusModel->findById($submission['current_status_id']);
+            $submission['company'] = $this->companyModel->findById($submission['company_id']);
         }
 
-        // Prepare response with pagination metadata
         $response = [
             'data' => [
                 'submissions' => $submissions,

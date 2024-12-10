@@ -84,3 +84,15 @@ in SYSTEMPATH/Router/RouteCollection.php on line 1598.
 12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
 INFO - 2024-12-09 04:53:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 18:29:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-09 18:46:15 --> BadMethodCallException: Call to undefined method App\Models\StatusModel::findById
+[Method: GET, Route: api/questionnaire-submissions]
+in SYSTEMPATH/Model.php on line 932.
+ 1 APPPATH/Controllers/QuestionnairesController.php(483): CodeIgniter\Model->__call('findById', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->listSubmissions()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')

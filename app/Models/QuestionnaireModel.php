@@ -167,4 +167,29 @@ class QuestionnaireModel extends Model
             ->get()
             ->getResultArray();
     }
+
+    /**
+ * Fetches a single questionnaire with its associated documents and products by ID.
+ *
+ * @param string $id
+ * @return array
+ */
+public function getQuestionnaireWithDetailsById($id)
+{
+    // Fetch the questionnaire details
+    $questionnaire = $this->where('id', $id)->first();
+
+    if (!$questionnaire) {
+        return [];
+    }
+
+    // Fetch associated documents
+    $questionnaire['documents'] = $this->getDocumentsByQuestionnaireId($id);
+
+    // Fetch associated products
+    $questionnaire['products'] = $this->getProductsByQuestionnaireId($id);
+
+    return $questionnaire;
+}
+
 }

@@ -67,4 +67,17 @@ class StatusModel extends Model
         $status = $this->where('title', $title)->first();
         return $status['id'] ?? null; // Return the ID or null if not found
     }
+
+    /**
+     * Fetch a single status record by its ID.
+     *
+     * @param string $id The ID of the status to retrieve.
+     * @return array|null Returns the status record as an associative array or null if not found.
+     */
+    public function findById(string $id): ?array
+    {
+        // Fetch the status record by ID
+        return $this->where('id', $id)->first();
+    }
+
 }
