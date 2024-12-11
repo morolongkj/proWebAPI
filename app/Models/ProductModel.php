@@ -73,4 +73,22 @@ class ProductModel extends Model
         }
         return $data;
     }
+
+/**
+ * Fetch a single product record by its ID.
+ *
+ * @param string|null $id The ID of the product to retrieve. Returns an empty array if ID is null.
+ * @return array|null Returns the product record as an associative array or an empty array if ID is null.
+ */
+    public function findById(?string $id = null): array
+    {
+        // Return an empty array if the ID is null
+        if ($id === null) {
+            return [];
+        }
+
+        // Fetch the product record by ID
+        return $this->where('id', $id)->first() ?? [];
+    }
+
 }

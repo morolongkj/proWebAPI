@@ -20,6 +20,7 @@ class QuestionnaireSubmissionModel extends Model
         'company_id',
         'message',
         'current_status_id',
+        'product_id',
         'extra_data',
         'created_at',
         'updated_at',

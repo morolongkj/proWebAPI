@@ -145,6 +145,8 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
 
     $routes->get('questionnaire-submissions', 'QuestionnairesController::listSubmissions', ['filter' => 'jwt']);
     $routes->post('questionnaires/submit', 'QuestionnairesController::submit', ['filter' => 'jwt']);
+    $routes->get('questionnaire-submissions/(:any)', 'QuestionnairesController::getSubmissionById/$1', ['filter' => 'jwt']);
+    $routes->put('questionnaire-submissions/update-status/(:any)', 'QuestionnairesController::updateSubmissionStatus/$1', ['filter' => 'jwt']);
 
     $routes->resource('prequalifications', [
         'controller' => 'PrequalificationsController',
@@ -165,6 +167,13 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
         'filter' => 'jwt',
     ]);
 
+    $routes->resource('notifications', [
+        'controller' => 'NotificationsController',
+        'filter' => 'jwt',
+    ]);
+    $routes->post('notifications/(:segment)/mark-as-read', 'NotificationsController::markAsRead/$1');
+    $routes->get('notifications/unread', 'NotificationsController::getUnreadNotifications');
+
     // Custom routes for custom methods
     $routes->get('prequalified-companies/product/(:segment)', 'PrequalifiedCompaniesController::companiesByProduct/$1'); // GET /prequalified-companies/product/{productId}
     $routes->get('prequalified-companies/company/(:segment)', 'PrequalifiedCompaniesController::productsByCompany/$1'); // GET /prequalified-companies/company/{companyId}
@@ -174,3 +183,4 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
 
 // $routes->get('uploads/(:any)', 'ImageController::serveImage/$1');
 $routes->get('migrate', 'MigrateController::migrate');
+$routes->get('uploads/(:any)', 'FileController::serveFile/$1');

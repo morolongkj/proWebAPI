@@ -242,7 +242,8 @@ class TenderModel extends Model
 
         // Load related tender products
         $tenderProductModel = new \App\Models\TenderProductModel();
-        $tender['products'] = $tenderProductModel->where('tender_id', $id)->findAll();
+        $tender['products'] = $tenderProductModel->getProductsByTenderIdWithDetails($id);
+        //$tenderProductModel->where('tender_id', $id)->findAll();
 
         // Load related tender attachments
         $tenderAttachmentModel = new \App\Models\TenderAttachmentModel();

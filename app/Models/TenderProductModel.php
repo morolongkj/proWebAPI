@@ -95,4 +95,20 @@ class TenderProductModel extends Model
             ->where('tender_products.id', $id)
             ->first();
     }
+
+    /**
+     * Get a list of products for a specific tender ID, including product details.
+     *
+     * @param string $tenderId
+     * @return array|null
+     */
+    public function getProductsByTenderIdWithDetails(string $tenderId)
+    {
+        return $this
+            ->select('tender_products.*, products.title, products.code, products.description') // Columns to select
+            ->join('products', 'products.id = tender_products.product_id') // Join with products table
+            ->where('tender_products.tender_id', $tenderId) // Filter by tender ID
+            ->findAll();
+    }
+
 }

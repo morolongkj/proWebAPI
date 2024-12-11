@@ -150,14 +150,14 @@ class CompanyModel extends Model
     }
 
     /**
-     * Fetch a single status record by its ID.
+     * Fetch a single company record by its ID.
      *
-     * @param string $id The ID of the status to retrieve.
-     * @return array|null Returns the status record as an associative array or null if not found.
+     * @param string $id The ID of the company to retrieve.
+     * @return array|null Returns the company record as an associative array or null if not found.
      */
     public function findById(string $id): ?array
     {
-        // Fetch the status record by ID
+        // Fetch the company record by ID
         return $this->where('id', $id)->first();
     }
 

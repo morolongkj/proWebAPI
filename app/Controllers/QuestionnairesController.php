@@ -2,11 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Models\CompanyModel;
+use App\Models\PrequalifiedCompanyModel;
+use App\Models\ProductModel;
 use App\Models\QuestionnaireSubmissionAttachmentModel;
 use App\Models\QuestionnaireSubmissionModel;
 use App\Models\QuestionnaireSubmissionStatusHistoryModel;
 use App\Models\StatusModel;
-use App\Models\CompanyModel;
+use App\Models\NotificationModel;
 use CodeIgniter\RESTful\ResourceController;
 
 class QuestionnairesController extends ResourceController
@@ -19,6 +22,9 @@ class QuestionnairesController extends ResourceController
     protected $statusModel;
     protected $questionnaireSubmissionStatusHistoryModel;
     protected $companyModel;
+    protected $productModel;
+    protected $prequalifiedCompanyModel;
+    protected $notificationModel;
 
     public function __construct()
     {
@@ -26,7 +32,10 @@ class QuestionnairesController extends ResourceController
         $this->questionnaireSubmissionAttachmentModel = new QuestionnaireSubmissionAttachmentModel();
         $this->statusModel = new StatusModel();
         $this->companyModel = new CompanyModel();
+        $this->productModel = new ProductModel();
         $this->questionnaireSubmissionStatusHistoryModel = new QuestionnaireSubmissionStatusHistoryModel();
+        $this->prequalifiedCompanyModel = new PrequalifiedCompanyModel();
+        $this->notificationModel = new NotificationModel();
 
         helper(['form', 'filesystem']);
     }
@@ -307,72 +316,6 @@ class QuestionnairesController extends ResourceController
     }
 
 /**
- * Add attachments for a given questionnaire.
- *
- * @param string $submissionId
- * @return array
- */
-// private function addAttachments(string $submissionId)
-// {
-//     $files = $this->request->getFiles();
-//     $uploadedFiles = [];
-//     $uploadDir = WRITEPATH . 'uploads/submissions/' . $submissionId . '/';
-
-//     // Ensure the upload directory exists
-//     if (!is_dir($uploadDir)) {
-//         mkdir($uploadDir, 0755, true);
-//     }
-
-//     // Check if files exist under 'attachments'
-//     if (isset($files['attachments'])) {
-//         // Handle single or multiple file uploads
-//         $attachments = is_array($files['attachments']) ? $files['attachments'] : [$files['attachments']];
-
-//         foreach ($attachments as $file) {
-//             if ($file->isValid() && !$file->hasMoved()) {
-//                 try {
-//                     // Fetch MIME type and other details before moving the file
-//                     $mimeType = $file->getClientMimeType();
-//                     $originalName = $file->getClientName();
-//                     $fileExtension = $file->getExtension();
-
-//                     // Move the file to the designated directory
-//                     $newName = $file->getRandomName();
-//                     $filePath = $uploadDir . $newName;
-//                     $file->move($uploadDir, $newName);
-
-//                     // Prepare data for database insertion
-//                     $attachmentData = [
-//                         'submission_id' => $submissionId,
-//                         'file_name' => $originalName,
-//                         'file_path' => $filePath,
-//                         'file_type' => $mimeType,
-//                     ];
-
-//                     // return json_encode($attachmentData);
-
-//                     // Save to the database
-//                     if (!$this->questionnaireSubmissionAttachmentModel->insert($attachmentData)) {
-//                         return ['success' => false, 'message' => 'Failed to save attachment in database.'];
-//                     }
-
-//                     $uploadedFiles[] = $attachmentData;
-
-//                 } catch (\Exception $e) {
-//                     return ['success' => false, 'message' => 'Error while processing file: ' . $e->getMessage()];
-//                 }
-//             } else {
-//                 return ['success' => false, 'message' => 'Invalid or inaccessible file.'];
-//             }
-//         }
-
-//         return ['success' => true, 'uploadedFiles' => $uploadedFiles];
-//     }
-
-//     return ['success' => false, 'message' => 'No attachments found in the request.'];
-// }
-
-/**
  * Add attachments for a given questionnaire submission.
  *
  * @param string $submissionId
@@ -485,6 +428,7 @@ class QuestionnairesController extends ResourceController
             $submission['status_history'] = $this->questionnaireSubmissionStatusHistoryModel->getRecordsBySubmissionId($submission['id']);
             $submission['status'] = $this->statusModel->findById($submission['current_status_id']);
             $submission['company'] = $this->companyModel->findById($submission['company_id']);
+            $submission['product'] = $this->productModel->findById($submission['product_id']);
         }
 
         $response = [
@@ -495,6 +439,126 @@ class QuestionnairesController extends ResourceController
         ];
 
         return $this->respond($response);
+    }
+
+    public function getSubmissionById($id)
+    {
+        // Validate the ID
+        if (!$id) {
+            return $this->failNotFound('Submission ID is required.');
+        }
+
+        // Fetch the submission
+        $submission = $this->questionnaireSubmissionModel->find($id);
+
+        if (!$submission) {
+            return $this->failNotFound('Submission not found.');
+        }
+
+        // Add related data to the submission
+        $submission['questionnaire'] = $this->model->getQuestionnaireWithDetailsById($submission['questionnaire_id']);
+        $submission['attachments'] = $this->questionnaireSubmissionAttachmentModel->getRecordsBySubmissionId($submission['id']);
+        $submission['status_history'] = $this->questionnaireSubmissionStatusHistoryModel->getRecordsBySubmissionId($submission['id']);
+        $submission['status'] = $this->statusModel->findById($submission['current_status_id']);
+        $submission['company'] = $this->companyModel->findById($submission['company_id']);
+        $submission['product'] = $this->productModel->findById($submission['product_id']);
+
+        // Prepare the response
+        $response = [
+            'data' => $submission,
+        ];
+
+        return $this->respond($response);
+    }
+
+/**
+ * Update a specific questionnaire submission status and record history.
+ *
+ * @param string|null $id
+ * @return JSON
+ */
+    public function updateSubmissionStatus($id = null)
+    {
+        $userId = auth()->id();
+
+        if (!$userId) {
+            return $this->failUnauthorized('User is not authenticated.');
+        }
+
+        $data = $this->request->getJSON(true);
+
+        // Find the existing submission
+        $existingQuestionnaireSubmission = $this->questionnaireSubmissionModel->find($id);
+        if (!$existingQuestionnaireSubmission) {
+            return $this->failNotFound('Submission not found');
+        }
+
+        // Get the new status ID
+        $status_id = $this->statusModel->getStatusIdByTitle($data['status']);
+        if (!$status_id) {
+            return $this->failValidationError('Invalid status provided');
+        }
+
+        // Start a database transaction
+        $db = \Config\Database::connect();
+        $db->transStart();
+
+        // Update the current status in the submission
+        $submissionUpdateSuccess = $this->questionnaireSubmissionModel->update($id, ['current_status_id' => $status_id]);
+
+        if (!$submissionUpdateSuccess) {
+            $db->transRollback();
+            return $this->failServerError('Failed to update submission.');
+        }
+
+        // Update status history
+        $status_history = [
+            'submission_id' => $id,
+            'status_id' => $status_id,
+            'changed_by' => $userId,
+        ];
+
+// Add this before save to check the data being passed
+        if (!$this->questionnaireSubmissionStatusHistoryModel->validate($status_history)) {
+            return $this->failValidationErrors($this->questionnaireSubmissionStatusHistoryModel->errors());
+        }
+
+        if (!$this->questionnaireSubmissionStatusHistoryModel->save($status_history)) {
+            throw new \Exception('Failed to save status history.');
+        }
+
+        // Check if the status is "Qualified" and insert into prequalified companies table
+        if ($data['status'] === 'Qualified') {
+            $prequalifiedData = [
+                'company_id' => $existingQuestionnaireSubmission['company_id'],
+                'product_id' => $existingQuestionnaireSubmission['product_id'],
+            ];
+
+            // return $this->respond($prequalifiedData);
+
+            // Add this before save to check the data being passed
+            if (!$this->prequalifiedCompanyModel->validate($prequalifiedData)) {
+                return $this->failValidationErrors($this->prequalifiedCompanyModel->errors());
+            }
+
+            if (!$this->prequalifiedCompanyModel->save($prequalifiedData)) {
+                throw new \Exception('Failed to insert qualified company record.');
+            }
+
+        }
+
+        $this->notificationModel->sendNotification($existingQuestionnaireSubmission['company_id'], $data['subject'], $data['message']);
+
+        // Commit the transaction
+        $db->transComplete();
+
+        if ($db->transStatus() === false) {
+            return $this->failServerError('Transaction failed.');
+        }
+
+        // Fetch and return the updated submission data
+        $updatedQuestionnaireSubmission = $this->questionnaireSubmissionModel->find($id);
+        return $this->respondUpdated($updatedQuestionnaireSubmission);
     }
 
 }
