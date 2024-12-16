@@ -1,0 +1,571 @@
+ERROR - 2024-12-16 04:16:26 --> mysqli_sql_exception: Can't create table `eprocurement_db`.`bids` (errno: 150 "Foreign key constraint is incorrectly formed") in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('CREATE TABLE `b...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `b...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `b...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `b...')
+#4 /opt/lampp/htdocs/proWebAPI/app/Database/Migrations/2024-12-15-220452_CreateBidsTable.php(49): CodeIgniter\Database\Forge->createTable('bids', true)
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(867): App\Database\Migrations\CreateBidsTable->up()
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Commands.php(70): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(351): CodeIgniter\CLI\Console->run()
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 /opt/lampp/htdocs/proWebAPI/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2024-12-16 04:19:11 --> mysqli_sql_exception: Can't create table `eprocurement_db`.`bids` (errno: 150 "Foreign key constraint is incorrectly formed") in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('CREATE TABLE `b...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `b...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `b...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `b...')
+#4 /opt/lampp/htdocs/proWebAPI/app/Database/Migrations/2024-12-15-220452_CreateBidsTable.php(46): CodeIgniter\Database\Forge->createTable('bids', true)
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(867): App\Database\Migrations\CreateBidsTable->up()
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Commands.php(70): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(351): CodeIgniter\CLI\Console->run()
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 /opt/lampp/htdocs/proWebAPI/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+INFO - 2024-12-16 05:16:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-16 05:16:43 --> Error: Class "App\Controllers\BidModel" not found
+[Method: POST, Route: api/bids]
+in APPPATH/Controllers/BidsController.php on line 26.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\BidsController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-16 05:18:24 --> Error: Class "App\Controllers\BidAttachmentModel" not found
+[Method: POST, Route: api/bids]
+in APPPATH/Controllers/BidsController.php on line 27.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\BidsController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+WARNING - 2024-12-16 05:19:00 --> [DEPRECATED] Creation of dynamic property App\Controllers\BidsController::$model is deprecated in APPPATH/Controllers/BidsController.php on line 29.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\BidsController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-16 05:19:00 --> Error: Class "App\Controllers\BidStatusHistoryModel" not found
+[Method: POST, Route: api/bids]
+in APPPATH/Controllers/BidsController.php on line 32.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\BidsController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+WARNING - 2024-12-16 05:20:02 --> [DEPRECATED] Creation of dynamic property App\Controllers\BidsController::$model is deprecated in APPPATH/Controllers/BidsController.php on line 30.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\BidsController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-16 05:20:02 --> Error: Class "App\Controllers\BidStatusHistoryModel" not found
+[Method: POST, Route: api/bids]
+in APPPATH/Controllers/BidsController.php on line 33.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\BidsController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+WARNING - 2024-12-16 05:20:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\BidsController::$model is deprecated in APPPATH/Controllers/BidsController.php on line 30.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\BidsController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-16 05:20:16 --> Error: Class "App\Controllers\BidProductModel" not found
+[Method: POST, Route: api/bids]
+in APPPATH/Controllers/BidsController.php on line 34.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\BidsController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+WARNING - 2024-12-16 05:20:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\BidsController::$model is deprecated in APPPATH/Controllers/BidsController.php on line 31.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\BidsController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-16 05:20:44 --> ErrorException: Undefined property: App\Controllers\BidsController::$bidModel
+[Method: POST, Route: api/bids]
+in APPPATH/Controllers/BidsController.php on line 62.
+ 1 APPPATH/Controllers/BidsController.php(62): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\BidsController::$bidModel', '/opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php', 62)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\BidsController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+WARNING - 2024-12-16 05:21:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\BidsController::$model is deprecated in APPPATH/Controllers/BidsController.php on line 31.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\BidsController->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-16 05:21:30 --> Error: Call to undefined method App\Controllers\BidsController::failValidationErrors()
+[Method: POST, Route: api/bids]
+in APPPATH/Controllers/BidsController.php on line 63.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\BidsController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-16 05:22:35 --> BadMethodCallException: Call to undefined method App\Models\BidModel::getStatusIdByTitle
+[Method: POST, Route: api/bids]
+in SYSTEMPATH/Model.php on line 932.
+ 1 APPPATH/Controllers/BidsController.php(60): CodeIgniter\Model->__call('getStatusIdByTitle', [...])
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\BidsController->create()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-16 05:23:13 --> Error: Call to a member function getStatusIdByTitle() on null
+[Method: POST, Route: api/bids]
+in APPPATH/Controllers/BidsController.php on line 60.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\BidsController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-12-16 07:16:40 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bid_products`, CONSTRAINT `bid_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(100): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+ERROR - 2024-12-16 07:26:20 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bid_products`, CONSTRAINT `bid_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(103): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+ERROR - 2024-12-16 07:26:22 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bid_products`, CONSTRAINT `bid_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(103): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+ERROR - 2024-12-16 07:28:08 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bid_products`, CONSTRAINT `bid_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(103): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+ERROR - 2024-12-16 07:30:26 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bid_products`, CONSTRAINT `bid_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(100): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+CRITICAL - 2024-12-16 07:50:03 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: api/bids]
+in APPPATH/Controllers/BidsController.php on line 93.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\BidsController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-16 07:51:56 --> TypeError: Cannot access offset of type string on string
+[Method: POST, Route: api/bids]
+in APPPATH/Controllers/BidsController.php on line 93.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\BidsController->create()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-12-16 08:12:46 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bid_products`, CONSTRAINT `bid_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(100): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+ERROR - 2024-12-16 08:13:57 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bid_products`, CONSTRAINT `bid_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(100): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+ERROR - 2024-12-16 08:15:40 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bid_products`, CONSTRAINT `bid_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(100): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+ERROR - 2024-12-16 08:17:37 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bid_products`, CONSTRAINT `bid_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(100): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+ERROR - 2024-12-16 08:20:36 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bids`, CONSTRAINT `bids_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`)) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(75): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+ERROR - 2024-12-16 08:21:01 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bids`, CONSTRAINT `bids_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`)) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(75): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+ERROR - 2024-12-16 08:21:14 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bids`, CONSTRAINT `bids_company_id_foreign` FOREIGN KEY (`company_id`) REFERENCES `companies` (`id`)) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(75): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+INFO - 2024-12-16 08:22:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-16 08:23:59 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`eprocurement_db`.`bid_products`, CONSTRAINT `bid_products_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `bi...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `bi...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `bi...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `bi...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(100): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->create()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+CRITICAL - 2024-12-16 09:39:44 --> ErrorException: Undefined property: App\Controllers\BidsController::$questionnaireSubmissionModel
+[Method: GET, Route: api/bids]
+in APPPATH/Controllers/BidsController.php on line 57.
+ 1 APPPATH/Controllers/BidsController.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\BidsController::$questionnaireSubmissionModel', '/opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php', 57)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\BidsController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-12-16 12:41:10 --> mysqli_sql_exception: Unknown column 'bids.company_name' in 'where clause' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*)...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/BidsController.php(81): CodeIgniter\Model->countAllResults(false)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\BidsController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2024-12-16 12:41:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'bids.company_name' in 'where clause'
+[Method: GET, Route: api/bids]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `bids`
+WHERE   (
+`bids`.`submission_date` LIKE :bids.submission_date: ESCAPE \'!\'
+OR  `bids`.`company_name` LIKE :bids.company_name: ESCAPE \'!\'
+ )', [...], false)
+ 2 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 APPPATH/Controllers/BidsController.php(81): CodeIgniter\Model->countAllResults(false)
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\BidsController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-16 12:41:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'bids.company_name' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `bids`
+WHERE   (
+`bids`.`submission_date` LIKE \'%19%\' ESCAPE \'!\'
+OR  `bids`.`company_name` LIKE \'%19%\' ESCAPE \'!\'
+ )')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `bids`
+WHERE   (
+`bids`.`submission_date` LIKE \'%19%\' ESCAPE \'!\'
+OR  `bids`.`company_name` LIKE \'%19%\' ESCAPE \'!\'
+ )')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `bids`
+WHERE   (
+`bids`.`submission_date` LIKE :bids.submission_date: ESCAPE \'!\'
+OR  `bids`.`company_name` LIKE :bids.company_name: ESCAPE \'!\'
+ )', [...], false)
+ 4 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 5 APPPATH/Controllers/BidsController.php(81): CodeIgniter\Model->countAllResults(false)
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\BidsController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-16 12:41:10 --> [Caused by] mysqli_sql_exception: Unknown column 'bids.company_name' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `bids`
+WHERE   (
+`bids`.`submission_date` LIKE \'%19%\' ESCAPE \'!\'
+OR  `bids`.`company_name` LIKE \'%19%\' ESCAPE \'!\'
+ )', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `bids`
+WHERE   (
+`bids`.`submission_date` LIKE \'%19%\' ESCAPE \'!\'
+OR  `bids`.`company_name` LIKE \'%19%\' ESCAPE \'!\'
+ )')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `bids`
+WHERE   (
+`bids`.`submission_date` LIKE \'%19%\' ESCAPE \'!\'
+OR  `bids`.`company_name` LIKE \'%19%\' ESCAPE \'!\'
+ )')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `bids`
+WHERE   (
+`bids`.`submission_date` LIKE :bids.submission_date: ESCAPE \'!\'
+OR  `bids`.`company_name` LIKE :bids.company_name: ESCAPE \'!\'
+ )', [...], false)
+ 5 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 6 APPPATH/Controllers/BidsController.php(81): CodeIgniter\Model->countAllResults(false)
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\BidsController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\BidsController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+INFO - 2024-12-16 13:19:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:19:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:29:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:29:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:30:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:30:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:40:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:41:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:41:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:41:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:42:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:44:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:47:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 13:53:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-16 13:57:48 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2024-12-16 13:57:48 --> 
+ERROR - 2024-12-16 13:59:59 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2024-12-16 13:59:59 --> 
+ERROR - 2024-12-16 14:00:45 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2024-12-16 14:00:45 --> 
+INFO - 2024-12-16 14:01:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 14:03:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-16 14:05:25 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2024-12-16 14:05:25 --> 
+ERROR - 2024-12-16 14:12:14 --> Email: Unable to send email using PHP mail(). Your server might not be configured to send mail using this method.
+ERROR - 2024-12-16 14:12:14 --> 
+INFO - 2024-12-16 14:27:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 14:27:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-16 14:41:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

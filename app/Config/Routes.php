@@ -174,6 +174,11 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
     $routes->post('notifications/(:segment)/mark-as-read', 'NotificationsController::markAsRead/$1');
     $routes->get('notifications/unread', 'NotificationsController::getUnreadNotifications');
 
+    $routes->resource('bids', [
+        'controller' => 'BidsController',
+        'filter' => 'jwt',
+    ]);
+
     // Custom routes for custom methods
     $routes->get('prequalified-companies/product/(:segment)', 'PrequalifiedCompaniesController::companiesByProduct/$1'); // GET /prequalified-companies/product/{productId}
     $routes->get('prequalified-companies/company/(:segment)', 'PrequalifiedCompaniesController::productsByCompany/$1'); // GET /prequalified-companies/company/{companyId}
