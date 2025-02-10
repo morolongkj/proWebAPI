@@ -1,0 +1,222 @@
+INFO - 2024-12-18 05:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 05:39:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 05:58:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 05:58:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 05:59:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 06:43:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 06:43:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 06:43:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 06:44:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 08:21:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 08:23:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 08:27:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-18 08:49:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-18 08:50:28 --> mysqli_sql_exception: Unknown column 'users.email' in 'field list' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`....', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(90): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#12 {main}
+CRITICAL - 2024-12-18 08:50:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'users.email' in 'field list'
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`email`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 2 APPPATH/Controllers/CompaniesController.php(90): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-18 08:50:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'users.email' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`email`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN (\'8e49a5dd-24e6-4a72-a4c6-da6d5aa0dcfd\',\'5fe429d2-f488-4727-ac7c-b48514d64212\',\'9bd55eff-85a1-431f-a7a8-07289cca49c7\',\'6e82472a-838e-4aaf-93ed-9453ef47754f\',\'c9db3e5c-c8d5-4c21-bc14-0307c0b2eb7e\',\'658d23ff-3944-4504-a2fe-3615d005ede7\',\'663c88a4-26d2-4edf-bad0-925eee92ba64\',\'b35727df-05f4-44ab-82b5-7caa0de05857\',\'cdfb7e80-6d91-4538-9aa0-7fd74cf9877a\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`email`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN (\'8e49a5dd-24e6-4a72-a4c6-da6d5aa0dcfd\',\'5fe429d2-f488-4727-ac7c-b48514d64212\',\'9bd55eff-85a1-431f-a7a8-07289cca49c7\',\'6e82472a-838e-4aaf-93ed-9453ef47754f\',\'c9db3e5c-c8d5-4c21-bc14-0307c0b2eb7e\',\'658d23ff-3944-4504-a2fe-3615d005ede7\',\'663c88a4-26d2-4edf-bad0-925eee92ba64\',\'b35727df-05f4-44ab-82b5-7caa0de05857\',\'cdfb7e80-6d91-4538-9aa0-7fd74cf9877a\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`email`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 4 APPPATH/Controllers/CompaniesController.php(90): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-18 08:50:28 --> [Caused by] mysqli_sql_exception: Unknown column 'users.email' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`email`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN (\'8e49a5dd-24e6-4a72-a4c6-da6d5aa0dcfd\',\'5fe429d2-f488-4727-ac7c-b48514d64212\',\'9bd55eff-85a1-431f-a7a8-07289cca49c7\',\'6e82472a-838e-4aaf-93ed-9453ef47754f\',\'c9db3e5c-c8d5-4c21-bc14-0307c0b2eb7e\',\'658d23ff-3944-4504-a2fe-3615d005ede7\',\'663c88a4-26d2-4edf-bad0-925eee92ba64\',\'b35727df-05f4-44ab-82b5-7caa0de05857\',\'cdfb7e80-6d91-4538-9aa0-7fd74cf9877a\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`email`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN (\'8e49a5dd-24e6-4a72-a4c6-da6d5aa0dcfd\',\'5fe429d2-f488-4727-ac7c-b48514d64212\',\'9bd55eff-85a1-431f-a7a8-07289cca49c7\',\'6e82472a-838e-4aaf-93ed-9453ef47754f\',\'c9db3e5c-c8d5-4c21-bc14-0307c0b2eb7e\',\'658d23ff-3944-4504-a2fe-3615d005ede7\',\'663c88a4-26d2-4edf-bad0-925eee92ba64\',\'b35727df-05f4-44ab-82b5-7caa0de05857\',\'cdfb7e80-6d91-4538-9aa0-7fd74cf9877a\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`email`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN (\'8e49a5dd-24e6-4a72-a4c6-da6d5aa0dcfd\',\'5fe429d2-f488-4727-ac7c-b48514d64212\',\'9bd55eff-85a1-431f-a7a8-07289cca49c7\',\'6e82472a-838e-4aaf-93ed-9453ef47754f\',\'c9db3e5c-c8d5-4c21-bc14-0307c0b2eb7e\',\'658d23ff-3944-4504-a2fe-3615d005ede7\',\'663c88a4-26d2-4edf-bad0-925eee92ba64\',\'b35727df-05f4-44ab-82b5-7caa0de05857\',\'cdfb7e80-6d91-4538-9aa0-7fd74cf9877a\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`email`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 5 APPPATH/Controllers/CompaniesController.php(90): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-12-18 08:50:48 --> mysqli_sql_exception: Unknown column 'users.phone' in 'field list' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`....', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(90): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#12 {main}
+CRITICAL - 2024-12-18 08:50:48 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'users.phone' in 'field list'
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 2 APPPATH/Controllers/CompaniesController.php(90): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-18 08:50:48 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'users.phone' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN (\'8e49a5dd-24e6-4a72-a4c6-da6d5aa0dcfd\',\'5fe429d2-f488-4727-ac7c-b48514d64212\',\'9bd55eff-85a1-431f-a7a8-07289cca49c7\',\'6e82472a-838e-4aaf-93ed-9453ef47754f\',\'c9db3e5c-c8d5-4c21-bc14-0307c0b2eb7e\',\'658d23ff-3944-4504-a2fe-3615d005ede7\',\'663c88a4-26d2-4edf-bad0-925eee92ba64\',\'b35727df-05f4-44ab-82b5-7caa0de05857\',\'cdfb7e80-6d91-4538-9aa0-7fd74cf9877a\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN (\'8e49a5dd-24e6-4a72-a4c6-da6d5aa0dcfd\',\'5fe429d2-f488-4727-ac7c-b48514d64212\',\'9bd55eff-85a1-431f-a7a8-07289cca49c7\',\'6e82472a-838e-4aaf-93ed-9453ef47754f\',\'c9db3e5c-c8d5-4c21-bc14-0307c0b2eb7e\',\'658d23ff-3944-4504-a2fe-3615d005ede7\',\'663c88a4-26d2-4edf-bad0-925eee92ba64\',\'b35727df-05f4-44ab-82b5-7caa0de05857\',\'cdfb7e80-6d91-4538-9aa0-7fd74cf9877a\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 4 APPPATH/Controllers/CompaniesController.php(90): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-18 08:50:48 --> [Caused by] mysqli_sql_exception: Unknown column 'users.phone' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN (\'8e49a5dd-24e6-4a72-a4c6-da6d5aa0dcfd\',\'5fe429d2-f488-4727-ac7c-b48514d64212\',\'9bd55eff-85a1-431f-a7a8-07289cca49c7\',\'6e82472a-838e-4aaf-93ed-9453ef47754f\',\'c9db3e5c-c8d5-4c21-bc14-0307c0b2eb7e\',\'658d23ff-3944-4504-a2fe-3615d005ede7\',\'663c88a4-26d2-4edf-bad0-925eee92ba64\',\'b35727df-05f4-44ab-82b5-7caa0de05857\',\'cdfb7e80-6d91-4538-9aa0-7fd74cf9877a\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN (\'8e49a5dd-24e6-4a72-a4c6-da6d5aa0dcfd\',\'5fe429d2-f488-4727-ac7c-b48514d64212\',\'9bd55eff-85a1-431f-a7a8-07289cca49c7\',\'6e82472a-838e-4aaf-93ed-9453ef47754f\',\'c9db3e5c-c8d5-4c21-bc14-0307c0b2eb7e\',\'658d23ff-3944-4504-a2fe-3615d005ede7\',\'663c88a4-26d2-4edf-bad0-925eee92ba64\',\'b35727df-05f4-44ab-82b5-7caa0de05857\',\'cdfb7e80-6d91-4538-9aa0-7fd74cf9877a\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN (\'8e49a5dd-24e6-4a72-a4c6-da6d5aa0dcfd\',\'5fe429d2-f488-4727-ac7c-b48514d64212\',\'9bd55eff-85a1-431f-a7a8-07289cca49c7\',\'6e82472a-838e-4aaf-93ed-9453ef47754f\',\'c9db3e5c-c8d5-4c21-bc14-0307c0b2eb7e\',\'658d23ff-3944-4504-a2fe-3615d005ede7\',\'663c88a4-26d2-4edf-bad0-925eee92ba64\',\'b35727df-05f4-44ab-82b5-7caa0de05857\',\'cdfb7e80-6d91-4538-9aa0-7fd74cf9877a\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 5 APPPATH/Controllers/CompaniesController.php(90): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2024-12-18 10:48:00 --> ErrorException: Undefined variable $prequalifiedCompanyModel
+[Method: GET, Route: api/companies]
+in APPPATH/Controllers/CompaniesController.php on line 109.
+ 1 APPPATH/Controllers/CompaniesController.php(109): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $prequalifiedCompanyModel', '/opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php', 109)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-12-18 11:03:43 --> mysqli_sql_exception: Duplicate entry 'b35727df-05f4-44ab-82b5-7caa0de05857-33d4054c-d9b2-4b9c-bf80-...' for key 'company_id_product_id' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `pr...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/QuestionnairesController.php(544): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\QuestionnairesController->updateSubmissionStatus('963ba00a-7377-4...')
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+CRITICAL - 2024-12-18 11:03:43 --> Exception: Failed to insert qualified company record.
+[Method: PUT, Route: api/questionnaire-submissions/update-status/963ba00a-7377-4311-af27-7485677e355e]
+in APPPATH/Controllers/QuestionnairesController.php on line 545.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->updateSubmissionStatus('963ba00a-7377-4311-af27-7485677e355e')
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2024-12-18 11:04:05 --> mysqli_sql_exception: Duplicate entry 'b35727df-05f4-44ab-82b5-7caa0de05857-33d4054c-d9b2-4b9c-bf80-...' for key 'company_id_product_id' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `pr...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 /opt/lampp/htdocs/proWebAPI/app/Controllers/QuestionnairesController.php(544): CodeIgniter\BaseModel->save(Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\QuestionnairesController->updateSubmissionStatus('963ba00a-7377-4...')
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#16 {main}
+CRITICAL - 2024-12-18 11:04:05 --> Exception: Failed to insert qualified company record.
+[Method: PUT, Route: api/questionnaire-submissions/update-status/963ba00a-7377-4311-af27-7485677e355e]
+in APPPATH/Controllers/QuestionnairesController.php on line 545.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->updateSubmissionStatus('963ba00a-7377-4311-af27-7485677e355e')
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')

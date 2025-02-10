@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controllers;
 
 use App\Models\BidAttachmentModel;
@@ -16,7 +15,7 @@ class BidsController extends ResourceController
 {
     // Load the model
     protected $modelName = 'App\Models\BidModel';
-    protected $format = 'json';
+    protected $format    = 'json';
     protected $bidAttachmentModel;
     protected $statusModel;
     protected $bidStatusHistoryModel;
@@ -29,14 +28,14 @@ class BidsController extends ResourceController
     public function __construct()
     {
         // $this->model = new BidModel();
-        $this->bidAttachmentModel = new BidAttachmentModel();
-        $this->statusModel = new StatusModel();
-        $this->companyModel = new CompanyModel();
-        $this->productModel = new ProductModel();
+        $this->bidAttachmentModel    = new BidAttachmentModel();
+        $this->statusModel           = new StatusModel();
+        $this->companyModel          = new CompanyModel();
+        $this->productModel          = new ProductModel();
         $this->bidStatusHistoryModel = new BidStatusHistoryModel();
-        $this->bidProductModel = new BidProductModel();
-        $this->notificationModel = new NotificationModel();
-        $this->tenderModel = new TenderModel();
+        $this->bidProductModel       = new BidProductModel();
+        $this->notificationModel     = new NotificationModel();
+        $this->tenderModel           = new TenderModel();
 
         helper(['form', 'filesystem']);
     }
@@ -44,16 +43,15 @@ class BidsController extends ResourceController
     public function index()
     {
         // Get pagination parameters from the query string
-        $page = $this->request->getVar('page') ?? 1;
+        $page    = $this->request->getVar('page') ?? 1;
         $perPage = $this->request->getVar('perPage');
-        if (!$perPage) {
+        if (! $perPage) {
             $perPage = null; // Use default perPage if not provided
         }
 
         // Get filter parameters from the query string
-        $companyId = $this->request->getVar('company_id');
-        $tenderId = $this->request->getVar('tender_id');
-
+        $companyId  = $this->request->getVar('company_id');
+        $tenderId   = $this->request->getVar('tender_id');
         $searchTerm = $this->request->getVar('searchTerm');
 
         // Start building the query
@@ -85,19 +83,19 @@ class BidsController extends ResourceController
         $query = $query->orderBy('created_at', 'DESC');
 
         $totalBids = $query->countAllResults(false);
-        $bids = $query->paginate($perPage, 'bids', $page);
+        $bids      = $query->paginate($perPage, 'bids', $page);
         foreach ($bids as &$bid) {
-            $bid['attachments'] = $this->bidAttachmentModel->getRecordsByBidId($bid['id']);
+            $bid['attachments']    = $this->bidAttachmentModel->getRecordsByBidId($bid['id']);
             $bid['status_history'] = $this->bidStatusHistoryModel->getRecordsByBidId($bid['id']);
-            $bid['status'] = $this->statusModel->findById($bid['current_status_id']);
-            $bid['company'] = $this->companyModel->findById($bid['company_id']);
-            $bid['products'] = $this->bidProductModel->getRecordsByBidId($bid['id']);
-            $bid['tender'] = $this->tenderModel->getTenderWithDetails($bid['tender_id']);
+            $bid['status']         = $this->statusModel->findById($bid['current_status_id']);
+            $bid['company']        = $this->companyModel->findById($bid['company_id']);
+            $bid['products']       = $this->bidProductModel->getRecordsByBidId($bid['id']);
+            $bid['tender']         = $this->tenderModel->getTenderWithDetails($bid['tender_id']);
         }
 
         $response = [
             'data' => [
-                'bids' => $bids,
+                'bids'  => $bids,
                 'total' => $totalBids,
             ],
         ];
@@ -113,18 +111,18 @@ class BidsController extends ResourceController
         // Retrieve the current user's ID
         $userId = auth()->id();
 
-        if (!$userId) {
+        if (! $userId) {
             return $this->failUnauthorized('User is not authenticated.');
         }
 
-        $data = $this->request->getPost();
+        $data     = $this->request->getPost();
         $products = $data['products'] ?? []; // Retrieve products from the request
-        unset($data['products']); // Remove products from main data array
+        unset($data['products']);            // Remove products from main data array
 
         $data['current_status_id'] = $this->statusModel->getStatusIdByTitle('Submitted');
 
         // Validate data before inserting
-        if (!$this->validate($this->model->validationRules)) {
+        if (! $this->validate($this->model->validationRules)) {
             return $this->failValidationErrors($this->validator->getErrors());
         }
 
@@ -134,32 +132,32 @@ class BidsController extends ResourceController
 
         try {
             // Save the main submission data
-            if (!$this->model->save($data)) {
+            if (! $this->model->save($data)) {
                 throw new \Exception('Failed to save bid submission.');
             }
 
-            $newId = $this->model->getInsertID();
+            $newId         = $this->model->getInsertID();
             $newSubmission = $this->model->find($newId);
 
             // Handle attachments if provided
-            if ($this->request->getFiles() && !empty($newSubmission)) {
+            if ($this->request->getFiles() && ! empty($newSubmission)) {
                 $uploadStatus = $this->addAttachments($newId);
-                if (!$uploadStatus['success']) {
+                if (! $uploadStatus['success']) {
                     throw new \Exception($uploadStatus['message']);
                 }
             }
 
             // Insert products into bid_products table
-            if (!empty($products)) {
+            if (! empty($products)) {
                 foreach ($products as $product) {
                     $product['bid_id'] = $newId; // Associate product with the bid ID
 
                     // Validate product data before insertion
-                    if (!$this->bidProductModel->validate($product)) {
+                    if (! $this->bidProductModel->validate($product)) {
                         return $this->failValidationErrors($this->bidProductModel->errors());
                     }
 
-                    if (!$this->bidProductModel->save($product)) {
+                    if (! $this->bidProductModel->save($product)) {
                         throw new \Exception('Failed to save product: ' . json_encode($product));
                     }
                 }
@@ -167,16 +165,16 @@ class BidsController extends ResourceController
 
             // Update status history
             $status_history = [
-                'bid_id' => $newId,
-                'status_id' => $data['current_status_id'],
+                'bid_id'     => $newId,
+                'status_id'  => $data['current_status_id'],
                 'changed_by' => $userId,
             ];
 
-            if (!$this->bidStatusHistoryModel->validate($status_history)) {
+            if (! $this->bidStatusHistoryModel->validate($status_history)) {
                 return $this->failValidationErrors($this->bidStatusHistoryModel->errors());
             }
 
-            if (!$this->bidStatusHistoryModel->save($status_history)) {
+            if (! $this->bidStatusHistoryModel->save($status_history)) {
                 throw new \Exception('Failed to save status history.');
             }
 
@@ -185,9 +183,9 @@ class BidsController extends ResourceController
 
             // Prepare and return success response
             $response = [
-                "status" => true,
+                "status"  => true,
                 "message" => "Submitted successfully",
-                "bid" => $newSubmission,
+                "bid"     => $newSubmission,
             ];
             return $this->respondCreated($response);
 
@@ -206,32 +204,32 @@ class BidsController extends ResourceController
      */
     private function addAttachments(string $bidId)
     {
-        $files = $this->request->getFiles();
+        $files         = $this->request->getFiles();
         $uploadedFiles = [];
-        $uploadDir = WRITEPATH . 'uploads/bids/' . $bidId . '/';
+        $uploadDir     = WRITEPATH . 'uploads/bids/' . $bidId . '/';
 
         // Ensure the upload directory exists
-        if (!is_dir($uploadDir)) {
+        if (! is_dir($uploadDir)) {
             mkdir($uploadDir, 0755, true);
         }
 
         // Check if files exist under 'attachments'
         if (isset($files['attachments'])) {
-            $attachments = $files['attachments'];
+            $attachments     = $files['attachments'];
             $attachmentNames = $this->request->getPost('attachment_names');
 
             // Ensure $attachments is treated as an array for multiple files
-            $attachments = is_array($attachments) ? $attachments : [$attachments];
+            $attachments     = is_array($attachments) ? $attachments : [$attachments];
             $attachmentNames = is_array($attachmentNames) ? $attachmentNames : [$attachmentNames];
 
             foreach ($attachments as $index => $file) {
-                if ($file->isValid() && !$file->hasMoved()) {
+                if ($file->isValid() && ! $file->hasMoved()) {
                     try {
                         // Fetch file details before moving
-                        $mimeType = $file->getClientMimeType();
-                        $originalName = $file->getClientName();
+                        $mimeType      = $file->getClientMimeType();
+                        $originalName  = $file->getClientName();
                         $fileExtension = $file->getExtension();
-                        $fileSize = $file->getSize();
+                        $fileSize      = $file->getSize();
 
                         // Generate a new random name and move the file
                         $newName = $file->getRandomName();
@@ -243,16 +241,16 @@ class BidsController extends ResourceController
 
                         // Prepare data for database insertion
                         $attachmentData = [
-                            'bid_id' => $bidId,
-                            'file_name' => $originalName,
-                            'file_path' => $filePath,
-                            'file_type' => $mimeType,
-                            'file_size' => $fileSize,
+                            'bid_id'          => $bidId,
+                            'file_name'       => $originalName,
+                            'file_path'       => $filePath,
+                            'file_type'       => $mimeType,
+                            'file_size'       => $fileSize,
                             'attachment_name' => $attachmentName,
                         ];
 
                         // Save each file's data to the database
-                        if (!$this->bidAttachmentModel->insert($attachmentData)) {
+                        if (! $this->bidAttachmentModel->insert($attachmentData)) {
                             return ['success' => false, 'message' => 'Failed to save attachment in database.'];
                         }
 
@@ -277,23 +275,23 @@ class BidsController extends ResourceController
     public function show($id = null)
     {
         // Validate the ID
-        if (!$id) {
+        if (! $id) {
             return $this->failNotFound('Bid ID is required.');
         }
 
         // Fetch the bid
         $bid = $this->model->find($id);
 
-        if (!$bid) {
+        if (! $bid) {
             return $this->failNotFound('Bid not found.');
         }
 
-        $bid['attachments'] = $this->bidAttachmentModel->getRecordsByBidId($bid['id']);
+        $bid['attachments']    = $this->bidAttachmentModel->getRecordsByBidId($bid['id']);
         $bid['status_history'] = $this->bidStatusHistoryModel->getRecordsByBidId($bid['id']);
-        $bid['status'] = $this->statusModel->findById($bid['current_status_id']);
-        $bid['company'] = $this->companyModel->findById($bid['company_id']);
-        $bid['products'] = $this->bidProductModel->getRecordsByBidId($bid['id']);
-        $bid['tender'] = $this->tenderModel->getTenderWithDetails($bid['tender_id']);
+        $bid['status']         = $this->statusModel->findById($bid['current_status_id']);
+        $bid['company']        = $this->companyModel->findById($bid['company_id']);
+        $bid['products']       = $this->bidProductModel->getRecordsByBidId($bid['id']);
+        $bid['tender']         = $this->tenderModel->getTenderWithDetails($bid['tender_id']);
 
         // Prepare the response
         $response = [
@@ -302,4 +300,62 @@ class BidsController extends ResourceController
 
         return $this->respond($response);
     }
+
+    public function financialEvaluation($tenderId = null)
+    {
+        if (! $tenderId) {
+            return $this->failNotFound('Tender ID is required.');
+        }
+
+        $tender = $this->tenderModel->getTenderWithDetails($tenderId);
+
+        if (! $tender) {
+            return $this->failNotFound('Tender not found.');
+        }
+
+        // Fetch tender products
+        $tenderProducts = $tender['products'];
+
+        if (empty($tenderProducts)) {
+            return $this->failNotFound('No products found for the specified tender.');
+        }
+
+        // Prepare response
+        $evaluationData = [];
+
+        foreach ($tenderProducts as $product) {
+            // Fetch all bids for the product
+            $bids = $this->bidProductModel
+                ->where('product_id', $product['product_id'])
+                ->join('bids', 'bids.id = bid_products.bid_id', 'INNER')
+                ->join('companies', 'companies.id = bids.company_id', 'INNER')
+                ->select('
+                bid_products.bid_id,
+                bid_products.unit_pack,
+                bid_products.quantity_offered,
+                bid_products.unit_price,
+                bid_products.total_price,
+                bid_products.lead_time,
+                bids.submission_date,
+                companies.company_name
+            ')
+                ->orderBy('bid_products.total_price', 'ASC')
+                ->findAll();
+
+            // Add product and its bids to response
+            $evaluationData[] = [
+                'product_id'   => $product['product_id'],
+                'product_name' => $product['title'],
+                'description'  => $product['description'],
+                'bids'         => $bids,
+            ];
+        }
+
+        return $this->respond([
+            'status'               => true,
+            'tender_id'            => $tenderId,
+            'financial_evaluation' => $evaluationData,
+        ]);
+    }
+
 }

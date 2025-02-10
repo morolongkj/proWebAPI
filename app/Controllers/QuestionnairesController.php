@@ -1,22 +1,22 @@
 <?php
-
 namespace App\Controllers;
 
 use App\Models\CompanyModel;
+use App\Models\NotificationModel;
 use App\Models\PrequalifiedCompanyModel;
 use App\Models\ProductModel;
 use App\Models\QuestionnaireSubmissionAttachmentModel;
 use App\Models\QuestionnaireSubmissionModel;
+use App\Models\QuestionnaireSubmissionProductModel;
 use App\Models\QuestionnaireSubmissionStatusHistoryModel;
 use App\Models\StatusModel;
-use App\Models\NotificationModel;
 use CodeIgniter\RESTful\ResourceController;
 
 class QuestionnairesController extends ResourceController
 {
     // Load the model
     protected $modelName = 'App\Models\QuestionnaireModel';
-    protected $format = 'json';
+    protected $format    = 'json';
     protected $questionnaireSubmissionModel;
     protected $questionnaireSubmissionAttachmentModel;
     protected $statusModel;
@@ -25,17 +25,19 @@ class QuestionnairesController extends ResourceController
     protected $productModel;
     protected $prequalifiedCompanyModel;
     protected $notificationModel;
+    protected $questionnaireSubmissionProductModel;
 
     public function __construct()
     {
-        $this->questionnaireSubmissionModel = new QuestionnaireSubmissionModel();
-        $this->questionnaireSubmissionAttachmentModel = new QuestionnaireSubmissionAttachmentModel();
-        $this->statusModel = new StatusModel();
-        $this->companyModel = new CompanyModel();
-        $this->productModel = new ProductModel();
+        $this->questionnaireSubmissionModel              = new QuestionnaireSubmissionModel();
+        $this->questionnaireSubmissionAttachmentModel    = new QuestionnaireSubmissionAttachmentModel();
+        $this->statusModel                               = new StatusModel();
+        $this->companyModel                              = new CompanyModel();
+        $this->productModel                              = new ProductModel();
         $this->questionnaireSubmissionStatusHistoryModel = new QuestionnaireSubmissionStatusHistoryModel();
-        $this->prequalifiedCompanyModel = new PrequalifiedCompanyModel();
-        $this->notificationModel = new NotificationModel();
+        $this->prequalifiedCompanyModel                  = new PrequalifiedCompanyModel();
+        $this->notificationModel                         = new NotificationModel();
+        $this->questionnaireSubmissionProductModel       = new QuestionnaireSubmissionProductModel();
 
         helper(['form', 'filesystem']);
     }
@@ -92,14 +94,14 @@ class QuestionnairesController extends ResourceController
 
     public function index()
     {
-        $page = $this->request->getVar('page') ?? 1;
+        $page    = $this->request->getVar('page') ?? 1;
         $perPage = $this->request->getVar('perPage') ?? null;
 
         // Get the filters from the request and pass them as an array/object
         $filters = [
-            'title' => $this->request->getVar('title'),
+            'title'       => $this->request->getVar('title'),
             'description' => $this->request->getVar('description'),
-            'status' => $this->request->getVar('status'),
+            'status'      => $this->request->getVar('status'),
         ];
 
         // Fetch the questionnaires and documents using the model, passing the filters
@@ -117,7 +119,7 @@ class QuestionnairesController extends ResourceController
     {
         $questionnaire = $this->model->find($id);
 
-        if (!$questionnaire) {
+        if (! $questionnaire) {
             return $this->failNotFound("Questionnaire not found with ID: $id");
         }
 
@@ -133,7 +135,7 @@ class QuestionnairesController extends ResourceController
         $data = $this->request->getJSON(true);
 
         // Validate data before inserting
-        if (!$this->validate($this->model->validationRules)) {
+        if (! $this->validate($this->model->validationRules)) {
             return $this->failValidationErrors($this->validator->getErrors());
         }
 
@@ -141,9 +143,9 @@ class QuestionnairesController extends ResourceController
             $newId = $this->model->getInsertID();
             // Fetch the newly created questionnaire for the response
             $newQuestionnaire = $this->model->find($newId);
-            $response = [
-                "status" => true,
-                "message" => "Questionnaire created successfully",
+            $response         = [
+                "status"        => true,
+                "message"       => "Questionnaire created successfully",
                 "questionnaire" => $newQuestionnaire,
             ];
             return $this->respondCreated($response);
@@ -159,7 +161,7 @@ class QuestionnairesController extends ResourceController
      */
     public function update($id = null)
     {
-        $data = $this->request->getJSON(true);
+        $data                  = $this->request->getJSON(true);
         $existingQuestionnaire = $this->model->find($id);
         if ($existingQuestionnaire) {
             if ($this->model->update($id, $data)) {
@@ -181,7 +183,7 @@ class QuestionnairesController extends ResourceController
     {
         // Find the questionnaire
         $questionnaire = $this->model->find($id);
-        if (!$questionnaire) {
+        if (! $questionnaire) {
             return $this->failNotFound("Questionnaire not found with ID: $id");
         }
         // Delete questionnaire
@@ -249,15 +251,19 @@ class QuestionnairesController extends ResourceController
         // Retrieve the current user's ID
         $userId = auth()->id();
 
-        if (!$userId) {
+        if (! $userId) {
             return $this->failUnauthorized('User is not authenticated.');
         }
 
-        $data = $this->request->getPost();
+        $data                      = $this->request->getPost();
         $data['current_status_id'] = $this->statusModel->getStatusIdByTitle('Submitted');
+        $products                  = $data['products'];
+        unset($data['products']);
+
+        // return $this->respond($products);
 
         // Validate data before inserting
-        if (!$this->validate($this->questionnaireSubmissionModel->validationRules)) {
+        if (! $this->validate($this->questionnaireSubmissionModel->validationRules)) {
             return $this->failValidationErrors($this->validator->getErrors());
         }
 
@@ -266,17 +272,37 @@ class QuestionnairesController extends ResourceController
         $db->transBegin();
 
         try {
-            if (!$this->questionnaireSubmissionModel->save($data)) {
+            if (! $this->questionnaireSubmissionModel->save($data)) {
                 throw new \Exception('Failed to save questionnaire submission.');
             }
 
-            $newId = $this->questionnaireSubmissionModel->getInsertID();
+            $newId         = $this->questionnaireSubmissionModel->getInsertID();
             $newSubmission = $this->questionnaireSubmissionModel->find($newId);
 
+            // Validate products array before processing
+            if (! empty($products) && is_array($products)) {
+                $productDataArray = [];
+
+                foreach ($products as $product) {
+                    $productDataArray[] = [
+                        "id"                => uuid_v4(),
+                        "submission_id"     => $newSubmission['id'],
+                        "product_id"        => $product,
+                        "current_status_id" => $this->statusModel->getStatusIdByTitle('Submitted'),
+
+                    ];
+                }
+// return $this->respond($productDataArray);
+                // Batch insert for better performance
+                if (! empty($productDataArray)) {
+                    $this->questionnaireSubmissionProductModel->insertBatch($productDataArray);
+                }
+            }
+
             // Handle attachments if provided
-            if ($this->request->getFiles() && !empty($newSubmission)) {
+            if ($this->request->getFiles() && ! empty($newSubmission)) {
                 $uploadStatus = $this->addAttachments($newId);
-                if (!$uploadStatus['success']) {
+                if (! $uploadStatus['success']) {
                     throw new \Exception($uploadStatus['message']);
                 }
             }
@@ -284,16 +310,16 @@ class QuestionnairesController extends ResourceController
             // Update status history
             $status_history = [
                 'submission_id' => $newId,
-                'status_id' => $data['current_status_id'],
-                'changed_by' => $userId,
+                'status_id'     => $data['current_status_id'],
+                'changed_by'    => $userId,
             ];
 
             // Add this before save to check the data being passed
-            if (!$this->questionnaireSubmissionStatusHistoryModel->validate($status_history)) {
+            if (! $this->questionnaireSubmissionStatusHistoryModel->validate($status_history)) {
                 return $this->failValidationErrors($this->questionnaireSubmissionStatusHistoryModel->errors());
             }
 
-            if (!$this->questionnaireSubmissionStatusHistoryModel->save($status_history)) {
+            if (! $this->questionnaireSubmissionStatusHistoryModel->save($status_history)) {
                 throw new \Exception('Failed to save status history.');
             }
 
@@ -302,8 +328,8 @@ class QuestionnairesController extends ResourceController
 
             // Prepare and return success response
             $response = [
-                "status" => true,
-                "message" => "Submitted successfully",
+                "status"     => true,
+                "message"    => "Submitted successfully",
                 "submission" => $newSubmission,
             ];
             return $this->respondCreated($response);
@@ -323,32 +349,32 @@ class QuestionnairesController extends ResourceController
  */
     private function addAttachments(string $submissionId)
     {
-        $files = $this->request->getFiles();
+        $files         = $this->request->getFiles();
         $uploadedFiles = [];
-        $uploadDir = WRITEPATH . 'uploads/submissions/' . $submissionId . '/';
+        $uploadDir     = WRITEPATH . 'uploads/submissions/' . $submissionId . '/';
 
         // Ensure the upload directory exists
-        if (!is_dir($uploadDir)) {
+        if (! is_dir($uploadDir)) {
             mkdir($uploadDir, 0755, true);
         }
 
         // Check if files exist under 'attachments'
         if (isset($files['attachments'])) {
-            $attachments = $files['attachments'];
+            $attachments     = $files['attachments'];
             $attachmentNames = $this->request->getPost('attachment_names');
 
             // Ensure $attachments is treated as an array for multiple files
-            $attachments = is_array($attachments) ? $attachments : [$attachments];
+            $attachments     = is_array($attachments) ? $attachments : [$attachments];
             $attachmentNames = is_array($attachmentNames) ? $attachmentNames : [$attachmentNames];
 
             foreach ($attachments as $index => $file) {
-                if ($file->isValid() && !$file->hasMoved()) {
+                if ($file->isValid() && ! $file->hasMoved()) {
                     try {
                         // Fetch file details before moving
-                        $mimeType = $file->getClientMimeType();
-                        $originalName = $file->getClientName();
+                        $mimeType      = $file->getClientMimeType();
+                        $originalName  = $file->getClientName();
                         $fileExtension = $file->getExtension();
-                        $fileSize = $file->getSize();
+                        $fileSize      = $file->getSize();
 
                         // Generate a new random name and move the file
                         $newName = $file->getRandomName();
@@ -360,16 +386,16 @@ class QuestionnairesController extends ResourceController
 
                         // Prepare data for database insertion
                         $attachmentData = [
-                            'submission_id' => $submissionId,
-                            'file_name' => $originalName,
-                            'file_path' => $filePath,
-                            'file_type' => $mimeType,
-                            'file_size' => $fileSize,
+                            'submission_id'   => $submissionId,
+                            'file_name'       => $originalName,
+                            'file_path'       => $filePath,
+                            'file_type'       => $mimeType,
+                            'file_size'       => $fileSize,
                             'attachment_name' => $attachmentName,
                         ];
 
                         // Save each file's data to the database
-                        if (!$this->questionnaireSubmissionAttachmentModel->insert($attachmentData)) {
+                        if (! $this->questionnaireSubmissionAttachmentModel->insert($attachmentData)) {
                             return ['success' => false, 'message' => 'Failed to save attachment in database.'];
                         }
 
@@ -394,14 +420,14 @@ class QuestionnairesController extends ResourceController
     public function listSubmissions()
     {
         // Get pagination parameters from the query string
-        $page = $this->request->getVar('page') ?? 1;
+        $page    = $this->request->getVar('page') ?? 1;
         $perPage = $this->request->getVar('perPage');
-        if (!$perPage) {
+        if (! $perPage) {
             $perPage = null; // Use default perPage if not provided
         }
 
         // Get filter parameters from the query string
-        $companyId = $this->request->getVar('company_id');
+        $companyId       = $this->request->getVar('company_id');
         $questionnaireId = $this->request->getVar('questionnaire_id');
 
         $searchTerm = $this->request->getVar('searchTerm');
@@ -421,20 +447,21 @@ class QuestionnairesController extends ResourceController
         $query = $query->orderBy('created_at', 'DESC');
 
         $totalSubmissions = $query->countAllResults(false);
-        $submissions = $query->paginate($perPage, 'questionnaire_submissions', $page);
+        $submissions      = $query->paginate($perPage, 'questionnaire_submissions', $page);
         foreach ($submissions as &$submission) {
-            $submission['questionnaire'] = $this->model->getQuestionnaireWithDetailsById($submission['questionnaire_id']);
-            $submission['attachments'] = $this->questionnaireSubmissionAttachmentModel->getRecordsBySubmissionId($submission['id']);
+            $submission['questionnaire']  = $this->model->getQuestionnaireWithDetailsById($submission['questionnaire_id']);
+            $submission['attachments']    = $this->questionnaireSubmissionAttachmentModel->getRecordsBySubmissionId($submission['id']);
             $submission['status_history'] = $this->questionnaireSubmissionStatusHistoryModel->getRecordsBySubmissionId($submission['id']);
-            $submission['status'] = $this->statusModel->findById($submission['current_status_id']);
-            $submission['company'] = $this->companyModel->findById($submission['company_id']);
-            $submission['product'] = $this->productModel->findById($submission['product_id']);
+            $submission['products'] = $this->questionnaireSubmissionProductModel->getRecordsBySubmissionId($submission['id']);
+            $submission['status']         = $this->statusModel->findById($submission['current_status_id']);
+            $submission['company']        = $this->companyModel->findById($submission['company_id']);
+            $submission['product']        = $this->productModel->findById($submission['product_id']);
         }
 
         $response = [
             'data' => [
                 'submissions' => $submissions,
-                'total' => $totalSubmissions,
+                'total'       => $totalSubmissions,
             ],
         ];
 
@@ -444,24 +471,24 @@ class QuestionnairesController extends ResourceController
     public function getSubmissionById($id)
     {
         // Validate the ID
-        if (!$id) {
+        if (! $id) {
             return $this->failNotFound('Submission ID is required.');
         }
 
         // Fetch the submission
         $submission = $this->questionnaireSubmissionModel->find($id);
 
-        if (!$submission) {
+        if (! $submission) {
             return $this->failNotFound('Submission not found.');
         }
 
         // Add related data to the submission
-        $submission['questionnaire'] = $this->model->getQuestionnaireWithDetailsById($submission['questionnaire_id']);
-        $submission['attachments'] = $this->questionnaireSubmissionAttachmentModel->getRecordsBySubmissionId($submission['id']);
+        $submission['questionnaire']  = $this->model->getQuestionnaireWithDetailsById($submission['questionnaire_id']);
+        $submission['attachments']    = $this->questionnaireSubmissionAttachmentModel->getRecordsBySubmissionId($submission['id']);
         $submission['status_history'] = $this->questionnaireSubmissionStatusHistoryModel->getRecordsBySubmissionId($submission['id']);
-        $submission['status'] = $this->statusModel->findById($submission['current_status_id']);
-        $submission['company'] = $this->companyModel->findById($submission['company_id']);
-        $submission['product'] = $this->productModel->findById($submission['product_id']);
+        $submission['status']         = $this->statusModel->findById($submission['current_status_id']);
+        $submission['company']        = $this->companyModel->findById($submission['company_id']);
+        $submission['product']        = $this->productModel->findById($submission['product_id']);
 
         // Prepare the response
         $response = [
@@ -481,7 +508,7 @@ class QuestionnairesController extends ResourceController
     {
         $userId = auth()->id();
 
-        if (!$userId) {
+        if (! $userId) {
             return $this->failUnauthorized('User is not authenticated.');
         }
 
@@ -489,13 +516,13 @@ class QuestionnairesController extends ResourceController
 
         // Find the existing submission
         $existingQuestionnaireSubmission = $this->questionnaireSubmissionModel->find($id);
-        if (!$existingQuestionnaireSubmission) {
+        if (! $existingQuestionnaireSubmission) {
             return $this->failNotFound('Submission not found');
         }
 
         // Get the new status ID
         $status_id = $this->statusModel->getStatusIdByTitle($data['status']);
-        if (!$status_id) {
+        if (! $status_id) {
             return $this->failValidationError('Invalid status provided');
         }
 
@@ -506,7 +533,7 @@ class QuestionnairesController extends ResourceController
         // Update the current status in the submission
         $submissionUpdateSuccess = $this->questionnaireSubmissionModel->update($id, ['current_status_id' => $status_id]);
 
-        if (!$submissionUpdateSuccess) {
+        if (! $submissionUpdateSuccess) {
             $db->transRollback();
             return $this->failServerError('Failed to update submission.');
         }
@@ -514,16 +541,16 @@ class QuestionnairesController extends ResourceController
         // Update status history
         $status_history = [
             'submission_id' => $id,
-            'status_id' => $status_id,
-            'changed_by' => $userId,
+            'status_id'     => $status_id,
+            'changed_by'    => $userId,
         ];
 
 // Add this before save to check the data being passed
-        if (!$this->questionnaireSubmissionStatusHistoryModel->validate($status_history)) {
+        if (! $this->questionnaireSubmissionStatusHistoryModel->validate($status_history)) {
             return $this->failValidationErrors($this->questionnaireSubmissionStatusHistoryModel->errors());
         }
 
-        if (!$this->questionnaireSubmissionStatusHistoryModel->save($status_history)) {
+        if (! $this->questionnaireSubmissionStatusHistoryModel->save($status_history)) {
             throw new \Exception('Failed to save status history.');
         }
 
@@ -537,11 +564,11 @@ class QuestionnairesController extends ResourceController
             // return $this->respond($prequalifiedData);
 
             // Add this before save to check the data being passed
-            if (!$this->prequalifiedCompanyModel->validate($prequalifiedData)) {
+            if (! $this->prequalifiedCompanyModel->validate($prequalifiedData)) {
                 return $this->failValidationErrors($this->prequalifiedCompanyModel->errors());
             }
 
-            if (!$this->prequalifiedCompanyModel->save($prequalifiedData)) {
+            if (! $this->prequalifiedCompanyModel->save($prequalifiedData)) {
                 throw new \Exception('Failed to insert qualified company record.');
             }
 

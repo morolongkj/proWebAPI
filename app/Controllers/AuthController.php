@@ -287,17 +287,13 @@ class AuthController extends ResourceController
 
             $message = view('emails/reset_password_email', $data);
 
-            // send_mail($email, "Reset Password", $message);
+            send_mail($email, "Reset Password", $message);
 
             $response = [
                 "message" => "Email with reset token is sent successfully.",
             ];
 
             return $this->respond($response, ResponseInterface::HTTP_OK);
-
-            // Send email to the user with a link to the reset password endpoint
-            // You can use a library like CodeIgniter's Email class to send emails
-            // Make sure to include the token in the link
         }
     }
 
