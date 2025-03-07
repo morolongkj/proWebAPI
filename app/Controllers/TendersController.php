@@ -76,6 +76,8 @@ class TendersController extends ResourceController
 // Save the tender and status history
         $newTender = $this->model->saveTender($data);
 
+        // return $this->respond($newTender);
+
 // Check if the tender was saved successfully
         if ($newTender === false) {
             // Respond with validation errors or a general error message

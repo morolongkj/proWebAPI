@@ -80,54 +80,54 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
 
     $routes->resource('categories', [
         'controller' => 'CategoriesController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
 
     $routes->resource('products', [
         'controller' => 'ProductsController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
 
     $routes->resource('tenders', [
         'controller' => 'TendersController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
     $routes->post('tenders/approve/(:segment)', 'TendersController::approve/$1');
     $routes->post('tenders/reject/(:segment)', 'TendersController::reject/$1');
     $routes->resource('tender-attachments', [
         'controller' => 'TenderAttachmentsController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
     $routes->resource('tender-products', [
         'controller' => 'TenderProductsController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
     $routes->resource('tender-status', [
         'controller' => 'TenderStatusController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
     $routes->resource('tender-status-history', [
         'controller' => 'TenderStatusHistoryController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
     $routes->resource('tender-approvals', [
         'controller' => 'TenderApprovalsController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
 
     $routes->resource('companies', [
         'controller' => 'CompaniesController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
 
     $routes->resource('documents', [
         'controller' => 'DocumentsController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
 
     $routes->resource('company-users', [
         'controller' => 'CompanyUsersController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
 
     $routes->get('company-users/company/(:segment)', 'CompanyUsersController::usersByCompany/$1', ['filter' => 'jwt']);
@@ -135,12 +135,12 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
 
     $routes->resource('prequalified-companies', [
         'controller' => 'PrequalifiedCompaniesController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
 
     $routes->resource('questionnaire-products', [
         'controller' => 'QuestionnaireProductsController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
 
     $routes->get('questionnaire-submissions', 'QuestionnairesController::listSubmissions', ['filter' => 'jwt']);
@@ -150,33 +150,40 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
 
     $routes->resource('prequalifications', [
         'controller' => 'PrequalificationsController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
 
     $routes->resource('prequalification-attachments', [
         'controller' => 'PrequalificationAttachmentsController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
 
     $routes->resource('prequalification-status', [
         'controller' => 'PrequalificationStatusController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
     $routes->resource('prequalification-status-history', [
         'controller' => 'PrequalificationStatusHistoryController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
 
     $routes->resource('notifications', [
         'controller' => 'NotificationsController',
-        'filter' => 'jwt',
+        'filter'     => 'jwt',
     ]);
     $routes->post('notifications/(:segment)/mark-as-read', 'NotificationsController::markAsRead/$1');
     $routes->get('notifications/unread', 'NotificationsController::getUnreadNotifications');
 
-    // Custom routes for custom methods
-    $routes->get('prequalified-companies/product/(:segment)', 'PrequalifiedCompaniesController::companiesByProduct/$1'); // GET /prequalified-companies/product/{productId}
-    $routes->get('prequalified-companies/company/(:segment)', 'PrequalifiedCompaniesController::productsByCompany/$1'); // GET /prequalified-companies/company/{companyId}
+
+    $routes->get('bids/financial-evaluation/(:segment)', 'BidsController::financialEvaluation/$1');
+$routes->resource('bids', [
+    'controller' => 'BidsController',
+    'filter'     => 'jwt',
+]);
+
+                                                                                                                                 // Custom routes for custom methods
+    $routes->get('prequalified-companies/product/(:segment)', 'PrequalifiedCompaniesController::companiesByProduct/$1');         // GET /prequalified-companies/product/{productId}
+    $routes->get('prequalified-companies/company/(:segment)', 'PrequalifiedCompaniesController::productsByCompany/$1');          // GET /prequalified-companies/company/{companyId}
     $routes->get('prequalified-companies/check/(:segment)/(:segment)', 'PrequalifiedCompaniesController::isPrequalified/$1/$2'); // GET /prequalified-companies/check/{companyId}/{productId}
 
 });

@@ -11,55 +11,55 @@ class TenderStatusSeeder extends Seeder
         // Array of tender statuses to be seeded
         $data = [
             [
-                'id' => uuid_v4(),
                 'status' => 'Initiated',
                 'description' => 'Tender process has been initiated.',
             ],
             [
-                'id' => uuid_v4(),
                 'status' => 'Draft',
                 'description' => 'Tender is currently in draft status.',
             ],
             [
-                'id' => uuid_v4(),
                 'status' => 'Submitted',
                 'description' => 'Tender has been submitted and sent for verification.',
             ],
             [
-                'id' => uuid_v4(),
                 'status' => 'Verified',
                 'description' => 'Tender has been verified and sent for approvals.',
             ],
             [
-                'id' => uuid_v4(),
                 'status' => 'Approved',
                 'description' => 'Tender has been approved for publishing.',
             ],
             [
-                'id' => uuid_v4(),
                 'status' => 'Rejected',
                 'description' => 'Tender has been rejected.',
             ],
             [
-                'id' => uuid_v4(),
                 'status' => 'Published',
                 'description' => 'Tender is currently published and open for bids.',
             ],
             [
-                'id' => uuid_v4(),
                 'status' => 'Closed',
                 'description' => 'Tender process has been closed.',
             ],
             [
-                'id' => uuid_v4(),
                 'status' => 'Completed',
                 'description' => 'Tender process has been closed and completed.',
             ],
         ];
 
-        // Inserting data into the tender_status table
+        // Load the database connection
+        $db = \Config\Database::connect();
+        $builder = $db->table('tender_status');
+
+        // Insert data only if status doesn't already exist
         foreach ($data as $status) {
-            $this->db->table('tender_status')->insert($status);
+            $exists = $builder->where('status', $status['status'])->countAllResults();
+
+            if ($exists == 0) {
+                $status['id'] = uuid_v4(); // Add UUID only before insertion
+                $builder->insert($status);
+            }
         }
     }
 }

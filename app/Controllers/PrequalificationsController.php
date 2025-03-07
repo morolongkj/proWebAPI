@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\QuestionnaireSubmissionProductModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 
@@ -9,6 +10,14 @@ class PrequalificationsController extends ResourceController
 {
     protected $modelName = 'App\Models\PrequalificationModel';
     protected $format = 'json';
+
+        protected $questionnaireSubmissionProduct;
+
+    public function __construct()
+    {
+        $this->questionnaireSubmissionProductModel           = new QuestionnaireSubmissionProductModel();
+    }
+
     /**
      * Return an array of resource objects, themselves in array format.
      *
@@ -69,7 +78,8 @@ class PrequalificationsController extends ResourceController
         $user_id = auth()->id();
         $data = $this->request->getJSON(true);
         $data['created_by'] = $user_id;
-
+$products = $data['products'];
+unset($data['products']);
 // Save the prequalification and status history
         $newPrequalification = $this->model->savePrequalification($data);
 
@@ -83,6 +93,25 @@ class PrequalificationsController extends ResourceController
 
             return $this->failServerError('Failed to create prequalification.');
         }
+
+ // Validate products array before processing
+if (! empty($products) && is_array($products)) {
+    $productDataArray = [];
+
+    foreach ($products as $product) {
+        $productDataArray[] = [
+            "id"            => uuid_v4(),
+            "submission_id" => $newPrequalification['id'],
+            "product_id"    => $product,
+        ];
+    }
+
+    // Batch insert for better performance
+    if (! empty($productDataArray)) {
+        $this->questionnaireSubmissionModel->insertBatch($productDataArray);
+    }
+}
+
 
 // Respond with the newly created prequalification data
         $response = [

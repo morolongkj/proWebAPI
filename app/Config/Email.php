@@ -33,7 +33,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $protocol = 'ssmtp';
+    public $protocol = 'smtp';
 
     /**
      * The server path to Sendmail.
@@ -47,7 +47,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPHost = 'mail.ndso.org.ls';
+    public $SMTPHost = 'mail.ndsoeprocurement.online';
 
     /**
      * SMTP Username
@@ -55,7 +55,7 @@ class Email extends BaseConfig
      * @var string
      */
     // Enter your email id from where you send email
-    public $SMTPUser = 'noreply@ndso.org.ls';
+    public $SMTPUser = 'info@ndsoeprocurement.online';
 
     /**
      * SMTP Password
@@ -63,7 +63,7 @@ class Email extends BaseConfig
      * @var string
      */
     // Enter your email's password
-    public $SMTPPass = 'e-procurement@2024';
+    public $SMTPPass = 'O40B6jlU3l-*Qe';
 
     /**
      * SMTP Port

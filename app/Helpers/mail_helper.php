@@ -4,7 +4,7 @@ if (!function_exists('send_mail')) {
     {
         $email = \Config\Services::email();
         $email->setTo($receipient);
-        $email->setFrom('info@tsoelopele.com', 'Tsoelopele POD System');
+        $email->setFrom('info@ndsoeprocurement.online', 'eProcurement System');
 
         $email->setSubject($subject);
         $email->setMessage($message);
