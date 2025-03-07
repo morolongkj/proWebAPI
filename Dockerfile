@@ -7,7 +7,8 @@ WORKDIR /var/www/html
 # Install system dependencies and enable required PHP extensions
 RUN apt-get update && apt-get install -y \
     unzip curl libzip-dev libpng-dev libonig-dev libxml2-dev git \
-    && docker-php-ext-install pdo pdo_mysql zip gd
+    && docker-php-ext-install pdo pdo_mysql zip gd \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Composer globally
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -16,13 +17,13 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY . .
 
 # Install dependencies using Composer
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --prefer-dist
 
 # Enable Apache mod_rewrite for CodeIgniter
 RUN a2enmod rewrite
 
-# Set permissions
-RUN chown -R www-data:www-data /var/www/html
+# Set correct permissions
+RUN chown -R www-data:www-data /var/www/html && chmod -R 775 /var/www/html
 
 # Expose the port Apache runs on
 EXPOSE 80
