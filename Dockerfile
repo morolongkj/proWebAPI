@@ -7,7 +7,7 @@ WORKDIR /var/www/html
 # Install system dependencies and enable required PHP extensions
 RUN apt-get update && apt-get install -y \
     unzip curl libzip-dev libpng-dev libonig-dev libxml2-dev git \
-    && docker-php-ext-install pdo pdo_mysql zip gd \
+    && docker-php-ext-install pdo pdo_mysql zip gd intl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Install Composer globally
@@ -15,6 +15,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copy application files
 COPY . .
+
+# Workaround: Fix Git "dubious ownership" error
+RUN git config --global --add safe.directory /var/www/html
 
 # Install dependencies using Composer
 RUN composer install --no-dev --optimize-autoloader --prefer-dist
