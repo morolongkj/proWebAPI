@@ -1,18 +1,17 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class CompanyModel extends Model
 {
-    protected $table = 'companies'; // The table name
-    protected $primaryKey = 'id'; // The primary key of the table
+    protected $table      = 'companies'; // The table name
+    protected $primaryKey = 'id';        // The primary key of the table
 
     protected $useAutoIncrement = false; // Since 'id' is VARCHAR, no auto-increment
 
-    protected $returnType = 'array'; // Return results as array
-    protected $useSoftDeletes = false; // If you want to use soft deletes, set this to true
+    protected $returnType     = 'array'; // Return results as array
+    protected $useSoftDeletes = true;    // If you want to use soft deletes, set this to true
 
     // The fields that can be inserted or updated
     protected $allowedFields = [
@@ -38,30 +37,32 @@ class CompanyModel extends Model
 
     // Automatically handle timestamps
     protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
+    protected $dateFormat    = 'datetime';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation rules
     protected $validationRules = [
-        'company_name' => 'required|min_length[3]|max_length[100]',
-        'year_established' => 'required|min_length[4]|max_length[4]',
+        'company_name'              => 'required|min_length[3]|max_length[100]',
+        'year_established'          => 'required|min_length[4]|max_length[4]',
         'trade_registration_number' => 'required|max_length[100]',
-        'vat_number' => 'required|max_length[100]',
-        'address' => 'required|max_length[100]',
-        'country' => 'required|max_length[100]',
-        'telephone' => 'required|max_length[100]',
-        'email' => 'required|valid_email|max_length[100]',
+        'vat_number'                => 'required|max_length[100]',
+        'address'                   => 'required|max_length[100]',
+        'country'                   => 'required|max_length[100]',
+        'telephone'                 => 'required|max_length[100]',
+        'email'                     => 'required|valid_email|max_length[100]',
     ];
 
     // Validation messages (optional)
     protected $validationMessages = [
         'company_name' => [
-            'required' => 'The company name is required',
+            'required'   => 'The company name is required',
             'min_length' => 'The company name must be at least 3 characters long',
             'max_length' => 'The company name cannot exceed 100 characters',
         ],
-        'email' => [
-            'required' => 'The email is required',
+        'email'        => [
+            'required'    => 'The email is required',
             'valid_email' => 'Please provide a valid email address',
         ],
     ];
@@ -89,7 +90,7 @@ class CompanyModel extends Model
         $db->transStart(); // Start the transaction
 
         // Validate data before saving
-        if (!$this->validate($data)) {
+        if (! $this->validate($data)) {
             // Return validation errors as a structured response
             return [
                 'status' => false,
@@ -98,10 +99,10 @@ class CompanyModel extends Model
         }
 
         // Attempt to save company data
-        if (!$this->save($data)) {
+        if (! $this->save($data)) {
             $db->transRollback(); // Rollback transaction on failure
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => 'Failed to save company data.',
             ];
         }
@@ -114,10 +115,10 @@ class CompanyModel extends Model
         ];
 
         $userModel = new \App\Models\UserModel();
-        if (!$userModel->update($data['user_id'], $userData)) {
+        if (! $userModel->update($data['user_id'], $userData)) {
             $db->transRollback(); // Rollback transaction on failure
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => 'Failed to update user with company ID.',
             ];
         }
@@ -128,22 +129,22 @@ class CompanyModel extends Model
         // Check if the transaction was successful
         if ($db->transStatus() === false) {
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => 'Transaction failed. Company creation was rolled back.',
             ];
         }
 
         // Fetch and return the newly created company data
         $newCompany = $this->find($newCompanyId);
-        if (!$newCompany) {
+        if (! $newCompany) {
             return [
-                'status' => false,
+                'status'  => false,
                 'message' => 'Failed to fetch newly created company.',
             ];
         }
 
         return [
-            'status' => true,
+            'status'  => true,
             'message' => 'Company created successfully.',
             'company' => $newCompany,
         ];

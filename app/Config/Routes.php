@@ -85,6 +85,8 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
         'filter'     => 'jwt',
     ]);
 
+    $routes->post("categories/batch", "CategoriesController::create_batch", ['filter' => 'jwt']);
+
     $routes->resource('products', [
         'controller' => 'ProductsController',
         'filter'     => 'jwt',

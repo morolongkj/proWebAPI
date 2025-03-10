@@ -723,3 +723,623 @@ WHERE `users`.`company_id` IN :users.company_id:', [...], false)
 INFO - 2025-03-10 11:54:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-03-10 11:54:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-03-10 12:01:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-10 14:02:40 --> mysqli_sql_exception: Unknown column 'companies.deleted_at' in 'where clause' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*)...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2025-03-10 14:02:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'companies.deleted_at' in 'where clause'
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 2 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 14:02:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'companies.deleted_at' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 4 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 5 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 14:02:40 --> [Caused by] mysqli_sql_exception: Unknown column 'companies.deleted_at' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 5 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 6 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2025-03-10 14:03:12 --> mysqli_sql_exception: Unknown column 'companies.deleted_at' in 'where clause' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*)...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2025-03-10 14:03:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'companies.deleted_at' in 'where clause'
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 2 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 14:03:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'companies.deleted_at' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 4 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 5 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 14:03:12 --> [Caused by] mysqli_sql_exception: Unknown column 'companies.deleted_at' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 5 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 6 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2025-03-10 14:03:29 --> mysqli_sql_exception: Unknown column 'companies.deleted_at' in 'where clause' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*)...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2025-03-10 14:03:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'companies.deleted_at' in 'where clause'
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 2 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 14:03:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'companies.deleted_at' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 4 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 5 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 14:03:29 --> [Caused by] mysqli_sql_exception: Unknown column 'companies.deleted_at' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 5 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 6 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2025-03-10 14:03:46 --> mysqli_sql_exception: Unknown column 'companies.deleted_at' in 'where clause' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*)...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#13 {main}
+CRITICAL - 2025-03-10 14:03:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'companies.deleted_at' in 'where clause'
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 2 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 14:03:46 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'companies.deleted_at' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 4 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 5 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 14:03:46 --> [Caused by] mysqli_sql_exception: Unknown column 'companies.deleted_at' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `companies`
+WHERE `companies`.`deleted_at` IS NULL', [], false)
+ 5 SYSTEMPATH/Model.php(678): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 6 APPPATH/Controllers/CompaniesController.php(154): CodeIgniter\Model->countAllResults(false)
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+WARNING - 2025-03-10 14:10:26 --> [DEPRECATED] Creation of dynamic property App\Database\Migrations\AddMoreAttributesToUsers::$attributes is deprecated in APPPATH/Database/Migrations/2024-09-20-105456_AddMoreAttributesToUsers.php on line 21.
+ 1 SYSTEMPATH/Database/MigrationRunner.php(838): App\Database\Migrations\AddMoreAttributesToUsers->__construct(Object(CodeIgniter\Database\MySQLi\Forge))
+ 2 SYSTEMPATH/Database/MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+ 3 SYSTEMPATH/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(null)
+ 4 SYSTEMPATH/CLI/Commands.php(70): CodeIgniter\Commands\Database\Migrate->run([...])
+ 5 SYSTEMPATH/Common.php(188): CodeIgniter\CLI\Commands->run('migrate', [...])
+ 6 APPPATH/Commands/ResetDatabase.php(56): command('migrate')
+ 7 APPPATH/Commands/ResetDatabase.php(23): App\Commands\ResetDatabase->runMigrations()
+ 8 SYSTEMPATH/CLI/Commands.php(70): App\Commands\ResetDatabase->run([])
+ 9 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('db:reset', [])
+10 SYSTEMPATH/Boot.php(351): CodeIgniter\CLI\Console->run()
+11 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+12 ROOTPATH/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2025-03-10 14:57:59 --> [DEPRECATED] Creation of dynamic property App\Database\Migrations\AddMoreAttributesToUsers::$attributes is deprecated in APPPATH/Database/Migrations/2024-09-20-105456_AddMoreAttributesToUsers.php on line 21.
+ 1 SYSTEMPATH/Database/MigrationRunner.php(838): App\Database\Migrations\AddMoreAttributesToUsers->__construct(Object(CodeIgniter\Database\MySQLi\Forge))
+ 2 SYSTEMPATH/Database/MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+ 3 SYSTEMPATH/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(null)
+ 4 SYSTEMPATH/CLI/Commands.php(70): CodeIgniter\Commands\Database\Migrate->run([...])
+ 5 SYSTEMPATH/Common.php(188): CodeIgniter\CLI\Commands->run('migrate', [...])
+ 6 APPPATH/Commands/ResetDatabase.php(56): command('migrate')
+ 7 APPPATH/Commands/ResetDatabase.php(23): App\Commands\ResetDatabase->runMigrations()
+ 8 SYSTEMPATH/CLI/Commands.php(70): App\Commands\ResetDatabase->run([])
+ 9 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('db:reset', [])
+10 SYSTEMPATH/Boot.php(351): CodeIgniter\CLI\Console->run()
+11 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+12 ROOTPATH/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+ERROR - 2025-03-10 16:29:46 --> mysqli_sql_exception: Unknown column 'categories.name' in 'field list' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `product...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+#7 /opt/lampp/htdocs/proWebAPI/app/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#15 {main}
+CRITICAL - 2025-03-10 16:29:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'categories.name' in 'field list'
+[Method: GET, Route: api/products]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+ 4 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+ 5 APPPATH/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 16:29:46 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'categories.name' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+ 6 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+ 7 APPPATH/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 16:29:46 --> [Caused by] mysqli_sql_exception: Unknown column 'categories.name' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+ 7 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+ 8 APPPATH/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2025-03-10 16:29:50 --> mysqli_sql_exception: Unknown column 'categories.name' in 'field list' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `product...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+#7 /opt/lampp/htdocs/proWebAPI/app/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#15 {main}
+CRITICAL - 2025-03-10 16:29:50 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'categories.name' in 'field list'
+[Method: GET, Route: api/products]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+ 4 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+ 5 APPPATH/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 16:29:50 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'categories.name' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+ 6 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+ 7 APPPATH/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 16:29:50 --> [Caused by] mysqli_sql_exception: Unknown column 'categories.name' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+ 7 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+ 8 APPPATH/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2025-03-10 16:29:56 --> mysqli_sql_exception: Unknown column 'categories.name' in 'field list' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `product...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `product...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `product...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `product...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+#7 /opt/lampp/htdocs/proWebAPI/app/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#15 {main}
+CRITICAL - 2025-03-10 16:29:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'categories.name' in 'field list'
+[Method: GET, Route: api/products]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', [], false)
+ 2 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+ 4 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+ 5 APPPATH/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 16:29:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'categories.name' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', [], false)
+ 4 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+ 6 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+ 7 APPPATH/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 16:29:56 --> [Caused by] mysqli_sql_exception: Unknown column 'categories.name' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `products`.*, `categories`.`name` as `category_name`
+FROM `products`
+LEFT JOIN `categories` ON `categories`.`id` = `products`.`category_id`
+ORDER BY `products`.`created_at` DESC
+ LIMIT 10', [], false)
+ 5 SYSTEMPATH/Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(10, 0)
+ 7 SYSTEMPATH/BaseModel.php(1288): CodeIgniter\BaseModel->findAll(10, 0)
+ 8 APPPATH/Controllers/ProductsController.php(95): CodeIgniter\BaseModel->paginate(10, 'products', 1)
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\ProductsController->index()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\ProductsController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+INFO - 2025-03-10 17:54:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-10 17:54:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-10 17:55:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-10 18:01:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

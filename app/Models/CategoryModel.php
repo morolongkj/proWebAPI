@@ -1,37 +1,36 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class CategoryModel extends Model
 {
-    protected $table = 'categories'; // Name of the table
-    protected $primaryKey = 'id'; // Primary key field name
+    protected $table      = 'categories'; // Name of the table
+    protected $primaryKey = 'id';         // Primary key field name
 
     protected $useAutoIncrement = false; // Since 'id' is VARCHAR, no auto-increment
 
-    protected $returnType = 'array'; // Return results as array
-    protected $useSoftDeletes = false; // If you want to use soft deletes, set this to true
+    protected $returnType     = 'array'; // Return results as array
+    protected $useSoftDeletes = true;    // If you want to use soft deletes, set this to true
 
     protected $allowedFields = ['id', 'title', 'description', 'extra_data', 'created_at', 'updated_at'];
 
     // Validation rules
     protected $validationRules = [
-        'title' => 'required|min_length[3]|max_length[255]',
+        'title'       => 'required|min_length[3]|max_length[255]',
         'description' => 'permit_empty|string',
     ];
 
     protected $validationMessages = [
-        'id' => [
-            'required' => 'The Category ID is required.',
+        'id'    => [
+            'required'      => 'The Category ID is required.',
             'alpha_numeric' => 'The Category ID can only contain alphanumeric characters.',
-            'min_length' => 'The Category ID must be at least 3 characters long.',
-            'max_length' => 'The Category ID must not exceed 255 characters.',
-            'is_unique' => 'The Category ID already exists in the database.',
+            'min_length'    => 'The Category ID must be at least 3 characters long.',
+            'max_length'    => 'The Category ID must not exceed 255 characters.',
+            'is_unique'     => 'The Category ID already exists in the database.',
         ],
         'title' => [
-            'required' => 'The Title is required.',
+            'required'   => 'The Title is required.',
             'min_length' => 'The Title must be at least 3 characters long.',
             'max_length' => 'The Title must not exceed 255 characters.',
         ],
@@ -39,11 +38,13 @@ class CategoryModel extends Model
 
     protected $skipValidation = false; // Whether to skip validation or not
 
-    // Date handling
+                                     // Date handling
     protected $useTimestamps = true; // Enable automatic timestamps
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
-     protected $beforeInsert = ['generateUuid'];
+    protected $dateFormat    = 'datetime';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
+    protected $beforeInsert  = ['generateUuid'];
 
     /**
      * Automatically generate UUID v4 for the `id` field if it's not provided.
@@ -59,7 +60,7 @@ class CategoryModel extends Model
         return $data;
     }
 
-       /**
+    /**
      * Get a category by its title.
      *
      * @param string $title

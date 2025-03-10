@@ -89,6 +89,44 @@ class CategoriesController extends ResourceController
         return $this->failServerError('Failed to create category.');
     }
 
+        /**
+     * Create a new resource object, from "posted" parameters.
+     *
+     * @return ResponseInterface
+     */
+    public function create_batch()
+    {
+
+        $data = $this->request->getJSON(true);
+
+        // Check if $data is an array of records
+        if (!isset($data[0]) || !is_array($data[0])) {
+            return $this->fail("Invalid data format. Expected an array of records.");
+        }
+
+        // Add id to each record if not already present
+        foreach ($data as &$record) {
+            $id = uuid_v4();
+            if (empty($record['id'])) {
+                $record['id'] = $id;
+            }
+        }
+
+        // return $this->respond($data);
+
+        // Perform batch insertion
+        if ($this->model->insertBatch($data)) {
+            $response = [
+                "status" => true,
+                "message" => "Categories are Created",
+                "categories" => $data,
+            ];
+            return $this->respondCreated($response);
+        }
+
+        return $this->fail("Failed to create Products.");
+    }
+
     /**
      * Update a specific category (update)
      * @param string $id

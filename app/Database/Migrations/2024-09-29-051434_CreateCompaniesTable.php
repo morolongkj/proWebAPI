@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
@@ -9,88 +8,92 @@ class CreateCompaniesTable extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id' => [
-                'type' => 'VARCHAR',
+            'id'                        => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
-                'unique' => true,
+                'null'       => false,
+                'unique'     => true,
             ],
-            'company_name' => [
-                'type' => 'VARCHAR',
+            'company_name'              => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => false,
+                'null'       => false,
             ],
-            'year_established' => [
-                'type' => 'VARCHAR',
+            'year_established'          => [
+                'type'       => 'VARCHAR',
                 'constraint' => '4',
-                'null' => false,
+                'null'       => false,
             ],
-            'company_form' => [
-                'type' => 'VARCHAR',
+            'company_form'              => [
+                'type'       => 'VARCHAR',
                 'constraint' => '50',
-                'null' => true,
+                'null'       => true,
             ],
-            'specify_company_form' => [
-                'type' => 'VARCHAR',
+            'specify_company_form'      => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => true,
+                'null'       => true,
             ],
-            'legal_status' => [
-                'type' => 'VARCHAR',
+            'legal_status'              => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => true,
+                'null'       => true,
             ],
             'trade_registration_number' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => false,
+                'null'       => false,
             ],
-            'vat_number' => [
-                'type' => 'VARCHAR',
+            'vat_number'                => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => false,
+                'null'       => false,
             ],
-            'address' => [
-                'type' => 'VARCHAR',
+            'address'                   => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => false,
+                'null'       => false,
             ],
-            'country' => [
-                'type' => 'VARCHAR',
+            'country'                   => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => false,
+                'null'       => false,
             ],
-            'telephone' => [
-                'type' => 'VARCHAR',
+            'telephone'                 => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => false,
+                'null'       => false,
             ],
-            'email' => [
-                'type' => 'VARCHAR',
+            'email'                     => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => false,
+                'null'       => false,
             ],
-            'website' => [
-                'type' => 'VARCHAR',
+            'website'                   => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => true,
+                'null'       => true,
             ],
-            'telefax' => [
-                'type' => 'VARCHAR',
+            'telefax'                   => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => true,
+                'null'       => true,
             ],
-            'telex' => [
-                'type' => 'VARCHAR',
+            'telex'                     => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => true,
+                'null'       => true,
             ],
-            'extra_data' => [
+            'extra_data'                => [
                 'type' => 'JSON',
                 'null' => true,
             ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp',
+            'deleted_at'                => [
+                'type' => 'datetime',
+                'null' => true,
+            ],
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->createTable('companies');
