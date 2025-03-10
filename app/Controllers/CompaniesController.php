@@ -56,41 +56,111 @@ class CompaniesController extends ResourceController
     //     return $this->respond($data);
 
     // }
+    // public function index()
+    // {
+    //     $page = $this->request->getVar('page') ?? 1;
+    //     $perPage = $this->request->getVar('perPage') ?? 10;
+    //     $company_name = $this->request->getVar('company_name');
+    //     $year_established = $this->request->getVar('year_established');
+    //     $user_id = $this->request->getVar('user_id');
+    //     $sortBy = $this->request->getVar('sortBy') ?? 'company_name'; // Default sort field
+    //     $sortOrder = $this->request->getVar('sortOrder') ?? 'asc'; // Default sort order
+
+    //     $validSortFields = ['company_name', 'year_established'];
+    //     if (!in_array($sortBy, $validSortFields)) {
+    //         $sortBy = 'company_name'; // Fallback to default
+    //     }
+
+    //     $where = [];
+    //     if ($company_name) {
+    //         $where['companies.company_name like'] = '%' . $company_name . '%';
+    //     }
+    //     if ($year_established) {
+    //         $where['companies.year_established like'] = '%' . $year_established . '%';
+    //     }
+    //     if ($user_id) {
+    //         $where['users.user_id like'] = '%' . $user_id . '%';
+    //     }
+
+    //     // Fetch companies with sorting
+    //     $this->model->select('companies.*')
+    //         ->where($where)
+    //         ->orderBy($sortBy, $sortOrder);
+    //     $totalCompanies = $this->model->countAllResults(false); // False to avoid resetting query
+    //     $companies = $this->model->paginate($perPage, 'companies', $page);
+
+    //     // Fetch users for the listed companies with additional fields
+    //     $companyIds = array_column($companies, 'id'); // Extract company IDs
+    //     $users = $this->model->db->table('users')
+    //         ->select('users.company_id, users.id as user_id, CONCAT(users.first_name, " ", users.last_name) as contact_person, users.username, users.phone_number')
+    //         ->whereIn('users.company_id', $companyIds)
+    //         ->get()
+    //         ->getResultArray();
+
+    //     // Group users by company ID
+    //     $usersByCompany = [];
+    //     foreach ($users as $user) {
+    //         $usersByCompany[$user['company_id']][] = $user;
+    //     }
+
+    //     // Attach users to their respective companies
+    //     foreach ($companies as &$company) {
+    //         $company['users'] = $usersByCompany[$company['id']] ?? [];
+    //         $company['products'] = $this->prequalifiedCompanyModel->getPrequalifiedProductsByCompanyId($company['id']);
+    //     }
+
+    //     $data = [
+    //         'status' => true,
+    //         'data' => [
+    //             'companies' => $companies,
+    //             'total' => $totalCompanies,
+    //         ],
+    //     ];
+
+    //     return $this->respond($data);
+    // }
     public function index()
-    {
-        $page = $this->request->getVar('page') ?? 1;
-        $perPage = $this->request->getVar('perPage') ?? 10;
-        $company_name = $this->request->getVar('company_name');
-        $year_established = $this->request->getVar('year_established');
-        $user_id = $this->request->getVar('user_id');
-        $sortBy = $this->request->getVar('sortBy') ?? 'company_name'; // Default sort field
-        $sortOrder = $this->request->getVar('sortOrder') ?? 'asc'; // Default sort order
+{
+    $page = $this->request->getVar('page') ?? 1;
+    $perPage = $this->request->getVar('perPage') ?? 10;
+    $company_name = $this->request->getVar('company_name');
+    $year_established = $this->request->getVar('year_established');
+    $user_id = $this->request->getVar('user_id');
+    $sortBy = $this->request->getVar('sortBy') ?? 'company_name';
+    $sortOrder = $this->request->getVar('sortOrder') ?? 'asc';
 
-        $validSortFields = ['company_name', 'year_established'];
-        if (!in_array($sortBy, $validSortFields)) {
-            $sortBy = 'company_name'; // Fallback to default
-        }
+    // Allow only valid sort fields
+    $validSortFields = ['company_name', 'year_established'];
+    if (!in_array($sortBy, $validSortFields)) {
+        $sortBy = 'company_name';
+    }
 
-        $where = [];
-        if ($company_name) {
-            $where['companies.company_name like'] = '%' . $company_name . '%';
-        }
-        if ($year_established) {
-            $where['companies.year_established like'] = '%' . $year_established . '%';
-        }
-        if ($user_id) {
-            $where['users.user_id like'] = '%' . $user_id . '%';
-        }
+    $where = [];
+    if ($company_name) {
+        $where['companies.company_name like'] = '%' . $company_name . '%';
+    }
+    if ($year_established) {
+        $where['companies.year_established like'] = '%' . $year_established . '%';
+    }
+    if ($user_id) {
+        $where['users.user_id like'] = '%' . $user_id . '%';
+    }
 
-        // Fetch companies with sorting
-        $this->model->select('companies.*')
-            ->where($where)
-            ->orderBy($sortBy, $sortOrder);
-        $totalCompanies = $this->model->countAllResults(false); // False to avoid resetting query
-        $companies = $this->model->paginate($perPage, 'companies', $page);
+    // Fetch companies with sorting
+    $this->model->select('companies.*')
+        ->where($where)
+        ->orderBy($sortBy, $sortOrder);
+        
+    $totalCompanies = $this->model->countAllResults(false); // False to avoid resetting query
+    $companies = $this->model->paginate($perPage, 'companies', $page);
 
-        // Fetch users for the listed companies with additional fields
-        $companyIds = array_column($companies, 'id'); // Extract company IDs
+    // Extract company IDs from fetched companies
+    $companyIds = array_column($companies, 'id');
+
+    $usersByCompany = [];
+
+    if (!empty($companyIds)) {
+        // Fetch users only if company IDs are not empty
         $users = $this->model->db->table('users')
             ->select('users.company_id, users.id as user_id, CONCAT(users.first_name, " ", users.last_name) as contact_person, users.username, users.phone_number')
             ->whereIn('users.company_id', $companyIds)
@@ -98,27 +168,28 @@ class CompaniesController extends ResourceController
             ->getResultArray();
 
         // Group users by company ID
-        $usersByCompany = [];
         foreach ($users as $user) {
             $usersByCompany[$user['company_id']][] = $user;
         }
-
-        // Attach users to their respective companies
-        foreach ($companies as &$company) {
-            $company['users'] = $usersByCompany[$company['id']] ?? [];
-            $company['products'] = $this->prequalifiedCompanyModel->getPrequalifiedProductsByCompanyId($company['id']);
-        }
-
-        $data = [
-            'status' => true,
-            'data' => [
-                'companies' => $companies,
-                'total' => $totalCompanies,
-            ],
-        ];
-
-        return $this->respond($data);
     }
+
+    // Attach users to their respective companies
+    foreach ($companies as &$company) {
+        $company['users'] = $usersByCompany[$company['id']] ?? [];
+        $company['products'] = $this->prequalifiedCompanyModel->getPrequalifiedProductsByCompanyId($company['id']);
+    }
+
+    $data = [
+        'status' => true,
+        'data' => [
+            'companies' => $companies,
+            'total' => $totalCompanies,
+        ],
+    ];
+
+    return $this->respond($data);
+}
+
 
     // Method to retrieve a single company by ID
     public function show($id = null)

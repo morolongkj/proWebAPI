@@ -1,0 +1,725 @@
+ERROR - 2025-03-10 03:54:23 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for mysql-db failed: Temporary failure in name resolution in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:186
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', '/opt/lampp/htdo...', 186)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(186): mysqli->real_connect('mysql-db', 'user', Object(SensitiveParameterValue), 'codeigniter', 3306, '', 0)
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/Database.php(72): CodeIgniter\Database\BaseConnection->initialize()
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/Config.php(111): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#5 /opt/lampp/htdocs/proWebAPI/app/Commands/ResetDatabase.php(38): CodeIgniter\Database\Config::forge()
+#6 /opt/lampp/htdocs/proWebAPI/app/Commands/ResetDatabase.php(19): App\Commands\ResetDatabase->dropAllTables()
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Commands.php(70): App\Commands\ResetDatabase->run(Array)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('db:reset', Array)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(351): CodeIgniter\CLI\Console->run()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#11 /opt/lampp/htdocs/proWebAPI/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#12 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for mysql-db failed: Temporary failure in name resolution in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:186
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(186): mysqli->real_connect('mysql-db', 'user', Object(SensitiveParameterValue), 'codeigniter', 3306, '', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/Database.php(72): CodeIgniter\Database\BaseConnection->initialize()
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/Config.php(111): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#4 /opt/lampp/htdocs/proWebAPI/app/Commands/ResetDatabase.php(38): CodeIgniter\Database\Config::forge()
+#5 /opt/lampp/htdocs/proWebAPI/app/Commands/ResetDatabase.php(19): App\Commands\ResetDatabase->dropAllTables()
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Commands.php(70): App\Commands\ResetDatabase->run(Array)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('db:reset', Array)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(351): CodeIgniter\CLI\Console->run()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#10 /opt/lampp/htdocs/proWebAPI/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for mysql-db failed: Temporary failure in name resolution in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/Database.php(72): CodeIgniter\Database\BaseConnection->initialize()
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/Config.php(111): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+#3 /opt/lampp/htdocs/proWebAPI/app/Commands/ResetDatabase.php(38): CodeIgniter\Database\Config::forge()
+#4 /opt/lampp/htdocs/proWebAPI/app/Commands/ResetDatabase.php(19): App\Commands\ResetDatabase->dropAllTables()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Commands.php(70): App\Commands\ResetDatabase->run(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('db:reset', Array)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(351): CodeIgniter\CLI\Console->run()
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#9 /opt/lampp/htdocs/proWebAPI/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#10 {main}
+CRITICAL - 2025-03-10 03:54:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for mysql-db failed: Temporary failure in name resolution
+[Method: CLI, Route: db:reset]
+in SYSTEMPATH/Database/BaseConnection.php on line 467.
+ 1 SYSTEMPATH/Database/Database.php(72): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/Config.php(111): CodeIgniter\Database\Database->loadForge(Object(CodeIgniter\Database\MySQLi\Connection))
+ 3 APPPATH/Commands/ResetDatabase.php(38): CodeIgniter\Database\Config::forge()
+ 4 APPPATH/Commands/ResetDatabase.php(19): App\Commands\ResetDatabase->dropAllTables()
+ 5 SYSTEMPATH/CLI/Commands.php(70): App\Commands\ResetDatabase->run([])
+ 6 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('db:reset', [])
+ 7 SYSTEMPATH/Boot.php(351): CodeIgniter\CLI\Console->run()
+ 8 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+ 9 ROOTPATH/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2025-03-10 03:56:28 --> [DEPRECATED] Creation of dynamic property App\Database\Migrations\AddMoreAttributesToUsers::$attributes is deprecated in APPPATH/Database/Migrations/2024-09-20-105456_AddMoreAttributesToUsers.php on line 22.
+ 1 SYSTEMPATH/Database/MigrationRunner.php(838): App\Database\Migrations\AddMoreAttributesToUsers->__construct(Object(CodeIgniter\Database\MySQLi\Forge))
+ 2 SYSTEMPATH/Database/MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+ 3 SYSTEMPATH/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(null)
+ 4 SYSTEMPATH/CLI/Commands.php(70): CodeIgniter\Commands\Database\Migrate->run([...])
+ 5 SYSTEMPATH/Common.php(188): CodeIgniter\CLI\Commands->run('migrate', [...])
+ 6 APPPATH/Commands/ResetDatabase.php(56): command('migrate')
+ 7 APPPATH/Commands/ResetDatabase.php(23): App\Commands\ResetDatabase->runMigrations()
+ 8 SYSTEMPATH/CLI/Commands.php(70): App\Commands\ResetDatabase->run([])
+ 9 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('db:reset', [])
+10 SYSTEMPATH/Boot.php(351): CodeIgniter\CLI\Console->run()
+11 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+12 ROOTPATH/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+ERROR - 2025-03-10 03:56:29 --> mysqli_sql_exception: Table 'procurement_db.prequalification_status' doesn't exist in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `pr...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pr...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pr...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pr...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/app/Database/Seeds/PrequalificationStatusSeeder.php(62): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/Seeder.php(147): App\Database\Seeds\PrequalificationStatusSeeder->run()
+#6 /opt/lampp/htdocs/proWebAPI/app/Database/Seeds/DatabaseSeeder.php(13): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/Seeder.php(147): App\Database\Seeds\DatabaseSeeder->run()
+#8 /opt/lampp/htdocs/proWebAPI/app/Commands/ResetDatabase.php(71): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#9 /opt/lampp/htdocs/proWebAPI/app/Commands/ResetDatabase.php(27): App\Commands\ResetDatabase->runSeeders()
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Commands.php(70): App\Commands\ResetDatabase->run(Array)
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('db:reset', Array)
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(351): CodeIgniter\CLI\Console->run()
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#14 /opt/lampp/htdocs/proWebAPI/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#15 {main}
+WARNING - 2025-03-10 03:57:51 --> [DEPRECATED] Creation of dynamic property App\Database\Migrations\AddMoreAttributesToUsers::$attributes is deprecated in APPPATH/Database/Migrations/2024-09-20-105456_AddMoreAttributesToUsers.php on line 22.
+ 1 SYSTEMPATH/Database/MigrationRunner.php(838): App\Database\Migrations\AddMoreAttributesToUsers->__construct(Object(CodeIgniter\Database\MySQLi\Forge))
+ 2 SYSTEMPATH/Database/MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+ 3 SYSTEMPATH/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(null)
+ 4 SYSTEMPATH/CLI/Commands.php(70): CodeIgniter\Commands\Database\Migrate->run([...])
+ 5 SYSTEMPATH/Common.php(188): CodeIgniter\CLI\Commands->run('migrate', [...])
+ 6 APPPATH/Commands/ResetDatabase.php(56): command('migrate')
+ 7 APPPATH/Commands/ResetDatabase.php(23): App\Commands\ResetDatabase->runMigrations()
+ 8 SYSTEMPATH/CLI/Commands.php(70): App\Commands\ResetDatabase->run([])
+ 9 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('db:reset', [])
+10 SYSTEMPATH/Boot.php(351): CodeIgniter\CLI\Console->run()
+11 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+12 ROOTPATH/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+INFO - 2025-03-10 04:06:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-03-10 04:11:48 --> [DEPRECATED] Creation of dynamic property App\Database\Migrations\AddMoreAttributesToUsers::$attributes is deprecated in APPPATH/Database/Migrations/2024-09-20-105456_AddMoreAttributesToUsers.php on line 22.
+ 1 SYSTEMPATH/Database/MigrationRunner.php(838): App\Database\Migrations\AddMoreAttributesToUsers->__construct(Object(CodeIgniter\Database\MySQLi\Forge))
+ 2 SYSTEMPATH/Database/MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+ 3 SYSTEMPATH/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(null)
+ 4 SYSTEMPATH/CLI/Commands.php(70): CodeIgniter\Commands\Database\Migrate->run([...])
+ 5 SYSTEMPATH/Common.php(188): CodeIgniter\CLI\Commands->run('migrate', [...])
+ 6 APPPATH/Commands/ResetDatabase.php(56): command('migrate')
+ 7 APPPATH/Commands/ResetDatabase.php(23): App\Commands\ResetDatabase->runMigrations()
+ 8 SYSTEMPATH/CLI/Commands.php(70): App\Commands\ResetDatabase->run([])
+ 9 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('db:reset', [])
+10 SYSTEMPATH/Boot.php(351): CodeIgniter\CLI\Console->run()
+11 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+12 ROOTPATH/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+INFO - 2025-03-10 04:12:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-10 04:16:02 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3 in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`....', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#12 {main}
+CRITICAL - 2025-03-10 04:16:02 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 2 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 04:16:02 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 4 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 04:16:02 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 5 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2025-03-10 04:16:59 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3 in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`....', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#12 {main}
+CRITICAL - 2025-03-10 04:16:59 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 2 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 04:16:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 4 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 04:16:59 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 5 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+INFO - 2025-03-10 04:18:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-10 04:26:46 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3 in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`....', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#12 {main}
+CRITICAL - 2025-03-10 04:26:46 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 2 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 04:26:46 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 4 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 04:26:46 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 5 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+INFO - 2025-03-10 04:39:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-10 06:20:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-10 06:21:40 --> mysqli_sql_exception: Unknown column 'position' in 'field list' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `us...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Models/UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/shield/src/Models/UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+#10 /opt/lampp/htdocs/proWebAPI/app/Controllers/AuthController.php(50): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\AuthController->register()
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+#13 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#15 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#16 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#17 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#18 {main}
+CRITICAL - 2025-03-10 06:21:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'position' in 'field list'
+[Method: POST, Route: api/register]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`first_name`, `last_name`, `position`, `date_of_birth`, `phone_number`, `gender`, `username`, `created_at`, `updated_at`) VALUES (:first_name:, :last_name:, :position:, :date_of_birth:, :phone_number:, :gender:, :username:, :created_at:, :updated_at:)', [...], false)
+ 2 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 VENDORPATH/codeigniter4/shield/src/Models/UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 6 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 7 VENDORPATH/codeigniter4/shield/src/Models/UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+ 8 APPPATH/Controllers/AuthController.php(50): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\AuthController->register()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 06:21:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'position' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`first_name`, `last_name`, `position`, `date_of_birth`, `phone_number`, `gender`, `username`, `created_at`, `updated_at`) VALUES (\'General\', \'KB\', 1, 1, 1, 1, 1, \'2025-03-10 06:21:40\', \'2025-03-10 06:21:40\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`first_name`, `last_name`, `position`, `date_of_birth`, `phone_number`, `gender`, `username`, `created_at`, `updated_at`) VALUES (\'General\', \'KB\', 1, 1, 1, 1, 1, \'2025-03-10 06:21:40\', \'2025-03-10 06:21:40\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`first_name`, `last_name`, `position`, `date_of_birth`, `phone_number`, `gender`, `username`, `created_at`, `updated_at`) VALUES (:first_name:, :last_name:, :position:, :date_of_birth:, :phone_number:, :gender:, :username:, :created_at:, :updated_at:)', [...], false)
+ 4 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 VENDORPATH/codeigniter4/shield/src/Models/UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 8 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 9 VENDORPATH/codeigniter4/shield/src/Models/UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+10 APPPATH/Controllers/AuthController.php(50): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+11 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\AuthController->register()
+12 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+13 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 06:21:40 --> [Caused by] mysqli_sql_exception: Unknown column 'position' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('INSERT INTO `users` (`first_name`, `last_name`, `position`, `date_of_birth`, `phone_number`, `gender`, `username`, `created_at`, `updated_at`) VALUES (\'General\', \'KB\', 1, 1, 1, 1, 1, \'2025-03-10 06:21:40\', \'2025-03-10 06:21:40\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`first_name`, `last_name`, `position`, `date_of_birth`, `phone_number`, `gender`, `username`, `created_at`, `updated_at`) VALUES (\'General\', \'KB\', 1, 1, 1, 1, 1, \'2025-03-10 06:21:40\', \'2025-03-10 06:21:40\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`first_name`, `last_name`, `position`, `date_of_birth`, `phone_number`, `gender`, `username`, `created_at`, `updated_at`) VALUES (\'General\', \'KB\', 1, 1, 1, 1, 1, \'2025-03-10 06:21:40\', \'2025-03-10 06:21:40\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`first_name`, `last_name`, `position`, `date_of_birth`, `phone_number`, `gender`, `username`, `created_at`, `updated_at`) VALUES (:first_name:, :last_name:, :position:, :date_of_birth:, :phone_number:, :gender:, :username:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH/Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 VENDORPATH/codeigniter4/shield/src/Models/UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 9 SYSTEMPATH/BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+10 VENDORPATH/codeigniter4/shield/src/Models/UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+11 APPPATH/Controllers/AuthController.php(50): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+12 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\AuthController->register()
+13 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AuthController))
+14 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+WARNING - 2025-03-10 06:22:00 --> [DEPRECATED] Creation of dynamic property App\Database\Migrations\AddMoreAttributesToUsers::$attributes is deprecated in APPPATH/Database/Migrations/2024-09-20-105456_AddMoreAttributesToUsers.php on line 21.
+ 1 SYSTEMPATH/Database/MigrationRunner.php(838): App\Database\Migrations\AddMoreAttributesToUsers->__construct(Object(CodeIgniter\Database\MySQLi\Forge))
+ 2 SYSTEMPATH/Database/MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+ 3 SYSTEMPATH/Commands/Database/Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(null)
+ 4 SYSTEMPATH/CLI/Commands.php(70): CodeIgniter\Commands\Database\Migrate->run([...])
+ 5 SYSTEMPATH/Common.php(188): CodeIgniter\CLI\Commands->run('migrate', [...])
+ 6 APPPATH/Commands/ResetDatabase.php(56): command('migrate')
+ 7 APPPATH/Commands/ResetDatabase.php(23): App\Commands\ResetDatabase->runMigrations()
+ 8 SYSTEMPATH/CLI/Commands.php(70): App\Commands\ResetDatabase->run([])
+ 9 SYSTEMPATH/CLI/Console.php(48): CodeIgniter\CLI\Commands->run('db:reset', [])
+10 SYSTEMPATH/Boot.php(351): CodeIgniter\CLI\Console->run()
+11 SYSTEMPATH/Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+12 ROOTPATH/spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+INFO - 2025-03-10 06:22:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-10 06:26:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-10 06:27:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-10 07:27:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-10 10:16:15 --> TypeError: CodeIgniter\Shield\Entities\User::addGroup(): Argument #1 must be of type string, null given, called in /opt/lampp/htdocs/proWebAPI/app/Controllers/UsersController.php on line 118
+[Method: PUT, Route: api/users/6]
+in VENDORPATH/codeigniter4/shield/src/Authorization/Traits/Authorizable.php on line 32.
+ 1 APPPATH/Controllers/UsersController.php(118): CodeIgniter\Shield\Entities\User->addGroup(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UsersController->update('6')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 10:17:38 --> TypeError: CodeIgniter\Shield\Entities\User::addGroup(): Argument #1 must be of type string, null given, called in /opt/lampp/htdocs/proWebAPI/app/Controllers/UsersController.php on line 118
+[Method: PUT, Route: api/users/6]
+in VENDORPATH/codeigniter4/shield/src/Authorization/Traits/Authorizable.php on line 32.
+ 1 APPPATH/Controllers/UsersController.php(118): CodeIgniter\Shield\Entities\User->addGroup(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UsersController->update('6')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 10:29:39 --> TypeError: CodeIgniter\Shield\Entities\User::addGroup(): Argument #1 must be of type string, null given, called in /opt/lampp/htdocs/proWebAPI/app/Controllers/UsersController.php on line 118
+[Method: PUT, Route: api/users/6]
+in VENDORPATH/codeigniter4/shield/src/Authorization/Traits/Authorizable.php on line 32.
+ 1 APPPATH/Controllers/UsersController.php(118): CodeIgniter\Shield\Entities\User->addGroup(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UsersController->update('6')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 10:30:32 --> TypeError: CodeIgniter\Shield\Entities\User::addGroup(): Argument #1 must be of type string, null given, called in /opt/lampp/htdocs/proWebAPI/app/Controllers/UsersController.php on line 118
+[Method: PUT, Route: api/users/6]
+in VENDORPATH/codeigniter4/shield/src/Authorization/Traits/Authorizable.php on line 32.
+ 1 APPPATH/Controllers/UsersController.php(118): CodeIgniter\Shield\Entities\User->addGroup(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UsersController->update('6')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 10:31:22 --> TypeError: CodeIgniter\Shield\Entities\User::addGroup(): Argument #1 must be of type string, null given, called in /opt/lampp/htdocs/proWebAPI/app/Controllers/UsersController.php on line 118
+[Method: PUT, Route: api/users/6]
+in VENDORPATH/codeigniter4/shield/src/Authorization/Traits/Authorizable.php on line 32.
+ 1 APPPATH/Controllers/UsersController.php(118): CodeIgniter\Shield\Entities\User->addGroup(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UsersController->update('6')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 10:32:51 --> TypeError: CodeIgniter\Shield\Entities\User::addGroup(): Argument #1 must be of type string, null given, called in /opt/lampp/htdocs/proWebAPI/app/Controllers/UsersController.php on line 118
+[Method: PUT, Route: api/users/6]
+in VENDORPATH/codeigniter4/shield/src/Authorization/Traits/Authorizable.php on line 32.
+ 1 APPPATH/Controllers/UsersController.php(118): CodeIgniter\Shield\Entities\User->addGroup(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UsersController->update('6')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 10:33:59 --> TypeError: CodeIgniter\Shield\Entities\User::addGroup(): Argument #1 must be of type string, null given, called in /opt/lampp/htdocs/proWebAPI/app/Controllers/UsersController.php on line 118
+[Method: PUT, Route: api/users/6]
+in VENDORPATH/codeigniter4/shield/src/Authorization/Traits/Authorizable.php on line 32.
+ 1 APPPATH/Controllers/UsersController.php(118): CodeIgniter\Shield\Entities\User->addGroup(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UsersController->update('6')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 10:35:38 --> TypeError: CodeIgniter\Shield\Entities\User::addGroup(): Argument #1 must be of type string, null given, called in /opt/lampp/htdocs/proWebAPI/app/Controllers/UsersController.php on line 118
+[Method: PUT, Route: api/users/6]
+in VENDORPATH/codeigniter4/shield/src/Authorization/Traits/Authorizable.php on line 32.
+ 1 APPPATH/Controllers/UsersController.php(118): CodeIgniter\Shield\Entities\User->addGroup(null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UsersController->update('6')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsersController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2025-03-10 11:49:56 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3 in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`....', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#12 {main}
+CRITICAL - 2025-03-10 11:49:56 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 2 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 11:49:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 4 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 11:49:56 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 5 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2025-03-10 11:50:18 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3 in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`....', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#12 {main}
+CRITICAL - 2025-03-10 11:50:18 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 2 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 11:50:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 4 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 11:50:18 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 5 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+ERROR - 2025-03-10 11:51:27 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3 in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`....', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`....')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`....')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`....', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/app/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+#7 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#12 {main}
+CRITICAL - 2025-03-10 11:51:27 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+[Method: GET, Route: api/companies]
+in SYSTEMPATH/Database/BaseConnection.php on line 688.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 2 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 11:51:27 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 317.
+ 1 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 2 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 4 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-10 11:51:27 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 312.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(312): mysqli->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN ()')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `users`.`company_id`, `users`.`id` as `user_id`, CONCAT(users.first_name, " ", users.last_name) as contact_person, `users`.`username`, `users`.`phone_number`
+FROM `users`
+WHERE `users`.`company_id` IN :users.company_id:', [...], false)
+ 5 APPPATH/Controllers/CompaniesController.php(97): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\CompaniesController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\CompaniesController))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+INFO - 2025-03-10 11:54:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-10 11:54:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-10 12:01:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

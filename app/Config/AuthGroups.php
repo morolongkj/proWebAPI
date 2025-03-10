@@ -1,15 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-/**
- * This file is part of CodeIgniter Shield.
- *
- * (c) CodeIgniter Foundation <admin@codeigniter.com>
- *
- * For the full copyright and license information, please view
- * the LICENSE file that was distributed with this source code.
- */
+declare (strict_types = 1);
 
 namespace Config;
 
@@ -18,100 +9,126 @@ use CodeIgniter\Shield\Config\AuthGroups as ShieldAuthGroups;
 class AuthGroups extends ShieldAuthGroups
 {
     /**
-     * --------------------------------------------------------------------
      * Default Group
-     * --------------------------------------------------------------------
-     * The group that a newly registered user is added to.
      */
-    public string $defaultGroup = 'user';
+    public string $defaultGroup = 'vendor';
 
     /**
-     * --------------------------------------------------------------------
      * Groups
-     * --------------------------------------------------------------------
-     * An associative array of the available groups in the system, where the keys
-     * are the group names and the values are arrays of the group info.
-     *
-     * Whatever value you assign as the key will be used to refer to the group
-     * when using functions such as:
-     *      $user->addGroup('superadmin');
-     *
-     * @var array<string, array<string, string>>
-     *
-     * @see https://codeigniter4.github.io/shield/quick_start_guide/using_authorization/#change-available-groups for more info
      */
     public array $groups = [
-        'superadmin' => [
+        'superadmin'                  => [
             'title'       => 'Super Admin',
-            'description' => 'Complete control of the site.',
+            'description' => 'Complete control of the system.',
         ],
-        'admin' => [
+        'admin'                       => [
             'title'       => 'Admin',
-            'description' => 'Day to day administrators of the site.',
+            'description' => 'Manages users and system settings.',
         ],
-        'developer' => [
-            'title'       => 'Developer',
-            'description' => 'Site programmers.',
+        'procurement_manager'         => [
+            'title'       => 'Procurement Manager',
+            'description' => 'Manages procurement orders and bids.',
         ],
-        'user' => [
-            'title'       => 'User',
-            'description' => 'General users of the site. Often customers.',
+        'procurement_assistant'       => [
+            'title'       => 'Procurement Assistant',
+            'description' => 'Assists the procurement manager with tasks.',
         ],
-        'beta' => [
-            'title'       => 'Beta User',
-            'description' => 'Has access to beta-level features.',
+        'vendor'                      => [
+            'title'       => 'Vendor',
+            'description' => 'Can submit and manage bids.',
+        ],
+        'buyer'                       => [
+            'title'       => 'Buyer',
+            'description' => 'Creates and manages purchase orders.',
+        ],
+        'auditor'                     => [
+            'title'       => 'Auditor',
+            'description' => 'Can review procurement activities.',
+        ],
+        'quality_assurance_manager'   => [
+            'title'       => 'Quality Assurance Manager',
+            'description' => 'Oversees quality assurance processes.',
+        ],
+        'quality_assurance_assistant' => [
+            'title'       => 'Quality Assurance Assistant',
+            'description' => 'Assists the QA manager with inspections.',
+        ],
+        'tender_board_member'         => [
+            'title'       => 'Tender Board Member',
+            'description' => 'Has the authority to approve tenders.',
         ],
     ];
 
     /**
-     * --------------------------------------------------------------------
      * Permissions
-     * --------------------------------------------------------------------
-     * The available permissions in the system.
-     *
-     * If a permission is not listed here it cannot be used.
      */
     public array $permissions = [
-        'admin.access'        => 'Can access the sites admin area',
-        'admin.settings'      => 'Can access the main site settings',
-        'users.manage-admins' => 'Can manage other admins',
-        'users.create'        => 'Can create new non-admin users',
-        'users.edit'          => 'Can edit existing non-admin users',
-        'users.delete'        => 'Can delete existing non-admin users',
-        'beta.access'         => 'Can access beta-level features',
+        'admin.access'             => 'Can access the admin panel',
+        'system.settings'          => 'Can modify system settings',
+        'users.manage'             => 'Can manage users and roles',
+        'vendors.manage'           => 'Can manage vendors',
+        'bids.create'              => 'Can submit bids',
+        'bids.review'              => 'Can review submitted bids',
+        'orders.create'            => 'Can create procurement orders',
+        'orders.approve'           => 'Can approve procurement orders',
+        'audit.access'             => 'Can access audit logs',
+        'quality_assurance.manage' => 'Can manage quality assurance processes',
+        'quality_assurance.review' => 'Can review quality assurance reports',
+        'tenders.approve'          => 'Can approve tenders',
+        'tenders.review'           => 'Can review tenders',
     ];
 
     /**
-     * --------------------------------------------------------------------
      * Permissions Matrix
-     * --------------------------------------------------------------------
-     * Maps permissions to groups.
-     *
-     * This defines group-level permissions.
      */
     public array $matrix = [
-        'superadmin' => [
+        'superadmin'                  => [
             'admin.*',
+            'system.settings',
             'users.*',
-            'beta.*',
+            'vendors.*',
+            'bids.*',
+            'orders.*',
+            'audit.access',
+            'quality_assurance.*',
+            'tenders.*',
         ],
-        'admin' => [
+        'admin'                       => [
             'admin.access',
-            'users.create',
-            'users.edit',
-            'users.delete',
-            'beta.access',
+            'system.settings',
+            'users.manage',
+            'vendors.manage',
         ],
-        'developer' => [
-            'admin.access',
-            'admin.settings',
-            'users.create',
-            'users.edit',
-            'beta.access',
+        'procurement_manager'         => [
+            'bids.review',
+            'orders.create',
+            'orders.approve',
+            'vendors.manage',
         ],
-        'user' => [],
-        'beta' => [
-            'beta.access',
+        'procurement_assistant'       => [
+            'bids.review',
+            'orders.create',
+        ],
+        'vendor'                      => [
+            'bids.create',
+        ],
+        'buyer'                       => [
+            'orders.create',
+            'bids.review',
+        ],
+        'auditor'                     => [
+            'audit.access',
+        ],
+        'quality_assurance_manager'   => [
+            'quality_assurance.manage',
+            'quality_assurance.review',
+        ],
+        'quality_assurance_assistant' => [
+            'quality_assurance.review',
+        ],
+        'tender_board_member'         => [
+            'tenders.approve',
+            'tenders.review',
         ],
     ];
 }

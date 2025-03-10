@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Forge;
@@ -17,58 +16,63 @@ class AddMoreAttributesToUsers extends Migration
         parent::__construct($forge);
 
         /** @var \Config\Auth $authConfig */
-        $authConfig = config('Auth');
-        $this->tables = $authConfig->tables;
+        $authConfig       = config('Auth');
+        $this->tables     = $authConfig->tables;
         $this->attributes = ($this->db->getPlatform() === 'MySQLi') ? ['ENGINE' => 'InnoDB'] : [];
     }
 
     public function up()
     {
         $fields = [
-            'title' => [
-                'type' => 'VARCHAR',
+            'title'         => [
+                'type'       => 'VARCHAR',
                 'constraint' => '10',
-                'null' => true,
+                'null'       => true,
             ],
-            'avatar' => [
-                'type' => 'VARCHAR',
+            'avatar'        => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => true,
+                'null'       => true,
             ],
-            'first_name' => [
-                'type' => 'VARCHAR',
+            'first_name'    => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => false,
+                'null'       => false,
             ],
-            'last_name' => [
-                'type' => 'VARCHAR',
+            'last_name'     => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => false,
+                'null'       => false,
+            ],
+            'position'      => [
+                'type'       => 'VARCHAR',
+                'constraint' => '100',
+                'null'       => true,
             ],
             'date_of_birth' => [
                 'type' => 'DATE',
                 'null' => true,
             ],
-            'phone_number' => [
-                'type' => 'VARCHAR',
+            'phone_number'  => [
+                'type'       => 'VARCHAR',
                 'constraint' => '20',
-                'null' => true,
+                'null'       => true,
             ],
-            'gender' => [
-                'type' => 'VARCHAR',
+            'gender'        => [
+                'type'       => 'VARCHAR',
                 'constraint' => '20',
-                'null' => true,
+                'null'       => true,
             ],
-            'extra_data' => [
+            'extra_data'    => [
                 'type' => 'JSON',
                 'null' => true,
             ],
-            'company_id' => [
-                'type' => 'VARCHAR',
+            'company_id'    => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => true,
+                'null'       => true,
             ],
-            'reset_token' => [
+            'reset_token'   => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
@@ -85,6 +89,7 @@ class AddMoreAttributesToUsers extends Migration
             'avatar',
             'first_name',
             'last_name',
+            'position',
             'date_of_birth',
             'phone_number',
             'gender',

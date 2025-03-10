@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
@@ -23,14 +22,14 @@ class UsersController extends ResourceController
         $perPage = $this->request->getVar('perPage');
 
 // If perPage is not defined, set it to null to fetch all records
-        if (!$perPage) {
+        if (! $perPage) {
             $perPage = null;
         }
 
         $firstName = $this->request->getVar('first_name');
-        $lastName = $this->request->getVar('last_name');
-        $email = $this->request->getVar('email');
-        $gender = $this->request->getVar('gender');
+        $lastName  = $this->request->getVar('last_name');
+        $email     = $this->request->getVar('email');
+        $gender    = $this->request->getVar('gender');
 
 // Build where condition
         $where = [];
@@ -60,7 +59,7 @@ class UsersController extends ResourceController
         // Get data to be passed to the view
         $data = [
             'status' => true,
-            'data' => [
+            'data'   => [
                 'users' => $users,
                 'total' => $totalUsers,
             ],
@@ -74,6 +73,8 @@ class UsersController extends ResourceController
         $user = $this->model->find($id);
 
         if ($user) {
+            $groupModel  = new ShieldGroupModel();
+            $user->roles = $groupModel->getForUser($user);
             return $this->respond($user);
         } else {
             return $this->failNotFound('User not found');
@@ -85,7 +86,14 @@ class UsersController extends ResourceController
         $data = $this->request->getJSON(true);
         $user = $this->model->save($data);
         if ($user) {
-            return $this->respondCreated($user);
+            // return $this->respondCreated($user);
+            $response = [
+                "status"  => true,
+                "message" => "User created successfully",
+                "user"    => $user,
+            ];
+            return $this->respondCreated($response);
+
         } else {
             return $this->failValidationErrors($this->model->getValidationErrors());
         }
@@ -94,10 +102,32 @@ class UsersController extends ResourceController
     public function update($id = null)
     {
         $user = $this->model->find($id);
+
         if ($user) {
             $data = $this->request->getJSON(true);
-            $user = $this->model->update($id, $data);
-            return $this->respondUpdated($user);
+
+            if ($this->model->update($id, $data)) {
+                $roles = $this->request->getVar("roles") ?? [];
+                if ($roles) {
+                    $groupModel  = new ShieldGroupModel();
+                    $user->roles = $groupModel->getForUser($user);
+                    foreach ($user->roles as $role) {
+                        $user->removeGroup($role);
+                    }
+                    foreach ($roles as $role) {
+                        $user->addGroup($role);
+                    }
+                }
+                $updatedUser = $this->model->find($id);
+
+                return $this->respond([
+                    "status"  => true,
+                    "message" => "User is updated successfully",
+                    "user"    => $updatedUser,
+                ], 200);
+            } else {
+                return $this->fail('Failed to update user');
+            }
         } else {
             return $this->failNotFound('User not found');
         }
@@ -138,10 +168,10 @@ class UsersController extends ResourceController
 
     public function addRole($id = null)
     {
-        $user = $this->model->find($id);
+        $user  = $this->model->find($id);
         $group = $this->request->getVar("role");
         if ($user && $group) {
-            if (!$user->inGroup($group)) {
+            if (! $user->inGroup($group)) {
                 $user->addGroup($group);
                 return $this->respond(['message' => 'User added to the group']);
             }
@@ -153,7 +183,7 @@ class UsersController extends ResourceController
 
     public function removeRole($id = null)
     {
-        $user = $this->model->find($id);
+        $user  = $this->model->find($id);
         $group = $this->request->getVar("role");
         if ($user && $group) {
             if ($user->inGroup($group)) {

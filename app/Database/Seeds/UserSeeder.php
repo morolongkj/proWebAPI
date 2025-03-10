@@ -42,7 +42,7 @@ class UserSeeder extends Seeder
                 $newUser = $userModel->findById($userModel->getInsertID());
                 $userModel->addToDefaultGroup($newUser);
                 if ($user['isAdmin']) {
-                    $newUser->addGroup('admin');
+                    $newUser->addGroup('superadmin');
                 }
             }
         }

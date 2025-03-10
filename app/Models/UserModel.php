@@ -26,6 +26,7 @@ class UserModel extends ShieldUserModel
             'gender',
             'extra_data',
             'company_id',
+            'position',
             'reset_token',
             'reset_token_expires_at',
         ];

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controllers;
 
 use App\Models\UserModel;
@@ -16,19 +15,19 @@ class AuthController extends ResourceController
     public function register()
     {
         $rules = [
-            "username" => "required|is_unique[users.username]",
-            "email" => "required|valid_email|is_unique[auth_identities.secret]",
-            "password" => "required",
+            "username"   => "required|is_unique[users.username]",
+            "email"      => "required|valid_email|is_unique[auth_identities.secret]",
+            "password"   => "required",
             "first_name" => "required",
-            "last_name" => "required",
+            "last_name"  => "required",
         ];
 
-        if (!$this->validate($rules)) {
+        if (! $this->validate($rules)) {
 
             $response = [
-                "status" => false,
+                "status"  => false,
                 "message" => $this->validator->getErrors(),
-                "data" => [],
+                "data"    => [],
             ];
             return $this->respond($response, 400);
         } else {
@@ -37,16 +36,29 @@ class AuthController extends ResourceController
             $userObject = new UserModel();
             // User Entity
             $userEntityObject = new User([
-                "first_name" => $this->request->getVar("first_name"),
-                "last_name" => $this->request->getVar("last_name"),
-                "username" => $this->request->getVar("username"),
-                "email" => $this->request->getVar("email"),
-                "password" => $this->request->getVar("password"),
+                "first_name"    => $this->request->getVar("first_name"),
+                "last_name"     => $this->request->getVar("last_name"),
+                "position"      => $this->request->getVar("position") ?? null,
+                "date_of_birth" => $this->request->getVar("date_of_birth") ?? null,
+                "phone_number"  => $this->request->getVar("phone_number") ?? null,
+                "gender"        => $this->request->getVar("gender") ?? null,
+                "username"      => $this->request->getVar("username") ?? $this->request->getVar("email"),
+                "email"         => $this->request->getVar("email"),
+                "password"      => $this->request->getVar("password"),
             ]);
+
+            $roles = $this->request->getVar("roles") ?? [];
 
             $userObject->save($userEntityObject);
             $newUser = $userObject->findById($userObject->getInsertID());
-            $userObject->addToDefaultGroup($newUser);
+            if (empty($roles)) {
+                $userObject->addToDefaultGroup($newUser);
+            } else {
+                foreach ($roles as $role) {
+                    $newUser->addGroup($role);
+                }
+            }
+            // $userObject->addToDefaultGroup($newUser);
 
             // $data['user'] = $newUser;
             // $message = view('emails/registration_email', $data);
@@ -54,9 +66,9 @@ class AuthController extends ResourceController
             // send_mail($newUser->username, "Inteville Space Registration", $message);
 
             $response = [
-                "status" => true,
+                "status"  => true,
                 "message" => "User saved successfully",
-                "data" => [
+                "data"    => [
                     "user" => $newUser,
                 ],
             ];
@@ -75,50 +87,50 @@ class AuthController extends ResourceController
         }
 
         $rules = [
-            "email" => "required|valid_email",
+            "email"    => "required|valid_email",
             "password" => "required",
         ];
 
-        if (!$this->validate($rules)) {
+        if (! $this->validate($rules)) {
 
             $response = [
-                "status" => false,
+                "status"  => false,
                 "message" => $this->validator->getErrors(),
-                "data" => [],
+                "data"    => [],
             ];
         } else {
 
             // success
             $credentials = [
-                "email" => $this->request->getVar("email"),
+                "email"    => $this->request->getVar("email"),
                 "password" => $this->request->getVar("password"),
             ];
 
             $loginAttempt = auth()->attempt($credentials);
 
-            if (!$loginAttempt->isOK()) {
+            if (! $loginAttempt->isOK()) {
 
                 $response = [
-                    "status" => false,
+                    "status"  => false,
                     "message" => "Invalid login details",
-                    "data" => [],
+                    "data"    => [],
                 ];
             } else {
 
                 // We have a valid data set
                 $userObject = new UserModel();
-                $userData = $userObject->findById(auth()->id());
+                $userData   = $userObject->findById(auth()->id());
                 $authGroups = auth()->user()->getGroups();
-                $token = $userData->generateAccessToken("thisismysecretkey");
+                $token      = $userData->generateAccessToken("thisismysecretkey");
 
                 $auth_token = $token->raw_token;
 
                 $response = [
-                    "status" => true,
+                    "status"  => true,
                     "message" => "User logged in successfully",
-                    "data" => [
-                        "token" => $auth_token,
-                        "user" => $userData,
+                    "data"    => [
+                        "token"      => $auth_token,
+                        "user"       => $userData,
                         "authGroups" => $authGroups,
                     ],
                 ];
@@ -138,9 +150,9 @@ class AuthController extends ResourceController
         $userData = $userObject->findById($userId);
 
         return $this->respond([
-            "status" => true,
+            "status"  => true,
             "message" => "Profile information of logged in user",
-            "data" => [
+            "data"    => [
                 "user" => $userData,
                 // 'you' => auth()->user(),
             ],
@@ -157,18 +169,18 @@ class AuthController extends ResourceController
         session()->destroy();
 
         return $this->respondCreated([
-            "status" => true,
+            "status"  => true,
             "message" => "User logged out successfully",
-            "data" => [],
+            "data"    => [],
         ]);
     }
 
     public function accessDenied()
     {
         return $this->respondCreated([
-            "status" => false,
+            "status"  => false,
             "message" => "Invalid access",
-            "data" => [],
+            "data"    => [],
         ]);
     }
 
@@ -184,7 +196,7 @@ class AuthController extends ResourceController
         $rules = $this->getValidationRules();
 
         // Validate credentials
-        if (!$this->validateData($this->request->getJSON(true), $rules, [], config('Auth')->DBGroup)) {
+        if (! $this->validateData($this->request->getJSON(true), $rules, [], config('Auth')->DBGroup)) {
             return $this->fail(
                 ['errors' => $this->validator->getErrors()],
                 $this->codes['unauthorized']
@@ -192,8 +204,8 @@ class AuthController extends ResourceController
         }
 
         // Get the credentials for login
-        $credentials = $this->request->getJsonVar(setting('Auth.validFields'));
-        $credentials = array_filter($credentials);
+        $credentials             = $this->request->getJsonVar(setting('Auth.validFields'));
+        $credentials             = array_filter($credentials);
         $credentials['password'] = $this->request->getJsonVar('password');
 
         /** @var Session $authenticator */
@@ -203,7 +215,7 @@ class AuthController extends ResourceController
         $result = $authenticator->attempt($credentials);
 
         // Credentials mismatch.
-        if (!$result->isOK()) {
+        if (! $result->isOK()) {
             // @TODO Record a failed login attempt
 
             return $this->failUnauthorized($result->reason());
@@ -227,11 +239,11 @@ class AuthController extends ResourceController
         $jwt = $manager->generateToken($user, $claims);
 
         $response = [
-            "status" => true,
+            "status"  => true,
             "message" => "User logged in successfully",
-            "data" => [
+            "data"    => [
                 "token" => $jwt,
-                "user" => $user,
+                "user"  => $user,
                 "roles" => $user->getGroups(),
             ],
         ];
@@ -258,10 +270,10 @@ class AuthController extends ResourceController
             "email" => "required",
         ];
 
-        if (!$this->validate($rules)) {
+        if (! $this->validate($rules)) {
 
             $response = [
-                "status" => false,
+                "status"  => false,
                 "message" => $this->validator->getErrors(),
             ];
             return $this->respond($response);
@@ -276,13 +288,13 @@ class AuthController extends ResourceController
 
             // Store the token in the database
             $user = $userModel->findByUsername($email);
-            if (!$user) {
+            if (! $user) {
                 return $this->failNotFound('User not found');
             }
 
             $userModel->setResetToken($user['id'], $token);
 
-            $data['user'] = $user;
+            $data['user']  = $user;
             $data['token'] = $token;
 
             $message = view('emails/reset_password_email', $data);
@@ -300,29 +312,29 @@ class AuthController extends ResourceController
     public function resetPassword()
     {
         $rules = [
-            "token" => "required",
+            "token"    => "required",
             "password" => "required",
         ];
 
-        if (!$this->validate($rules)) {
+        if (! $this->validate($rules)) {
             $response = [
-                "status" => false,
+                "status"  => false,
                 "message" => $this->validator->getErrors(),
             ];
             return $this->respond($response);
         } else {
-            $token = $this->request->getVar('token');
+            $token    = $this->request->getVar('token');
             $password = $this->request->getVar('password');
 
             $userModel = new UserModel();
-            $auser = $userModel->findByToken($token);
+            $auser     = $userModel->findByToken($token);
 
             if (empty($auser)) {
                 return $this->failNotFound('User not found or the link is expired.');
             }
 
             $userProvider = auth()->getProvider();
-            $user = $userProvider->findById($auser['id']);
+            $user         = $userProvider->findById($auser['id']);
 
             if ($user) {
                 $user->setPassword($password);

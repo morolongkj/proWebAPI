@@ -63,6 +63,8 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
 
 // Get Users
     $routes->get("users", "UsersController::index", ['filter' => 'jwt']);
+    // Get Users
+    $routes->get("users/(:segment)", "UsersController::show/$1", ['filter' => 'jwt']);
 // Ban User
     $routes->post("users/ban/(:segment)", "UsersController::ban/$1", ['filter' => 'jwt']);
 // unBan User
@@ -174,12 +176,11 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
     $routes->post('notifications/(:segment)/mark-as-read', 'NotificationsController::markAsRead/$1');
     $routes->get('notifications/unread', 'NotificationsController::getUnreadNotifications');
 
-
     $routes->get('bids/financial-evaluation/(:segment)', 'BidsController::financialEvaluation/$1');
-$routes->resource('bids', [
-    'controller' => 'BidsController',
-    'filter'     => 'jwt',
-]);
+    $routes->resource('bids', [
+        'controller' => 'BidsController',
+        'filter'     => 'jwt',
+    ]);
 
                                                                                                                                  // Custom routes for custom methods
     $routes->get('prequalified-companies/product/(:segment)', 'PrequalifiedCompaniesController::companiesByProduct/$1');         // GET /prequalified-companies/product/{productId}
