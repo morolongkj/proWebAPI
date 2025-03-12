@@ -1,24 +1,24 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class TenderModel extends Model
 {
-    protected $table = 'tenders'; // The name of the table
-    protected $primaryKey = 'id'; // Primary key field
-    protected $useAutoIncrement = false; // 'id' is a VARCHAR, so auto increment is set to false
-    protected $returnType = 'array'; // Return type of results (array or object)
-    protected $allowedFields = [
+    protected $table            = 'tenders'; // The name of the table
+    protected $primaryKey       = 'id';      // Primary key field
+    protected $useAutoIncrement = false;     // 'id' is a VARCHAR, so auto increment is set to false
+    protected $useSoftDeletes   = true;      // Enable soft deletes
+    protected $returnType       = 'array';   // Return type of results (array or object)
+    protected $allowedFields    = [
         'id',
         'reference_number',
         'title',
         'description',
         'created_by',
         'current_status_id',
-        'opening_date',
-        'opening_time',
+        'floating_date',
+        'floating_time',
         'closing_date',
         'closing_time',
         'extra_data',
@@ -28,78 +28,78 @@ class TenderModel extends Model
 
     // Enable automatic timestamps management for created_at and updated_at
     protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
-
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
     // Optionally you can use soft deletes
     // protected $useSoftDeletes = true;
     // protected $deletedField  = 'deleted_at';
 
     // Set validation rules
     protected $validationRules = [
-        'reference_number' => 'required|max_length[100]',
-        'title' => 'required|max_length[255]',
+        'reference_number'  => 'required|max_length[100]',
+        'title'             => 'required|max_length[255]',
         'current_status_id' => 'permit_empty|max_length[255]',
-        'opening_date' => 'required|valid_date',
-        'opening_time' => 'required|valid_time[opening_time]',
-        'closing_date' => 'required|valid_date|check_open_period[opening_date,closing_date]',
-        'closing_time' => 'required|valid_time[closing_time]',
+        'floating_date'      => 'required|valid_date',
+        'floating_time'      => 'required|valid_time[floating_time]',
+        'closing_date'      => 'required|valid_date|check_open_period[floating_date,closing_date]',
+        'closing_time'      => 'required|valid_time[closing_time]',
     ];
 
     // Set custom error messages
     protected $validationMessages = [
-        'id' => [
-            'required' => 'The ID is required.',
+        'id'               => [
+            'required'      => 'The ID is required.',
             'alpha_numeric' => 'The ID must contain only alphanumeric characters.',
-            'max_length' => 'The ID cannot exceed 255 characters.',
+            'max_length'    => 'The ID cannot exceed 255 characters.',
         ],
         'reference_number' => [
-            'required' => 'The reference number is required.',
+            'required'            => 'The reference number is required.',
             'alpha_numeric_space' => 'The reference number must contain only alphanumeric characters and spaces.',
-            'max_length' => 'The reference number cannot exceed 100 characters.',
-            'is_unique' => 'The reference number already exists in the database.',
+            'max_length'          => 'The reference number cannot exceed 100 characters.',
+            'is_unique'           => 'The reference number already exists in the database.',
         ],
-        'title' => [
-            'required' => 'The title is required.',
+        'title'            => [
+            'required'   => 'The title is required.',
             'max_length' => 'The title cannot exceed 255 characters.',
         ],
-        'created_by' => [
+        'created_by'       => [
             'required' => 'The created by field is required.',
-            'integer' => 'The created by field must be an integer.',
+            'integer'  => 'The created by field must be an integer.',
         ],
-        'opening_date' => [
-            'required' => 'The opening date is required.',
-            'valid_date' => 'The opening date must be a valid date.',
+        'floating_date'     => [
+            'required'   => 'The floating date is required.',
+            'valid_date' => 'The floating date must be a valid date.',
         ],
-        'opening_time' => [
-            'required' => 'The opening time is required.',
-            'valid_time' => 'The opening time must be a valid time.',
+        'floating_time'     => [
+            'required'   => 'The floating time is required.',
+            'valid_time' => 'The floating time must be a valid time.',
         ],
-        'closing_date' => [
-            'required' => 'The closing date is required.',
-            'valid_date' => 'The closing date must be a valid date.',
-            'Validation.check_open_period' => 'The closing date must be after the opening date.',
+        'closing_date'     => [
+            'required'                     => 'The closing date is required.',
+            'valid_date'                   => 'The closing date must be a valid date.',
+            'Validation.check_open_period' => 'The closing date must be after the floating date.',
         ],
-        'closing_time' => [
-            'required' => 'The closing time is required.',
+        'closing_time'     => [
+            'required'   => 'The closing time is required.',
             'valid_time' => 'The closing time must be a valid time.',
         ],
     ];
 
     // Disable callbacks
     protected $skipValidation = false;
-    protected $beforeInsert = ['generateUuid'];
-    protected $afterInsert = [];
-    protected $beforeUpdate = [];
-    protected $afterUpdate = [];
-    protected $beforeDelete = [];
-    protected $afterDelete = [];
+    protected $beforeInsert   = ['generateUuid'];
+    protected $afterInsert    = [];
+    protected $beforeUpdate   = [];
+    protected $afterUpdate    = [];
+    protected $beforeDelete   = [];
+    protected $afterDelete    = [];
     // Custom validation function to check the date range
     // protected function check_open_period($field, $data)
     // {
     //     // Check if open_from and open_until are provided and valid
-    //     if (isset($data['opening_date']) && isset($data['closing_date'])) {
-    //         return strtotime($data['opening_date']) <= strtotime($data['closing_date']);
+    //     if (isset($data['floating_date']) && isset($data['closing_date'])) {
+    //         return strtotime($data['floating_date']) <= strtotime($data['closing_date']);
     //     }
     //     return true;
     // }
@@ -130,14 +130,14 @@ class TenderModel extends Model
         $db->transStart(); // Start the transaction
 
         // Validate data before saving
-        if (!$this->validate($data)) {
+        if (! $this->validate($data)) {
             return $this->errors();
         }
 // Retrieve the current_status_id from the tender_status table where status is 'Initiated'
         $tenderStatusModel = new \App\Models\TenderStatusModel();
-        $initiatedStatus = $tenderStatusModel->where('status', 'Draft')->first();
+        $initiatedStatus   = $tenderStatusModel->where('status', 'Draft')->first();
 
-        if (!$initiatedStatus) {
+        if (! $initiatedStatus) {
             $db->transRollback(); // Rollback transaction if status is not found
             return false;
         }
@@ -145,7 +145,7 @@ class TenderModel extends Model
         $data['current_status_id'] = $initiatedStatus['id']; // Assuming the column name for the ID is 'id'
 
         // Save the tender data
-        if (!$this->save($data)) {
+        if (! $this->save($data)) {
             $db->transRollback(); // Rollback transaction on failure
             return false;
         }
@@ -155,15 +155,15 @@ class TenderModel extends Model
 
         // Prepare the status history data
         $statusHistoryData = [
-            'tender_id' => $newTenderId,
-            'status_id' => $data['current_status_id'],
-            'changed_by' => $data['created_by'], // Assuming created_by is the user who changes the status
+            'tender_id'    => $newTenderId,
+            'status_id'    => $data['current_status_id'],
+            'changed_by'   => $data['created_by'], // Assuming created_by is the user who changes the status
             'changed_date' => date('Y-m-d H:i:s'),
         ];
 
         // Insert the status history record
         $tenderStatusHistoryModel = new \App\Models\TenderStatusHistoryModel();
-        if (!$tenderStatusHistoryModel->insert($statusHistoryData)) {
+        if (! $tenderStatusHistoryModel->insert($statusHistoryData)) {
             $db->transRollback(); // Rollback transaction on failure
             return false;
         }
@@ -175,13 +175,13 @@ class TenderModel extends Model
             foreach ($data['products'] as $product) {
                 // Prepare the product data
                 $productData = [
-                    'tender_id' => $newTenderId,
+                    'tender_id'  => $newTenderId,
                     'product_id' => $product['product_id'], // Assuming product data has an 'id'
-                    'quantity' => $product['quantity'], // Assuming quantity is provided
+                    'quantity'   => $product['quantity'],   // Assuming quantity is provided
                 ];
 
                 // Insert the product record
-                if (!$tenderProductModel->save($productData)) {
+                if (! $tenderProductModel->save($productData)) {
                     $db->transRollback(); // Rollback transaction on failure
                     return false;
                 }
@@ -202,7 +202,7 @@ class TenderModel extends Model
                 ];
 
                 // Insert the attachment record
-                if (!$tenderAttachmentModel->save($attachmentData)) {
+                if (! $tenderAttachmentModel->save($attachmentData)) {
                     $db->transRollback(); // Rollback transaction on failure
                     return false;
                 }
@@ -236,7 +236,7 @@ class TenderModel extends Model
             ->where('tenders.id', $id)
             ->first();
 
-        if (!$tender) {
+        if (! $tender) {
             return null; // Return null if no tender is found
         }
 
@@ -279,25 +279,25 @@ class TenderModel extends Model
 
         $tenderStatusModel = new \App\Models\TenderStatusModel();
 
-        if (!empty($filters['reference_number'])) {
+        if (! empty($filters['reference_number'])) {
             $query->like('tenders.reference_number', $filters['reference_number']);
         }
-        if (!empty($filters['title'])) {
+        if (! empty($filters['title'])) {
             $query->like('tenders.title', $filters['title']);
         }
-        if (!empty($filters['description'])) {
+        if (! empty($filters['description'])) {
             $query->like('tenders.description', $filters['description']);
         }
-        if (!empty($filters['opening_date'])) {
-            $query->like('tenders.opening_date', $filters['opening_date']);
+        if (! empty($filters['floating_date'])) {
+            $query->like('tenders.floating_date', $filters['floating_date']);
         }
-        if (!empty($filters['closing_date'])) {
+        if (! empty($filters['closing_date'])) {
             $query->like('tenders.closing_date', $filters['closing_date']);
         }
-        if (!empty($filters['current_status_id'])) {
+        if (! empty($filters['current_status_id'])) {
             $query->like('tenders.current_status_id', $filters['current_status_id']);
         }
-        if (!empty($filters['status'])) {
+        if (! empty($filters['status'])) {
             $status = $tenderStatusModel->where('status', $filters['status'])->first();
             if ($status) {
                 $query->like('tenders.current_status_id', $status['id']);
@@ -306,14 +306,14 @@ class TenderModel extends Model
 
         // Fetch paginated results
         $totalTenders = $query->countAllResults(false);
-        $tenders = $query->paginate($perPage, 'tenders', $page);
+        $tenders      = $query->paginate($perPage, 'tenders', $page);
         // $totalTenders = $query->countAllResults(false); // Count all results without resetting query
 
         // Load related entities for each tender
-        $tenderProductModel = new \App\Models\TenderProductModel();
-        $tenderAttachmentModel = new \App\Models\TenderAttachmentModel();
+        $tenderProductModel       = new \App\Models\TenderProductModel();
+        $tenderAttachmentModel    = new \App\Models\TenderAttachmentModel();
         $tenderStatusHistoryModel = new \App\Models\TenderStatusHistoryModel();
-        $tenderApprovalModel = new \App\Models\TenderApprovalModel();
+        $tenderApprovalModel      = new \App\Models\TenderApprovalModel();
 
         foreach ($tenders as &$tender) {
             // Load related tender products
@@ -344,11 +344,11 @@ class TenderModel extends Model
 
         // Return the result with pagination data
         return [
-            'tenders' => $tenders,
-            'total' => $totalTenders,
-            'perPage' => $perPage,
+            'tenders'     => $tenders,
+            'total'       => $totalTenders,
+            'perPage'     => $perPage,
             'currentPage' => $page,
-            'totalPages' => ($perPage > 0) ? ceil($totalTenders / $perPage) : 1,
+            'totalPages'  => ($perPage > 0) ? ceil($totalTenders / $perPage) : 1,
         ];
     }
 
@@ -359,16 +359,16 @@ class TenderModel extends Model
         $db = \Config\Database::connect();
         $db->transStart();
         $tenderStatusModel = new \App\Models\TenderStatusModel();
-        $status = $tenderStatusModel->getStatusByName($statusName);
+        $status            = $tenderStatusModel->getStatusByName($statusName);
         // Update the tender status
         $this->update($tenderId, ['current_status_id' => $status['id']]);
 
         // Log the status history
         $tenderStatusHistoryModel = new \App\Models\TenderStatusHistoryModel();
-        $statusHistoryData = [
-            'tender_id' => $tenderId,
-            'status_id' => $status['id'],
-            'changed_by' => user()->id ?? null, // Use the authenticated user or set to null if not available
+        $statusHistoryData        = [
+            'tender_id'    => $tenderId,
+            'status_id'    => $status['id'],
+            'changed_by'   => user()->id ?? null, // Use the authenticated user or set to null if not available
             'changed_date' => date('Y-m-d H:i:s'),
         ];
 

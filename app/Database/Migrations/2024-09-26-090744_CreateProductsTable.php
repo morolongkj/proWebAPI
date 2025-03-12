@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
@@ -10,38 +9,42 @@ class CreateProductsTable extends Migration
     {
         // Define the structure of the products table
         $this->forge->addField([
-            'id' => [
-                'type' => 'VARCHAR',
+            'id'          => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
-                'unique' => true,
+                'null'       => false,
+                'unique'     => true,
             ],
-            'code' => [
-                'type' => 'VARCHAR',
+            'code'        => [
+                'type'       => 'VARCHAR',
                 'constraint' => 100,
-                'null' => false,
-                'unique' => true,
+                'null'       => false,
+                'unique'     => true,
             ],
-            'title' => [
-                'type' => 'VARCHAR',
+            'title'       => [
+                'type'       => 'VARCHAR',
                 'constraint' => 255,
-                'null' => false,
+                'null'       => false,
             ],
             'description' => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
             'category_id' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => true,
+                'null'       => true,
             ],
-            'extra_data' => [
+            'extra_data'  => [
                 'type' => 'JSON',
                 'null' => true,
             ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp',
+            'deleted_at'  => [
+                'type' => 'datetime',
+                'null' => true,
+            ],
         ]);
 
         // Add primary key

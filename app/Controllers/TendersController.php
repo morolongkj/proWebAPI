@@ -27,7 +27,7 @@ class TendersController extends ResourceController
             'reference_number' => $this->request->getVar('reference_number'),
             'title' => $this->request->getVar('title'),
             'description' => $this->request->getVar('description'),
-            'opening_date' => $this->request->getVar('opening_date'),
+            'floating_date' => $this->request->getVar('floating_date'),
             'closing_date' => $this->request->getVar('closing_date'),
             'current_status_id' => $this->request->getVar('current_status_id'),
             'status' => $this->request->getVar('status'),

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
@@ -10,38 +9,42 @@ class CreateQuestionnaireDocumentsTable extends Migration
     {
         // Define the structure of the `questionnaire_documents` table
         $this->forge->addField([
-            'id' => [
-                'type' => 'VARCHAR',
+            'id'               => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
-                'unique' => true,
+                'null'       => false,
+                'unique'     => true,
             ],
             'questionnaire_id' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '255', // UUID length
-                'null' => false,
+                'null'       => false,
             ],
-            'file_path' => [
-                'type' => 'VARCHAR',
+            'file_path'        => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
+                'null'       => false,
             ],
-            'file_name' => [
-                'type' => 'VARCHAR',
+            'file_name'        => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
+                'null'       => false,
             ],
-            'file_type' => [
-                'type' => 'VARCHAR',
+            'file_type'        => [
+                'type'       => 'VARCHAR',
                 'constraint' => '50',
-                'null' => false,
+                'null'       => false,
             ],
-            'file_size' => [
+            'file_size'        => [
                 'type' => 'BIGINT', // Size in bytes
                 'null' => false,
             ],
             'created_at DATETIME DEFAULT CURRENT_TIMESTAMP',
             'updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',
+            'deleted_at'       => [
+                'type' => 'datetime',
+                'null' => true,
+            ],
         ]);
 
         // Add primary key

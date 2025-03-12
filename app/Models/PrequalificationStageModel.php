@@ -9,14 +9,17 @@ class PrequalificationStageModel extends Model
     protected $table = 'prequalification_stages'; // Table name
     protected $primaryKey = 'id'; // Primary key of the table
      protected $useAutoIncrement = false;
-
+  // Specify the date format for the timestamps
+    protected $dateFormat = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
     // Allowed fields for insert and update
     protected $allowedFields = ['id', 'title', 'description', 'created_at', 'updated_at'];
 
     // Automatically manage created_at and updated_at fields
     protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
+     protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     protected $beforeInsert = ['generateUuid'];
 

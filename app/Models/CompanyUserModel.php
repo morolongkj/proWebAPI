@@ -12,7 +12,9 @@ class CompanyUserModel extends Model
     protected $useAutoIncrement = false; // Since 'id' is VARCHAR, no auto-increment
 
     protected $returnType = 'array'; // Return results as array
-    protected $useSoftDeletes = false; // If you want to use soft deletes, set this to true
+  // Specify the date format for the timestamps
+    protected $dateFormat = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
 
     // The fields that can be inserted or updated
     protected $allowedFields = [
@@ -25,8 +27,9 @@ class CompanyUserModel extends Model
 
     // Automatically handle timestamps
     protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation rules
     protected $validationRules = [

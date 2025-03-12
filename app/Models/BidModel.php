@@ -1,31 +1,35 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class BidModel extends Model
 {
-    protected $table = 'bids';
-    protected $primaryKey = 'id';
+    protected $table            = 'bids';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = false; // Using UUIDs
-    protected $returnType = 'array';
-    protected $allowedFields = ['id', 'tender_id', 'submission_date', 'current_status_id', 'company_id', 'created_at', 'updated_at'];
+    protected $useSoftDeletes   = true;
+    protected $returnType       = 'array';
+    protected $allowedFields    = ['id', 'tender_id', 'submission_date', 'current_status_id', 'company_id', 'created_at', 'updated_at'];
 
     // Validation Rules
     protected $validationRules = [
-        'tender_id' => 'required',
+        'tender_id'  => 'required',
         'company_id' => 'required',
     ];
 
     protected $validationMessages = [
-        'tender_id' => [
+        'tender_id'  => [
             'required' => 'The tender ID is required.',
         ],
         'company_id' => [
             'required' => 'The company ID is required.',
         ],
     ];
+
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
+    protected $deletedField = 'deleted_at';
 
     // UUID Generator Before Insert
     protected $beforeInsert = ['generateUuid', 'setSubmissionDate'];
@@ -44,7 +48,7 @@ class BidModel extends Model
         return $data;
     }
 
-      // Method to set submission_date before insert
+    // Method to set submission_date before insert
     protected function setSubmissionDate(array $data)
     {
         if (empty($data['data']['submission_date'])) {

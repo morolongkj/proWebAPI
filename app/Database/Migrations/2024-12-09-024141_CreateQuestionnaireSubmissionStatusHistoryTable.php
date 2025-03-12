@@ -1,43 +1,46 @@
 <?php
-
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
 class CreateQuestionnaireSubmissionStatusHistoryTable extends Migration
 {
-     public function up()
+    public function up()
     {
         $this->forge->addField([
-            'id' => [
-                'type' => 'VARCHAR',
+            'id'            => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
-                'unique' => true,
+                'null'       => false,
+                'unique'     => true,
             ],
             'submission_id' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
+                'null'       => false,
             ],
-            'status_id' => [
-                'type' => 'VARCHAR',
+            'status_id'     => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
+                'null'       => false,
             ],
-            'changed_by' => [
-                'type' => 'INT',
+            'changed_by'    => [
+                'type'       => 'INT',
                 'constraint' => 11,
-                'unsigned' => true,
-                'null' => false,
+                'unsigned'   => true,
+                'null'       => false,
             ],
             'change_date datetime default current_timestamp',
-            'remarks' => [
+            'remarks'       => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp',
+            'deleted_at'    => [
+                'type' => 'datetime',
+                'null' => true,
+            ],
         ]);
 
         // Adding primary key

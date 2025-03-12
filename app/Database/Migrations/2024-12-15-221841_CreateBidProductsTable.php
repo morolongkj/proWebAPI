@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
@@ -10,83 +9,87 @@ class CreateBidProductsTable extends Migration
     {
         // Define the structure of the tender_products table
         $this->forge->addField([
-            'id' => [
-                'type' => 'VARCHAR',
+            'id'                            => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
-                'unique' => true,
+                'null'       => false,
+                'unique'     => true,
             ],
-            'bid_id' => [
-                'type' => 'VARCHAR',
+            'bid_id'                        => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
+                'null'       => false,
             ],
-            'product_id' => [
-                'type' => 'VARCHAR',
+            'product_id'                    => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
+                'null'       => false,
             ],
-            'unit_pack' => [
-                'type' => 'INT',
+            'unit_pack'                     => [
+                'type'       => 'INT',
                 'constraint' => 11,
-                'null' => true,
+                'null'       => true,
             ],
-            'quantity_offered' => [
-                'type' => 'INT',
+            'quantity_offered'              => [
+                'type'       => 'INT',
                 'constraint' => 11,
-                'null' => true,
+                'null'       => true,
             ],
-            'unit_price' => [
-                'type' => 'DECIMAL',
+            'unit_price'                    => [
+                'type'       => 'DECIMAL',
                 'constraint' => '10,2',
-                'null' => true,
+                'null'       => true,
             ],
-            'total_price' => [
-                'type' => 'DECIMAL',
+            'total_price'                   => [
+                'type'       => 'DECIMAL',
                 'constraint' => '10,2',
-                'null' => true,
+                'null'       => true,
             ],
-            'lead_time' => [
-                'type' => 'INT',
+            'lead_time'                     => [
+                'type'       => 'INT',
                 'constraint' => 5,
-                'null' => true,
+                'null'       => true,
             ],
-            'manufacture' => [
-                'type' => 'VARCHAR',
+            'manufacture'                   => [
+                'type'       => 'VARCHAR',
                 'constraint' => 100,
-                'null' => true,
+                'null'       => true,
             ],
-            'country_of_origin' => [
-                'type' => 'VARCHAR',
+            'country_of_origin'             => [
+                'type'       => 'VARCHAR',
                 'constraint' => 100,
-                'null' => true,
+                'null'       => true,
             ],
-            'registration_number' => [
-                'type' => 'VARCHAR',
+            'registration_number'           => [
+                'type'       => 'VARCHAR',
                 'constraint' => 100,
-                'null' => true,
+                'null'       => true,
             ],
             'medicine_regulatory_authority' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => 100,
-                'null' => true,
+                'null'       => true,
             ],
-            'shipment_weight' => [
-                'type' => 'DECIMAL',
+            'shipment_weight'               => [
+                'type'       => 'DECIMAL',
                 'constraint' => '10,2',
-                'null' => true,
+                'null'       => true,
             ],
-            'shipment_volume' => [
-                'type' => 'DECIMAL',
+            'shipment_volume'               => [
+                'type'       => 'DECIMAL',
                 'constraint' => '10,2',
-                'null' => true,
+                'null'       => true,
             ],
-            'comments' => [
+            'comments'                      => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp',
+            'deleted_at'                    => [
+                'type' => 'datetime',
+                'null' => true,
+            ],
         ]);
 
         // Add primary key

@@ -1,15 +1,17 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class BidStatusHistoryModel extends Model
 {
-    protected $table = 'bid_status_history';
-    protected $primaryKey = 'id';
-    protected $useAutoIncrement = false; // Using UUIDs
-    protected $returnType = 'array';
+    protected $table            = 'bid_status_history';
+    protected $primaryKey       = 'id';
+    protected $useAutoIncrement = false;   // Using UUIDs
+    protected $returnType       = 'array'; // Specify the date format for the timestamps
+    protected $dateFormat       = 'datetime';
+    protected $useSoftDeletes   = true; // Enable soft deletes
+
     protected $allowedFields = [
         'id',
         'bid_id',
@@ -23,29 +25,33 @@ class BidStatusHistoryModel extends Model
 
     // Validation Rules
     protected $validationRules = [
-        'bid_id' => 'required|max_length[255]',
-        'status_id' => 'required|max_length[255]',
+        'bid_id'     => 'required|max_length[255]',
+        'status_id'  => 'required|max_length[255]',
         'changed_by' => 'required|integer',
-        'remarks' => 'permit_empty|string',
+        'remarks'    => 'permit_empty|string',
     ];
 
     protected $validationMessages = [
-        'bid_id' => [
-            'required' => 'The bid ID is required.',
+        'bid_id'     => [
+            'required'   => 'The bid ID is required.',
             'max_length' => 'The bid ID cannot exceed 255 characters.',
         ],
-        'status_id' => [
-            'required' => 'The status is required.',
+        'status_id'  => [
+            'required'   => 'The status is required.',
             'max_length' => 'The status cannot exceed 255 characters.',
         ],
         'changed_by' => [
-            'required' => 'The changed by field is required.',
+            'required'   => 'The changed by field is required.',
             'max_length' => 'The changed by field cannot exceed 255 characters.',
         ],
-        'remarks' => [
+        'remarks'    => [
             'max_length' => 'The remarks cannot exceed 500 characters.',
         ],
     ];
+
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
+    protected $deletedField = 'deleted_at';
 
     // UUID Generator Before Insert
     protected $beforeInsert = ['generateUuid'];
@@ -64,7 +70,7 @@ class BidStatusHistoryModel extends Model
         return $data;
     }
 
-      /**
+    /**
      * Retrieve a status history record by its ID, resolving relationships.
      *
      * @param string $id

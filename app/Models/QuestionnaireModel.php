@@ -11,7 +11,9 @@ class QuestionnaireModel extends Model
     // Primary key
     protected $primaryKey = 'id';
     protected $useAutoIncrement = false;
-
+  // Specify the date format for the timestamps
+    protected $dateFormat = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
     // Allowed fields
     protected $allowedFields = [
         'id', 'title', 'description', 'status', 'is_open_forever',
@@ -23,8 +25,9 @@ class QuestionnaireModel extends Model
 
     // Timestamps
     protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     protected $beforeInsert = ['generateUuid'];
 

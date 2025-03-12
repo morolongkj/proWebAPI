@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
@@ -9,16 +8,16 @@ class CreateStatusTable extends Migration
     public function up()
     {
         $this->forge->addField([
-            'id' => [
-                'type' => 'VARCHAR',
+            'id'          => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
-                'unique' => true,
+                'null'       => false,
+                'unique'     => true,
             ],
-            'title' => [
-                'type' => 'VARCHAR',
+            'title'       => [
+                'type'       => 'VARCHAR',
                 'constraint' => '100',
-                'null' => false,
+                'null'       => false,
             ],
             'description' => [
                 'type' => 'TEXT',
@@ -26,6 +25,10 @@ class CreateStatusTable extends Migration
             ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp',
+            'deleted_at'  => [
+                'type' => 'datetime',
+                'null' => true,
+            ],
         ]);
 
         // Adding primary key

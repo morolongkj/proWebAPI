@@ -1,16 +1,16 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class BidAttachmentModel extends Model
 {
-    protected $table = 'bid_attachments';
-    protected $primaryKey = 'id';
+    protected $table            = 'bid_attachments';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = false; // Using UUIDs
-    protected $returnType = 'array';
-    protected $allowedFields = [
+    protected $returnType       = 'array';
+    protected $useSoftDeletes   = true;
+    protected $allowedFields    = [
         'id',
         'bid_id',
         'file_name',
@@ -31,6 +31,9 @@ class BidAttachmentModel extends Model
 
     ];
 
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
+    protected $deletedField = 'deleted_at';
     // UUID Generator Before Insert
     protected $beforeInsert = ['generateUuid'];
 

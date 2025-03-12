@@ -61,7 +61,7 @@ class ProductsController extends ResourceController
     public function index()
     {
         $page        = $this->request->getVar('page') ?? 1;
-        $perPage     = $this->request->getVar('perPage') ?? 10;
+        $perPage     = $this->request->getVar('perPage');
         $code        = $this->request->getVar('code');
         $title       = $this->request->getVar('title');
         $description = $this->request->getVar('description');
@@ -85,18 +85,26 @@ class ProductsController extends ResourceController
         // Get total products count
         $totalProducts = $this->model
             ->join('categories', 'categories.id = products.category_id', 'left')
-            ->selectCount('products.id')
             ->where($where)
-            ->get()
-            ->getRowArray()['id'];
+            ->countAllResults();
 
-        // Get paginated products with category info
-        $products = $this->model
-            ->select('products.*, categories.title as category_name')
-            ->join('categories', 'categories.id = products.category_id', 'left')
-            ->where($where)
-            ->orderBy('products.created_at', 'DESC')
-            ->paginate($perPage, 'products', $page);
+        // ✅ If perPage is provided → Use pagination, otherwise → Fetch all records
+        if ($perPage) {
+            $products = $this->model
+                ->select('products.*, categories.title as category_name')
+                ->join('categories', 'categories.id = products.category_id', 'left')
+                ->where($where)
+                ->orderBy('products.created_at', 'DESC')
+                ->paginate($perPage, 'products', $page);
+        } else {
+            $products = $this->model
+                ->select('products.*, categories.title as category_name')
+                ->join('categories', 'categories.id = products.category_id', 'left')
+                ->where($where)
+                ->orderBy('products.created_at', 'DESC')
+                ->get()
+                ->getResultArray(); // ✅ Return all without pagination
+        }
 
         // Format output to include category details
         foreach ($products as &$product) {

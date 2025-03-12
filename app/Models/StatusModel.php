@@ -1,15 +1,17 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class StatusModel extends Model
 {
-    protected $table = 'status'; // Table name
-    protected $primaryKey = 'id'; // Primary key
-    protected $useAutoIncrement = false; // ID is not auto-incremented
-    protected $allowedFields = [
+    protected $table            = 'status'; // Table name
+    protected $primaryKey       = 'id';     // Primary key
+    protected $useAutoIncrement = false;    // ID is not auto-incremented
+                                            // Specify the date format for the timestamps
+    protected $dateFormat     = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
+    protected $allowedFields  = [
         'id',
         'title',
         'description',
@@ -19,20 +21,21 @@ class StatusModel extends Model
 
     // Automatic handling of timestamps
     protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation rules
     protected $validationRules = [
-        'title' => 'required|string|max_length[100]',
+        'title'       => 'required|string|max_length[100]',
         'description' => 'permit_empty|string',
     ];
 
     // Validation messages
     protected $validationMessages = [
-        'title' => [
-            'required' => 'The Title field is required.',
-            'string' => 'The Title must be a valid string.',
+        'title'       => [
+            'required'   => 'The Title field is required.',
+            'string'     => 'The Title must be a valid string.',
             'max_length' => 'The Title must not exceed 100 characters.',
         ],
         'description' => [

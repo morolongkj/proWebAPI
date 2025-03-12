@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
@@ -10,24 +9,28 @@ class CreateCompanyUserTable extends Migration
     {
         // Define the structure of the company_user table
         $this->forge->addField([
-            'id' => [
-                'type' => 'VARCHAR',
+            'id'         => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
-                'unique' => true,
+                'null'       => false,
+                'unique'     => true,
             ],
             'company_id' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
+                'null'       => false,
             ],
-            'user_id' => [
-                'type' => 'INT',
+            'user_id'    => [
+                'type'       => 'INT',
                 'constraint' => 11,
-                'unsigned' => true,
+                'unsigned'   => true,
             ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp',
+            'deleted_at' => [
+                'type' => 'datetime',
+                'null' => true,
+            ],
         ]);
 
         // Add the primary key

@@ -1,18 +1,19 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class DocumentModel extends Model
 {
-    protected $table = 'documents'; // Name of the table
-    protected $primaryKey = 'id'; // Primary key field name
+    protected $table      = 'documents'; // Name of the table
+    protected $primaryKey = 'id';        // Primary key field name
 
     protected $useAutoIncrement = false; // 'id' is VARCHAR, no auto-increment
 
     protected $returnType = 'array'; // Return results as array
-    protected $useSoftDeletes = false; // If you want to use soft deletes, set this to true
+                                     // Specify the date format for the timestamps
+    protected $dateFormat     = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
 
     protected $allowedFields = [
         'id', 'title', 'description', 'created_at', 'updated_at',
@@ -20,20 +21,20 @@ class DocumentModel extends Model
 
     // Validation rules
     protected $validationRules = [
-        'title' => 'required|min_length[3]|max_length[255]',
+        'title'       => 'required|min_length[3]|max_length[255]',
         'description' => 'permit_empty|string',
     ];
 
     protected $validationMessages = [
-        'id' => [
-            'required' => 'The Document ID is required.',
+        'id'          => [
+            'required'      => 'The Document ID is required.',
             'alpha_numeric' => 'The Document ID can only contain alphanumeric characters.',
-            'min_length' => 'The Document ID must be at least 3 characters long.',
-            'max_length' => 'The Document ID must not exceed 255 characters.',
-            'is_unique' => 'The Document ID already exists in the database.',
+            'min_length'    => 'The Document ID must be at least 3 characters long.',
+            'max_length'    => 'The Document ID must not exceed 255 characters.',
+            'is_unique'     => 'The Document ID already exists in the database.',
         ],
-        'title' => [
-            'required' => 'The Document Title is required.',
+        'title'       => [
+            'required'   => 'The Document Title is required.',
             'min_length' => 'The Document Title must be at least 3 characters long.',
             'max_length' => 'The Document Title must not exceed 255 characters.',
         ],
@@ -44,11 +45,12 @@ class DocumentModel extends Model
 
     protected $skipValidation = false; // Whether to skip validation or not
 
-    // Date handling
+                                     // Date handling
     protected $useTimestamps = true; // Enable automatic timestamps
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
-    protected $beforeInsert = ['generateUuid'];
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
+    protected $beforeInsert  = ['generateUuid'];
 
     /**
      * Automatically generate UUID v4 for the `id` field if it's not provided.

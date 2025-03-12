@@ -9,6 +9,9 @@ class TenderAttachmentModel extends Model
     protected $table = 'tender_attachments'; // The name of the table
     protected $primaryKey = 'id'; // Primary key field
     protected $useAutoIncrement = false; // 'id' is a VARCHAR, so auto increment is set to false
+      // Specify the date format for the timestamps
+    protected $dateFormat = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
     protected $returnType = 'array'; // Return type of results (array or object)
     protected $allowedFields = [
         'id',
@@ -22,8 +25,9 @@ class TenderAttachmentModel extends Model
 
     // Enable automatic timestamps management for created_at and updated_at
     protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Optionally you can use soft deletes
     // protected $useSoftDeletes = true;

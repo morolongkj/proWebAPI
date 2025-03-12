@@ -11,6 +11,9 @@ class NotificationModel extends Model
 
     protected $useAutoIncrement = false; // `id` is not auto-incremented as it's a VARCHAR
     protected $returnType = 'array'; // Return results as an associative array
+  // Specify the date format for the timestamps
+    protected $dateFormat = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
 
     protected $allowedFields = [
         'id',
@@ -23,8 +26,9 @@ class NotificationModel extends Model
     ]; // Fields allowed to be inserted or updated
 
     protected $useTimestamps = true; // Automatically handle created_at and updated_at
-    protected $createdField = 'created_at'; // Field for creation timestamp
-    protected $updatedField = 'updated_at'; // Field for update timestamp
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     protected $validationRules = [
         'company_id' => 'permit_empty|string|max_length[255]',

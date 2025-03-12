@@ -1,20 +1,20 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class QuestionnaireSubmissionModel extends Model
 {
-    protected $table = 'questionnaire_submissions'; // The table name
-    protected $primaryKey = 'id'; // The primary key of the table
+    protected $table      = 'questionnaire_submissions'; // The table name
+    protected $primaryKey = 'id';                        // The primary key of the table
 
     protected $useAutoIncrement = false; // Since 'id' is VARCHAR, no auto-increment
 
     protected $returnType = 'array'; // Return results as array
-    protected $useSoftDeletes = false; // No soft deletes for this table
-
-    protected $allowedFields = [
+                                     // Specify the date format for the timestamps
+    protected $dateFormat     = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
+    protected $allowedFields  = [
         'id',
         'questionnaire_id',
         'company_id',
@@ -27,28 +27,32 @@ class QuestionnaireSubmissionModel extends Model
     ];
 
     protected $validationRules = [
-        'questionnaire_id' => 'required|max_length[255]',
-        'company_id' => 'required|max_length[255]',
+        'questionnaire_id'  => 'required|max_length[255]',
+        'company_id'        => 'required|max_length[255]',
         'current_status_id' => 'permit_empty|max_length[255]',
-        'extra_data' => 'permit_empty|valid_json',
+        'extra_data'        => 'permit_empty|valid_json',
     ];
 
     protected $validationMessages = [
-        'questionnaire_id' => [
-            'required' => 'The questionnaire ID is required.',
+        'questionnaire_id'  => [
+            'required'   => 'The questionnaire ID is required.',
             'max_length' => 'The questionnaire ID cannot exceed 255 characters.',
         ],
-        'company_id' => [
-            'required' => 'The company ID is required.',
+        'company_id'        => [
+            'required'   => 'The company ID is required.',
             'max_length' => 'The company ID cannot exceed 255 characters.',
         ],
         'current_status_id' => [
             'max_length' => 'The current status ID cannot exceed 255 characters.',
         ],
-        'extra_data' => [
+        'extra_data'        => [
             'valid_json' => 'The extra data must be a valid JSON string.',
         ],
     ];
+
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
+    protected $deletedField = 'deleted_at';
 
     protected $beforeInsert = ['generateUuid'];
 

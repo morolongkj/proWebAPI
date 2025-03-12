@@ -20,6 +20,8 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
 
     // Get
     $routes->get("profile", "AuthController::profile", ['filter' => 'jwt']);
+    // PUT
+    $routes->put("profile", "AuthController::updateProfile", ['filter' => 'jwt']);
 
     // Get
     $routes->get("logout", "AuthController::logout", ["filter" => "jwt"]);

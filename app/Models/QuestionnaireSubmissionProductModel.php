@@ -10,10 +10,11 @@ class QuestionnaireSubmissionProductModel extends Model
 
     protected $useAutoIncrement = false; // Since 'id' is VARCHAR, no auto-increment
 
-    protected $returnType     = 'array'; // Return results as array
-    protected $useSoftDeletes = false;   // No soft deletes for this table
-
-    protected $allowedFields = [
+    protected $returnType = 'array'; // Return results as array
+                                     // Specify the date format for the timestamps
+    protected $dateFormat     = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
+    protected $allowedFields  = [
         'id',
         'submission_id',
         'product_id',
@@ -37,6 +38,10 @@ class QuestionnaireSubmissionProductModel extends Model
             'max_length' => 'The file name cannot exceed 255 characters.',
         ],
     ];
+
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
+    protected $deletedField = 'deleted_at';
 
     protected $beforeInsert = ['generateUuid'];
 

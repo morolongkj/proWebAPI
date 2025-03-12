@@ -9,6 +9,9 @@ class QuestionnaireSubmissionStatusHistoryModel extends Model
     protected $table = 'questionnaire_submission_status_history'; // Table name
     protected $primaryKey = 'id'; // Primary key
     protected $useAutoIncrement = false; // ID is not auto-incremented
+      // Specify the date format for the timestamps
+    protected $dateFormat = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
     protected $allowedFields = [
         'id',
         'submission_id',
@@ -22,8 +25,9 @@ class QuestionnaireSubmissionStatusHistoryModel extends Model
 
     // Automatic handling of timestamps
     protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation rules
     protected $validationRules = [

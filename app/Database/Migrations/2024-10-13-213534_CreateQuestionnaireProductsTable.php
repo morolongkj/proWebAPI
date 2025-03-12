@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
@@ -10,24 +9,28 @@ class CreateQuestionnaireProductsTable extends Migration
     {
         // Define the structure of the tender_products table
         $this->forge->addField([
-            'id' => [
-                'type' => 'VARCHAR',
+            'id'               => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
-                'unique' => true,
+                'null'       => false,
+                'unique'     => true,
             ],
             'questionnaire_id' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
+                'null'       => false,
             ],
-            'product_id' => [
-                'type' => 'VARCHAR',
+            'product_id'       => [
+                'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => false,
+                'null'       => false,
             ],
             'created_at datetime default current_timestamp',
             'updated_at datetime default current_timestamp on update current_timestamp',
+            'deleted_at'       => [
+                'type' => 'datetime',
+                'null' => true,
+            ],
         ]);
 
         // Add primary key

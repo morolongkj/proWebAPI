@@ -1,18 +1,18 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class PrequalifiedCompanyModel extends Model
 {
-    protected $table = 'prequalified_companies'; // The table name
-    protected $primaryKey = 'id'; // The primary key of the table
+    protected $table      = 'prequalified_companies'; // The table name
+    protected $primaryKey = 'id';                     // The primary key of the table
 
     protected $useAutoIncrement = false; // Since 'id' is VARCHAR, no auto-increment
-
-    protected $returnType = 'array'; // Return results as array
-    protected $useSoftDeletes = false; // If you want to use soft deletes, set this to true
+                                         // Specify the date format for the timestamps
+    protected $dateFormat     = 'datetime';
+    protected $useSoftDeletes = true;    // Enable soft deletes
+    protected $returnType     = 'array'; // Return results as array
 
     // The fields that can be inserted or updated
     protected $allowedFields = [
@@ -25,8 +25,9 @@ class PrequalifiedCompanyModel extends Model
 
     // Automatically handle timestamps
     protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = 'updated_at';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation rules
     protected $validationRules = [
@@ -37,13 +38,13 @@ class PrequalifiedCompanyModel extends Model
     // Validation messages (optional)
     protected $validationMessages = [
         'company_id' => [
-            'required' => 'The company ID is required',
-            'max_length' => 'The company ID cannot exceed 255 characters',
+            'required'      => 'The company ID is required',
+            'max_length'    => 'The company ID cannot exceed 255 characters',
             'is_not_unique' => 'The company ID does not exist in the companies table',
         ],
         'product_id' => [
-            'required' => 'The product ID is required',
-            'max_length' => 'The product ID cannot exceed 255 characters',
+            'required'      => 'The product ID is required',
+            'max_length'    => 'The product ID cannot exceed 255 characters',
             'is_not_unique' => 'The product ID does not exist in the products table',
         ],
     ];

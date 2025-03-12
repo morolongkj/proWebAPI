@@ -1,16 +1,18 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class TenderApprovalModel extends Model
 {
-    protected $table = 'tender_approvals';
-    protected $primaryKey = 'id';
+    protected $table            = 'tender_approvals';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = false;
-    protected $returnType = 'array';
-    protected $allowedFields = [
+    // Specify the date format for the timestamps
+    protected $dateFormat     = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
+    protected $returnType     = 'array';
+    protected $allowedFields  = [
         'id',
         'approval_type',
         'tender_id',
@@ -25,29 +27,33 @@ class TenderApprovalModel extends Model
     // Optional: Define validation rules
     protected $validationRules = [
         'approval_type' => 'required|in_list[approved,rejected]',
-        'tender_id' => 'required',
-        'comment' => 'permit_empty|string',
+        'tender_id'     => 'required',
+        'comment'       => 'permit_empty|string',
     ];
 
     protected $validationMessages = [
-        'id' => [
-            'required' => 'An ID is required for approval.',
+        'id'            => [
+            'required'  => 'An ID is required for approval.',
             'is_unique' => 'This ID already exists.',
         ],
         'approval_type' => [
             'required' => 'Approval type is required.',
-            'in_list' => 'Approval type must be either approved or rejected.',
+            'in_list'  => 'Approval type must be either approved or rejected.',
         ],
-        'tender_id' => [
+        'tender_id'     => [
             'required' => 'Tender ID is required.',
-            'exists' => 'This tender does not exist.',
+            'exists'   => 'This tender does not exist.',
         ],
-        'user_id' => [
+        'user_id'       => [
             'required' => 'User ID is required.',
-            'exists' => 'This user does not exist.',
+            'exists'   => 'This user does not exist.',
         ],
     ];
     protected $skipValidation = false;
+
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
+    protected $deletedField = 'deleted_at';
     protected $beforeInsert = ['generateUuid'];
 
     /**

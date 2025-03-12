@@ -159,6 +159,52 @@ class AuthController extends ResourceController
         ]);
     }
 
+    // Update
+public function updateProfile()
+{
+    $userId = auth()->id();
+
+    $rules = [
+        'firstname' => 'required|string|max_length[100]',
+        'lastname'  => 'required|string|max_length[100]',
+        'position'   => 'required|string|max_length[100]',
+        'phone'      => 'required|string|max_length[20]',
+        'dob'        => 'required|valid_date',
+        'gender'     => 'required|in_list[Male,Female,Other]',
+    ];
+
+    if (!$this->validate($rules)) {
+        return $this->failValidationErrors($this->validator->getErrors());
+    }
+
+    $userObject = new UserModel();
+
+    $data = [
+        'first_name' => $this->request->getVar('firstname'),
+        'last_name'  => $this->request->getVar('lastname'),
+        'position'   => $this->request->getVar('position'),
+        'phone_number'      => $this->request->getVar('phone'),
+        'date_of_birth' => $this->request->getVar('dob'),
+        'gender'     => $this->request->getVar('gender'),
+    ];
+
+    // return $this->respond($data);
+
+    $updated = $userObject->update($userId, $data);
+
+    if ($updated) {
+        return $this->respond([
+            'status'  => true,
+            'message' => 'Profile updated successfully',
+            'data'    => $data
+        ]);
+    }
+
+    return $this->fail('Failed to update profile');
+}
+
+
+
     // Get
     public function logout()
     {

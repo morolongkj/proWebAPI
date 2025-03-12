@@ -1,13 +1,12 @@
 <?php
-
 namespace App\Models;
 
 use CodeIgniter\Model;
 
 class BidProductModel extends Model
 {
-    protected $table = 'bid_products'; // Name of the table
-    protected $primaryKey = 'id'; // Primary key of the table
+    protected $table      = 'bid_products'; // Name of the table
+    protected $primaryKey = 'id';           // Primary key of the table
 
     // Specify that the primary key is not auto-incrementing (since it's a VARCHAR)
     protected $useAutoIncrement = false;
@@ -19,7 +18,8 @@ class BidProductModel extends Model
     protected $useTimestamps = true;
 
     // Specify the date format for the timestamps
-    protected $dateFormat = 'datetime';
+    protected $dateFormat     = 'datetime';
+    protected $useSoftDeletes = true; // Enable soft deletes
 
     // List of fields that are allowed to be set during insert/update
     protected $allowedFields = [
@@ -61,6 +61,10 @@ class BidProductModel extends Model
         //     'max_length' => 'Product ID cannot exceed 255 characters',
         // ],
     ];
+
+    protected $createdField = 'created_at';
+    protected $updatedField = 'updated_at';
+    protected $deletedField = 'deleted_at';
 
     // Disables validation rules if set to true
     protected $skipValidation = false;
