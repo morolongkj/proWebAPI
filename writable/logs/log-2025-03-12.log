@@ -1,0 +1,70 @@
+INFO - 2025-03-12 04:00:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-12 04:15:12 --> CodeIgniter\Database\Exceptions\DataException: There is no primary key defined when trying to make insertBatch.
+[Method: POST, Route: api/questionnaire-products]
+in SYSTEMPATH/Model.php on line 423.
+ 1 SYSTEMPATH/Model.php(423): CodeIgniter\Database\Exceptions\DataException::forEmptyPrimaryKey('insertBatch')
+ 2 SYSTEMPATH/BaseModel.php(960): CodeIgniter\Model->doInsertBatch([...], null, 100, false)
+ 3 APPPATH/Controllers/QuestionnaireProductsController.php(116): CodeIgniter\BaseModel->insertBatch([...])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnaireProductsController->create()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnaireProductsController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-12 04:15:26 --> CodeIgniter\Database\Exceptions\DataException: There is no primary key defined when trying to make insertBatch.
+[Method: POST, Route: api/questionnaire-products]
+in SYSTEMPATH/Model.php on line 423.
+ 1 SYSTEMPATH/Model.php(423): CodeIgniter\Database\Exceptions\DataException::forEmptyPrimaryKey('insertBatch')
+ 2 SYSTEMPATH/BaseModel.php(960): CodeIgniter\Model->doInsertBatch([...], null, 100, false)
+ 3 APPPATH/Controllers/QuestionnaireProductsController.php(116): CodeIgniter\BaseModel->insertBatch([...])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnaireProductsController->create()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnaireProductsController))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+INFO - 2025-03-12 05:22:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2025-03-12 09:58:01 --> mysqli_sql_exception: Unknown column 'submission_id' in 'where clause' in /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:312
+Stack trace:
+#0 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(312): mysqli->query('UPDATE `questio...', 0)
+#1 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `questio...')
+#2 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `questio...')
+#3 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2516): CodeIgniter\Database\BaseConnection->query('UPDATE `questio...', Array, false)
+#4 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/BaseModel.php(1028): CodeIgniter\Model->doUpdate(NULL, Array)
+#6 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Model.php(865): CodeIgniter\BaseModel->update(NULL, Array)
+#7 /opt/lampp/htdocs/proWebAPI/app/Controllers/QuestionnairesController.php(636): CodeIgniter\Model->update()
+#8 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\QuestionnairesController->updateStatus('8d7a60d4-e668-4...')
+#9 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+#10 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /opt/lampp/htdocs/proWebAPI/public/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 /opt/lampp/htdocs/proWebAPI/vendor/codeigniter4/framework/system/rewrite.php(44): require_once('/opt/lampp/htdo...')
+#15 {main}
+CRITICAL - 2025-03-12 10:44:19 --> ErrorException: Undefined variable $existingQuestionnaireSubmission
+[Method: PUT, Route: api/questionnaire-submissions/update-status/8d7a60d4-e668-4696-aec8-88a1821497ed]
+in APPPATH/Controllers/QuestionnairesController.php on line 656.
+ 1 APPPATH/Controllers/QuestionnairesController.php(656): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $existingQuestionnaireSubmission', '/opt/lampp/htdocs/proWebAPI/app/Controllers/QuestionnairesController.php', 656)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->updateStatus('8d7a60d4-e668-4696-aec8-88a1821497ed')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+CRITICAL - 2025-03-12 10:44:32 --> ErrorException: Undefined variable $existingQuestionnaireSubmission
+[Method: PUT, Route: api/questionnaire-submissions/update-status/8d7a60d4-e668-4696-aec8-88a1821497ed]
+in APPPATH/Controllers/QuestionnairesController.php on line 656.
+ 1 APPPATH/Controllers/QuestionnairesController.php(656): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $existingQuestionnaireSubmission', '/opt/lampp/htdocs/proWebAPI/app/Controllers/QuestionnairesController.php', 656)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\QuestionnairesController->updateStatus('8d7a60d4-e668-4696-aec8-88a1821497ed')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\QuestionnairesController))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(63): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/opt/lampp/htdocs/proWebAPI/public/index.php')
+INFO - 2025-03-12 11:43:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-03-12 12:25:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

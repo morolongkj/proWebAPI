@@ -452,7 +452,7 @@ class QuestionnairesController extends ResourceController
             $submission['questionnaire']  = $this->model->getQuestionnaireWithDetailsById($submission['questionnaire_id']);
             $submission['attachments']    = $this->questionnaireSubmissionAttachmentModel->getRecordsBySubmissionId($submission['id']);
             $submission['status_history'] = $this->questionnaireSubmissionStatusHistoryModel->getRecordsBySubmissionId($submission['id']);
-            $submission['products'] = $this->questionnaireSubmissionProductModel->getRecordsBySubmissionId($submission['id']);
+            $submission['products']       = $this->questionnaireSubmissionProductModel->getRecordsBySubmissionId($submission['id']);
             $submission['status']         = $this->statusModel->findById($submission['current_status_id']);
             $submission['company']        = $this->companyModel->findById($submission['company_id']);
             $submission['product']        = $this->productModel->findById($submission['product_id']);
@@ -586,6 +586,91 @@ class QuestionnairesController extends ResourceController
         // Fetch and return the updated submission data
         $updatedQuestionnaireSubmission = $this->questionnaireSubmissionModel->find($id);
         return $this->respondUpdated($updatedQuestionnaireSubmission);
+    }
+
+    public function updateStatus($id = null)
+    {
+        $userId = auth()->id();
+
+        if (! $userId) {
+            return $this->failUnauthorized('User is not authenticated.');
+        }
+
+        $data = $this->request->getJSON(true);
+
+        // Validate request data
+        if (
+            empty($data['product_ids']) ||
+            ! is_array($data['product_ids']) ||
+            empty($data['status'])
+        ) {
+            return $this->failValidationErrors('Invalid data provided.');
+        }
+
+        $submissionId = $id;
+        $productIds   = $data['product_ids'];
+        $status       = $data['status'];
+
+        // Check if the submission exists
+        $submission = $this->questionnaireSubmissionModel->find($submissionId);
+        if (! $submission) {
+            return $this->failNotFound('Submission not found.');
+        }
+
+        // Get the status ID from status title
+        $statusId = $this->statusModel->getStatusIdByTitle($status);
+        if (! $statusId) {
+            return $this->failValidationErrors('Invalid status provided.');
+        }
+
+        $db = \Config\Database::connect();
+        $db->transStart();
+
+        foreach ($productIds as $productId) {
+            // Update status for each product in the submission
+            $updateSuccess = $this->questionnaireSubmissionProductModel
+                ->where('submission_id', $submissionId)
+                ->where('product_id', $productId)
+                ->set(['current_status_id' => $statusId])
+                ->update();
+
+            if (! $updateSuccess) {
+                $db->transRollback();
+                return $this->failServerError("Failed to update status for product ID: $productId");
+            }
+
+            // If status is "Qualified", insert into prequalified company table
+            if ($status === 'Qualified') {
+                $prequalifiedData = [
+                    'company_id' => $submission['company_id'],
+                    'product_id' => $productId,
+                ];
+
+                if (! $this->prequalifiedCompanyModel->insert($prequalifiedData)) {
+                    $db->transRollback();
+                    return $this->failServerError("Failed to insert prequalified company record for product ID: $productId");
+                }
+            }
+        }
+
+        $this->notificationModel->sendNotification($submission['company_id'], $data['subject'], $data['message']);
+
+        $db->transComplete();
+
+        if ($db->transStatus() === false) {
+            return $this->failServerError('Transaction failed.');
+        }
+
+        // Fetch updated data to return
+        $updatedSubmissions = $this->questionnaireSubmissionProductModel
+            ->where('submission_id', $submissionId)
+            ->findAll();
+
+        return $this->respondUpdated([
+            'status'  => true,
+            'message' => 'Status updated successfully.',
+            'data'    => $updatedSubmissions,
+        ]);
     }
 
 }

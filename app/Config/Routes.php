@@ -150,7 +150,7 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
     $routes->get('questionnaire-submissions', 'QuestionnairesController::listSubmissions', ['filter' => 'jwt']);
     $routes->post('questionnaires/submit', 'QuestionnairesController::submit', ['filter' => 'jwt']);
     $routes->get('questionnaire-submissions/(:any)', 'QuestionnairesController::getSubmissionById/$1', ['filter' => 'jwt']);
-    $routes->put('questionnaire-submissions/update-status/(:any)', 'QuestionnairesController::updateSubmissionStatus/$1', ['filter' => 'jwt']);
+    $routes->put('questionnaire-submissions/update-status/(:any)', 'QuestionnairesController::updateStatus/$1', ['filter' => 'jwt']);
 
     $routes->resource('prequalifications', [
         'controller' => 'PrequalificationsController',
