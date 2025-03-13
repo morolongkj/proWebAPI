@@ -160,50 +160,48 @@ class AuthController extends ResourceController
     }
 
     // Update
-public function updateProfile()
-{
-    $userId = auth()->id();
+    public function updateProfile()
+    {
+        $userId = auth()->id();
 
-    $rules = [
-        'firstname' => 'required|string|max_length[100]',
-        'lastname'  => 'required|string|max_length[100]',
-        'position'   => 'required|string|max_length[100]',
-        'phone'      => 'required|string|max_length[20]',
-        'dob'        => 'required|valid_date',
-        'gender'     => 'required|in_list[Male,Female,Other]',
-    ];
+        $rules = [
+            'firstname' => 'required|string|max_length[100]',
+            'lastname'  => 'required|string|max_length[100]',
+            'position'  => 'required|string|max_length[100]',
+            'phone'     => 'required|string|max_length[20]',
+            'dob'       => 'required|valid_date',
+            'gender'    => 'required|in_list[Male,Female,Other]',
+        ];
 
-    if (!$this->validate($rules)) {
-        return $this->failValidationErrors($this->validator->getErrors());
+        if (! $this->validate($rules)) {
+            return $this->failValidationErrors($this->validator->getErrors());
+        }
+
+        $userObject = new UserModel();
+
+        $data = [
+            'first_name'    => $this->request->getVar('firstname'),
+            'last_name'     => $this->request->getVar('lastname'),
+            'position'      => $this->request->getVar('position'),
+            'phone_number'  => $this->request->getVar('phone'),
+            'date_of_birth' => $this->request->getVar('dob'),
+            'gender'        => $this->request->getVar('gender'),
+        ];
+
+        // return $this->respond($data);
+
+        $updated = $userObject->update($userId, $data);
+
+        if ($updated) {
+            return $this->respond([
+                'status'  => true,
+                'message' => 'Profile updated successfully',
+                'data'    => $data,
+            ]);
+        }
+
+        return $this->fail('Failed to update profile');
     }
-
-    $userObject = new UserModel();
-
-    $data = [
-        'first_name' => $this->request->getVar('firstname'),
-        'last_name'  => $this->request->getVar('lastname'),
-        'position'   => $this->request->getVar('position'),
-        'phone_number'      => $this->request->getVar('phone'),
-        'date_of_birth' => $this->request->getVar('dob'),
-        'gender'     => $this->request->getVar('gender'),
-    ];
-
-    // return $this->respond($data);
-
-    $updated = $userObject->update($userId, $data);
-
-    if ($updated) {
-        return $this->respond([
-            'status'  => true,
-            'message' => 'Profile updated successfully',
-            'data'    => $data
-        ]);
-    }
-
-    return $this->fail('Failed to update profile');
-}
-
-
 
     // Get
     public function logout()
@@ -397,6 +395,77 @@ public function updateProfile()
             }
             return $this->failNotFound('Some error occured.');
         }
+    }
+
+    public function changePassword()
+    {
+        $rules = [
+            'current_password' => 'required',
+            'new_password'     => 'required|min_length[8]',
+            'confirm_password' => 'required|matches[new_password]',
+        ];
+
+        if (! $this->validate($rules)) {
+            return $this->failValidationErrors($this->validator->getErrors());
+        }
+
+        $currentPassword = $this->request->getVar('current_password');
+        $newPassword     = $this->request->getVar('new_password');
+
+        $userObject = new UserModel();
+        $userId     = auth()->id();
+        $user       = $userObject->findById($userId);
+
+        if (! $user) {
+            return $this->failNotFound('User not found.');
+        }
+
+        // Verify current password
+        if (! password_verify($currentPassword, $user->password_hash)) {
+            return $this->failUnauthorized('Current password is incorrect.');
+        }
+
+        // Update the password
+        $user->setPassword($newPassword);
+        $userObject->save($user);
+
+        return $this->respond([
+            'status'  => true,
+            'message' => 'Password changed successfully',
+        ]);
+    }
+
+    public function deactivateAccount()
+    {
+        $user = auth()->user();
+
+        if (! $user) {
+            return $this->failNotFound('User not found.');
+        }
+
+        $userObject = new UserModel();
+
+        // Mark the account as deactivated (you can set a status or active flag)
+        $data = [
+            'account_status'         => 'deactivated', // Add this field in your database
+            'deactivated_at' => date('Y-m-d H:i:s'),
+        ];
+
+        $userObject->update($user->id, $data);
+
+        // Revoke all tokens using Shield
+        $user->revokeAllAccessTokens();
+
+        // Logout the user using Shield
+        auth()->logout();
+
+        // Optionally destroy the session
+        session()->destroy();
+
+        return $this->respond([
+            'status'  => true,
+            'message' => 'Account has been deactivated successfully.',
+        ]);
     }
 
 }

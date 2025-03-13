@@ -22,6 +22,9 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
     $routes->get("profile", "AuthController::profile", ['filter' => 'jwt']);
     // PUT
     $routes->put("profile", "AuthController::updateProfile", ['filter' => 'jwt']);
+    // Change Password
+    $routes->post('auth/change-password', 'AuthController::changePassword', ['filter' => 'jwt']);
+    $routes->delete('auth/deactivate-account', 'AuthController::deactivateAccount', ['filter' => 'jwt']);
 
     // Get
     $routes->get("logout", "AuthController::logout", ["filter" => "jwt"]);
@@ -191,8 +194,9 @@ $routes->group("api", ["namespace" => "App\Controllers"], function ($routes) {
     $routes->get('prequalified-companies/company/(:segment)', 'PrequalifiedCompaniesController::productsByCompany/$1');          // GET /prequalified-companies/company/{companyId}
     $routes->get('prequalified-companies/check/(:segment)/(:segment)', 'PrequalifiedCompaniesController::isPrequalified/$1/$2'); // GET /prequalified-companies/check/{companyId}/{productId}
 
+    $routes->get('uploads/(:segment)', 'FileController::serveFile/$1');
 });
 
 // $routes->get('uploads/(:any)', 'ImageController::serveImage/$1');
 $routes->get('migrate', 'MigrateController::migrate');
-$routes->get('uploads/(:any)', 'FileController::serveFile/$1');
+// $routes->get('uploads/(:any)', 'FileController::serveFile/$1');

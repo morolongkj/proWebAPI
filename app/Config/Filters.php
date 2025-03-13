@@ -1,5 +1,4 @@
 <?php
-
 namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
@@ -20,13 +19,13 @@ class Filters extends BaseConfig
      * @phpstan-var array<string, class-string|list<class-string>>
      */
     public array $aliases = [
-        'csrf' => CSRF::class,
-        'toolbar' => DebugToolbar::class,
-        'honeypot' => Honeypot::class,
-        'invalidchars' => InvalidChars::class,
+        'csrf'          => CSRF::class,
+        'toolbar'       => DebugToolbar::class,
+        'honeypot'      => Honeypot::class,
+        'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'apiauth' => \App\Filters\AuthFilter::class,
-        'cors' => \App\Filters\CorsFilter::class,
+        'apiauth'       => \App\Filters\AuthFilter::class,
+        'cors'          => \App\Filters\CorsFilter::class,
     ];
 
     /**
@@ -43,7 +42,7 @@ class Filters extends BaseConfig
             // 'invalidchars',
             'cors',
         ],
-        'after' => [
+        'after'  => [
             'toolbar',
             // 'honeypot',
             // 'secureheaders',
@@ -73,7 +72,7 @@ class Filters extends BaseConfig
     public array $filters = [
         'cors' => [
             'before' => ['api/*'],
-            'after' => ['api/*'],
+            'after'  => ['api/*'],
         ],
     ];
 }

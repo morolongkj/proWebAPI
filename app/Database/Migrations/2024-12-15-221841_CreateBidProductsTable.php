@@ -35,6 +35,11 @@ class CreateBidProductsTable extends Migration
                 'constraint' => 11,
                 'null'       => true,
             ],
+            'currency'                      => [
+                'type'       => 'VARCHAR',
+                'constraint' => 20,
+                'null'       => true,
+            ],
             'unit_price'                    => [
                 'type'       => 'DECIMAL',
                 'constraint' => '10,2',

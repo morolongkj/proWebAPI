@@ -29,6 +29,8 @@ class UserModel extends ShieldUserModel
             'position',
             'reset_token',
             'reset_token_expires_at',
+            'account_status',
+            'deactivated_at',
         ];
     }
 

@@ -24,59 +24,68 @@ class AddMoreAttributesToUsers extends Migration
     public function up()
     {
         $fields = [
-            'title'         => [
+            'title'          => [
                 'type'       => 'VARCHAR',
                 'constraint' => '10',
                 'null'       => true,
             ],
-            'avatar'        => [
+            'avatar'         => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
                 'null'       => true,
             ],
-            'first_name'    => [
+            'first_name'     => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
                 'null'       => false,
             ],
-            'last_name'     => [
+            'last_name'      => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
                 'null'       => false,
             ],
-            'position'      => [
+            'position'       => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
                 'null'       => true,
             ],
-            'date_of_birth' => [
+            'date_of_birth'  => [
                 'type' => 'DATE',
                 'null' => true,
             ],
-            'phone_number'  => [
+            'phone_number'   => [
                 'type'       => 'VARCHAR',
                 'constraint' => '20',
                 'null'       => true,
             ],
-            'gender'        => [
+            'gender'         => [
                 'type'       => 'VARCHAR',
                 'constraint' => '20',
                 'null'       => true,
             ],
-            'extra_data'    => [
+            'extra_data'     => [
                 'type' => 'JSON',
                 'null' => true,
             ],
-            'company_id'    => [
+            'company_id'     => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
                 'null'       => true,
             ],
-            'reset_token'   => [
+            'reset_token'    => [
                 'type' => 'TEXT',
                 'null' => true,
             ],
             'reset_token_expires_at datetime default current_timestamp',
+            'account_status'         => [
+                'type'       => 'ENUM',
+                'constraint' => ['active', 'deactivated'],
+                'default'    => 'active',
+            ],
+            'deactivated_at' => [
+                'type' => 'DATETIME',
+                'null' => true,
+            ],
         ];
         $this->forge->addColumn($this->tables['users'], $fields);
         $this->forge->addForeignKey('company_id', 'companies', 'id', 'CASCADE', 'SET NULL');

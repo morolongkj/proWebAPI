@@ -28,6 +28,7 @@ class BidProductModel extends Model
         'product_id',
         'unit_pack',
         'quantity_offered',
+        'currency',
         'unit_price',
         'total_price',
         'lead_time',
